@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyrus — Automate Crypto Transactions</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cyan: #00E5FF;
+    --cyan-dim: #0088AA;
+    --cyan-glow: rgba(0, 229, 255, 0.15);
+    --amber: #FFB300;
+    --amber-glow: rgba(255, 179, 0, 0.12);
+    --surface: #0D0D1A;
+    --surface-raised: #111122;
+    --border: rgba(0, 229, 255, 0.12);
+    --text: #E0F7FA;
+    --text-muted: #7BA7B0;
+    --bg: #000000;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 36px; height: 36px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(0,229,255,0.5));
+  }
+
+  .nav-wordmark {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-shadow: 0 0 20px rgba(0,229,255,0.5);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cyan); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+    transition: background 0.2s, box-shadow 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--cyan-glow) !important;
+    box-shadow: 0 0 16px rgba(0,229,255,0.3) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0, 229, 255, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 50% 80%, rgba(255, 179, 0, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Orbital ring SVG animation */
+  .orbital-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+
+  .orbital-ring {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--cyan);
+    border-radius: 50%;
+    animation: spin 24s linear infinite;
+    position: relative;
+  }
+
+  .orbital-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: 30%;
+    width: 6px; height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--cyan);
+  }
+
+  .orbital-ring-2 {
+    position: absolute;
+    inset: 60px;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    border-radius: 50%;
+    animation: spin 16s linear infinite reverse;
+  }
+
+  .orbital-ring-2::before {
+    content: '';
+    position: absolute;
+    bottom: -3px; right: 20%;
+    width: 4px; height: 4px;
+    background: var(--amber);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--amber);
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Grid lines */
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--cyan);
+    opacity: 0.5;
+  }
+
+  .hero-logo {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto 32px;
+    filter: drop-shadow(0 0 32px rgba(0,229,255,0.4));
+    animation: logoFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 32px rgba(0,229,255,0.4)); }
+    50% { transform: translateY(-10px); filter: drop-shadow(0 0 48px rgba(0,229,255,0.6)); }
+  }
+
+  .hero-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(52px, 9vw, 96px);
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-shadow:
+      0 0 40px rgba(0,229,255,0.6),
+      0 0 80px rgba(0,229,255,0.2);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .hero-subtitle-line span {
+    color: var(--amber);
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 300;
+    color: #9ECDD6;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--cyan);
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 0 24px rgba(0,229,255,0.4);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(0,229,255,0.7);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  .btn-icon { font-size: 18px; }
+
+  .hero-version {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .hero-version code {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan-dim);
+  }
+
+  /* ── SECTION COMMONS ── */
+  section {
+    padding: 96px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--cyan-dim), transparent);
+    opacity: 0.3;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 560px;
+    margin-bottom: 64px;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+
+  .stats-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 24px;
+  }
+
+  .stat-item {
+    padding: 32px 24px;
+    text-align: center;
+    flex: 1;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--cyan);
+    text-shadow: 0 0 20px rgba(0,229,255,0.4);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .feature-card {
+    background: var(--surface);
+    padding: 36px 32px;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .feature-card:hover { background: var(--surface-raised); }
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .feature-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── EXCHANGE TABLE ── */
+  .exchanges-section { background: transparent; }
+
+  .exchange-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  thead tr {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  thead th:not(:first-child) { text-align: center; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface); }
+
+  tbody td {
+    padding: 14px 20px;
+    color: var(--text-muted);
+  }
+
+  tbody td:not(:first-child) { text-align: center; }
+
+  .td-feature {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .check {
+    color: var(--cyan);
+    text-shadow: 0 0 8px rgba(0,229,255,0.5);
+    font-size: 16px;
+  }
+
+  .cross {
+    color: rgba(255,255,255,0.15);
+    font-size: 16px;
+  }
+
+  .exchange-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    background: rgba(255,179,0,0.1);
+    border: 1px solid rgba(255,179,0,0.3);
+    color: var(--amber);
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .step-item {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .step-item:last-child { border-bottom: none; }
+  .step-item:hover { background: var(--surface); }
+
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cyan);
+    min-width: 48px;
+    padding-top: 3px;
+    letter-spacing: 1px;
+  }
+
+  .step-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── TECH STACK ── */
+  .tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .tech-tag:hover {
+    border-color: var(--cyan-dim);
+    color: var(--text);
+  }
+
+  .tech-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── SECURITY ── */
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .security-card {
+    background: var(--surface);
+    padding: 28px 24px;
+  }
+
+  .security-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+
+  .security-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    text-align: center;
+    padding: 96px 24px;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(0,229,255,0.05), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cyan-dim), transparent);
+    opacity: 0.3;
+    margin-bottom: 64px;
+  }
+
+  .cta-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+  .cta-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .cta-title span { color: var(--cyan); }
+
+  .cta-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .cta-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .cta-note a { color: var(--cyan-dim); text-decoration: none; }
+  .cta-note a:hover { color: var(--cyan); }
+
+  /* ── SUPPORT / DONATION ── */
+  .support-section {
+    padding: 96px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .giving-type-toggle {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    width: fit-content;
+    margin: 40px 0 32px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .giving-type-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border-right: 1px solid var(--border);
+  }
+
+  .giving-type-btn:last-child { border-right: none; }
+
+  .giving-type-btn.active {
+    background: var(--cyan-glow);
+    color: var(--cyan);
+  }
+
+  .giving-type-btn:hover:not(.active) {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+  }
+
+  .giving-panel { display: none; }
+  .giving-panel.active { display: block; }
+
+  /* Stripe tier cards */
+  .giving-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .giving-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .giving-card:hover { background: var(--surface-raised); }
+
+  .giving-card--onetime { grid-column: 1 / -1; max-width: 340px; }
+
+  .giving-card--hero { border-color: rgba(0,229,255,0.3); }
+  .giving-card--hero::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -1px; right: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--bg);
+    background: var(--cyan);
+    padding: 3px 8px;
+  }
+
+  .giving-card--conqueror { border-color: rgba(255,179,0,0.25); }
+
+  .giving-card-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .giving-card--helper .giving-card-icon { color: var(--text-muted); }
+  .giving-card--hero .giving-card-icon { color: var(--cyan); }
+  .giving-card--conqueror .giving-card-icon { color: var(--amber); }
+  .giving-card--onetime .giving-card-icon { color: var(--cyan); }
+
+  .giving-card-badge {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .giving-card-price {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 4px 0;
+  }
+
+  .giving-card-price .giving-card-period {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .giving-card-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .giving-card--hero .giving-card-btn {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  .giving-card--hero .giving-card-btn:hover {
+    background: var(--cyan-glow);
+  }
+
+  .giving-card--conqueror .giving-card-btn {
+    border-color: rgba(255,179,0,0.4);
+    color: var(--amber);
+  }
+
+  .giving-card--conqueror .giving-card-btn:hover {
+    background: var(--amber-glow);
+  }
+
+  .giving-card-btn:hover {
+    border-color: var(--cyan-dim);
+    color: var(--cyan);
+  }
+
+  /* Crypto divider */
+  .crypto-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0 28px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .crypto-divider::before,
+  .crypto-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Crypto address rows */
+  .crypto-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .crypto-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 2px;
+  }
+
+  .crypto-row-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .crypto-row-label .ci {
+    font-size: 15px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .crypto-address {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--cyan-dim);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .copy-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--cyan-dim);
+    color: var(--cyan);
+    background: var(--cyan-glow);
+  }
+
+  .copy-btn.copied {
+    border-color: #00C853;
+    color: #00C853;
+  }
+
+  .stripe-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  .stripe-note strong { color: #635BFF; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-wordmark {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--cyan);
+    opacity: 0.5;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--cyan); }
+
+  .footer-disclaimer {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .orbital-wrapper { width: 300px; height: 300px; }
+    .hero { padding: 100px 20px 60px; }
+    .stats-bar-inner { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border); }
+    .step-item { flex-direction: column; gap: 12px; padding: 24px 20px; }
+    section { padding: 64px 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbital-ring, .orbital-ring-2 { animation: none; }
+    .hero-logo { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img class="nav-logo-mark" src="cyrus-logo.png" alt="Cyrus" onerror="this.style.display='none'">
+    <span class="nav-wordmark">CYRUS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#exchanges">Exchanges</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#install">Install</a></li>
+    <li><a href="https://github.com/JonathanEDressel/Cyrus" target="_blank" class="nav-cta">GitHub</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="orbital-wrapper">
+    <div class="orbital-ring"></div>
+    <div class="orbital-ring-2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Free & Open Source</div>
+    <img class="hero-logo" src="cyrus-logo.png" alt="Cyrus Logo" onerror="this.style.display='none'">
+    <h1 class="hero-title">CYRUS</h1>
+    <div class="hero-subtitle-line">
+      — AUTOMATE <span>CRYPTO</span> TRANSACTIONS —
+    </div>
+    <p class="hero-desc">
+      A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus executes trades, converts assets, and withdraws to your wallets automatically across Kraken, Coinbase, and Binance.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/tag/v1.1.7" class="btn-primary">
+        <span class="btn-icon">⬇</span>
+        Download for Windows
+      </a>
+      <a href="https://github.com/JonathanEDressel/Cyrus" target="_blank" class="btn-secondary">
+        <span class="btn-icon">⌥</span>
+        View Source
+      </a>
+    </div>
+    <p class="hero-version">Latest release: <code>v1.1.7</code> · Windows x64 · No Python or Node required</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <span class="stat-value">3</span>
+      <span class="stat-label">Exchanges</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">∞</span>
+      <span class="stat-label">Automation Rules</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">AES</span>
+      <span class="stat-label">API Key Encryption</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">0</span>
+      <span class="stat-label">Cloud Dependencies</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Everything you need to automate crypto.</h2>
+  <p class="section-desc">Connect your exchange API keys, define your rules, and let Cyrus handle the rest — running silently on your desktop.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <div class="feature-title">Automation Rules</div>
+      <p class="feature-desc">Trigger actions when orders fill or balance thresholds are hit. Withdraw to a saved address, convert one asset to another — all automatically.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <div class="feature-title">Real-Time Order Monitoring</div>
+      <p class="feature-desc">Watch your open orders across all connected exchanges with live auto-refresh every 15 seconds. No browser tabs required.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔗</span>
+      <div class="feature-title">Multi-Exchange Support</div>
+      <p class="feature-desc">Connect Kraken, Coinbase Advanced, and Binance simultaneously. Manage all your exchange accounts from a single application window.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔔</span>
+      <div class="feature-title">Desktop Notifications</div>
+      <p class="feature-desc">Get native Windows notifications the moment an automation rule executes. Toggle per-account from your profile settings.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🗄</span>
+      <div class="feature-title">Fully Local Storage</div>
+      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync, no third-party servers. Your keys never leave your machine.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⏱</span>
+      <div class="feature-title">Cooldown Controls</div>
+      <p class="feature-desc">Prevent runaway automation with configurable cooldown periods on every rule. Set the minimum time between executions and trade with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXCHANGES -->
+<section id="exchanges">
+  <div class="section-label">Exchange Compatibility</div>
+  <h2 class="section-title">Supported exchanges and features.</h2>
+  <p class="section-desc">Different exchanges expose different APIs. Here's exactly what Cyrus can do on each one.</p>
+
+  <div class="exchange-table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Kraken</th>
+          <th>Coinbase Advanced <span class="exchange-badge">BETA</span></th>
+          <th>Binance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-feature">View open orders</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">View account balances</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Trigger: Order filled</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Trigger: Balance threshold</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Action: Convert crypto</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Action: Withdraw to address</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Whitelisted withdrawal addresses</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="install">
+  <div class="section-label">Getting Started</div>
+  <h2 class="section-title">Up and running in minutes.</h2>
+  <p class="section-desc">The installer packages everything — no Python, no Node.js, no manual setup required.</p>
+
+  <div class="steps-list">
+    <div class="step-item">
+      <span class="step-num">01</span>
+      <div>
+        <div class="step-title">Download the installer</div>
+        <p class="step-desc">Grab <code style="font-family:'JetBrains Mono',monospace; color:var(--cyan-dim); font-size:13px">Cyrus.Setup.1.1.7.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-num">02</span>
+      <div>
+        <div class="step-title">Install and launch</div>
+        <p class="step-desc">Run the installer and follow the setup wizard. Cyrus installs to <code style="font-family:'JetBrains Mono',monospace; color:var(--cyan-dim); font-size:13px">C:\Program Files\Cyrus</code> by default and creates Start Menu and Desktop shortcuts. First-time users will see a Windows SmartScreen prompt — click "More info" → "Run anyway."</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-num">03</span>
+      <div>
+        <div class="step-title">Create your account</div>
+        <p class="step-desc">On first launch, create a local account with a username and password. Your account data lives entirely on your machine in an encrypted SQLite database — nothing is sent to any server.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-num">04</span>
+      <div>
+        <div class="step-title">Connect your exchange</div>
+        <p class="step-desc">Go to Profile → Exchange Connections. Enter your exchange API key and secret (read + trade permissions recommended), then click Test to validate. Your keys are encrypted at rest using AES-128.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-num">05</span>
+      <div>
+        <div class="step-title">Create your first automation rule</div>
+        <p class="step-desc">Open Custom Commands and configure a trigger — either an order fill or a balance threshold — paired with an action like converting an asset or withdrawing to a saved address. Cyrus checks your rules every 15 seconds in the background.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECURITY -->
+<section id="security">
+  <div class="section-label">Security</div>
+  <h2 class="section-title">Your keys. Your machine. Your data.</h2>
+  <p class="section-desc">Cyrus was designed from the ground up to keep your exchange credentials and trade data fully local and encrypted.</p>
+
+  <div class="security-grid">
+    <div class="security-card">
+      <div class="security-title">AES-128 Encryption</div>
+      <p class="security-desc">Exchange API keys are encrypted with Fernet symmetric encryption before being stored. The key is derived from your Flask SECRET_KEY via SHA-256.</p>
+    </div>
+    <div class="security-card">
+      <div class="security-title">Bcrypt Password Hashing</div>
+      <p class="security-desc">Passwords are hashed using bcrypt with 12 salt rounds. Plaintext passwords are never stored or logged anywhere in the application.</p>
+    </div>
+    <div class="security-card">
+      <div class="security-title">JWT Session Tokens</div>
+      <p class="security-desc">Authentication uses short-lived JWT tokens that expire after 30 days. All API requests use SQL prepared statements to prevent injection attacks.</p>
+    </div>
+    <div class="security-card">
+      <div class="security-title">Offline-First Architecture</div>
+      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend runs on localhost only — CORS is restricted to 127.0.0.1:5000.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TECH STACK -->
+<section>
+  <div class="section-label">Tech Stack</div>
+  <h2 class="section-title">Built on solid foundations.</h2>
+  <p class="section-desc" style="margin-bottom:36px">A modern Electron + Python architecture, packaged into a single Windows installer.</p>
+  <div class="tech-grid">
+    <div class="tech-tag"><span class="tech-dot" style="background:#3178C6"></span>TypeScript</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#47848F"></span>Electron</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#3776AB"></span>Python 3.11+</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#000000; border:1px solid #555"></span>Flask</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#003B57"></span>SQLite</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#00D084"></span>CCXT</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#FF6B35"></span>PyInstaller</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#8DD6F9"></span>electron-builder</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SUPPORT / DONATION -->
+<section class="support-section">
+  <div class="section-label">Support the Project</div>
+  <h2 class="section-title">Support the project.</h2>
+  <p class="section-desc">Cyrus is free and open-source. Every contribution — however small — goes directly toward continued development.</p>
+
+  <!-- Tab Toggle -->
+  <div class="giving-type-toggle">
+    <button class="giving-type-btn active" data-panel="giving-onetime">One Time</button>
+    <button class="giving-type-btn" data-panel="giving-monthly">Monthly</button>
+    <button class="giving-type-btn" data-panel="giving-annual">Annual</button>
+  </div>
+
+  <!-- ONE TIME -->
+  <div class="giving-panel active" id="giving-onetime">
+    <div class="giving-cards">
+      <div class="giving-card giving-card--onetime">
+        <div class="giving-card-icon">⚡</div>
+        <div class="giving-card-badge">One-Time</div>
+        <div class="giving-card-price">Custom Amount</div>
+        <a href="https://buy.stripe.com/4gMdR8awWdSng4bfMQeAg06" class="giving-card-btn" target="_blank">Give a Spark</a>
+      </div>
+    </div>
+    <p class="stripe-note">Payments powered, managed, and secured by <strong>Stripe</strong>.</p>
+
+    <div class="crypto-divider">or donate with crypto</div>
+
+    <div class="crypto-list">
+      <div class="crypto-row">
+        <div class="crypto-row-label"><span class="ci">₿</span> Bitcoin (BTC)</div>
+        <div class="crypto-address">32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD</div>
+        <button class="copy-btn" data-copy="32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD" title="Copy address">⧉</button>
+      </div>
+      <div class="crypto-row">
+        <div class="crypto-row-label"><span class="ci">Ξ</span> Ethereum (ETH)</div>
+        <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
+        <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
+      </div>
+      <div class="crypto-row">
+        <div class="crypto-row-label"><span class="ci">◎</span> Solana (SOL)</div>
+        <div class="crypto-address">7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9</div>
+        <button class="copy-btn" data-copy="7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9" title="Copy address">⧉</button>
+      </div>
+      <div class="crypto-row">
+        <div class="crypto-row-label"><span class="ci">✕</span> Ripple (XRP)</div>
+        <div class="crypto-address">rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh &nbsp;/&nbsp; Tag: 204756592</div>
+        <button class="copy-btn" data-copy="rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh" title="Copy address">⧉</button>
+      </div>
+      <div class="crypto-row">
+        <div class="crypto-row-label"><span class="ci">🐕</span> Shiba Inu (SHIB)</div>
+        <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
+        <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONTHLY -->
+  <div class="giving-panel" id="giving-monthly">
+    <div class="giving-cards">
+      <div class="giving-card giving-card--helper">
+        <div class="giving-card-icon">❤️</div>
+        <div class="giving-card-badge">Helper</div>
+        <div class="giving-card-price">$10 <span class="giving-card-period">/month</span></div>
+        <a href="https://donate.stripe.com/fZuaEW8oO4hN8BJ0RWeAg00" class="giving-card-btn" target="_blank">Become a Helper</a>
+      </div>
+      <div class="giving-card giving-card--hero">
+        <div class="giving-card-icon">⭐</div>
+        <div class="giving-card-badge">Hero</div>
+        <div class="giving-card-price">$25 <span class="giving-card-period">/month</span></div>
+        <a href="https://donate.stripe.com/aFa8wObB001x4lt6cgeAg01" class="giving-card-btn" target="_blank">Become a Hero</a>
+      </div>
+      <div class="giving-card giving-card--conqueror">
+        <div class="giving-card-icon">👑</div>
+        <div class="giving-card-badge">Conqueror</div>
+        <div class="giving-card-price">$50 <span class="giving-card-period">/month</span></div>
+        <a href="https://donate.stripe.com/5kQ4gy34ug0vbNV448eAg05" class="giving-card-btn" target="_blank">Become a Conqueror</a>
+      </div>
+    </div>
+    <p class="stripe-note">Payments powered, managed, and secured by <strong>Stripe</strong>.</p>
+  </div>
+
+  <!-- ANNUAL -->
+  <div class="giving-panel" id="giving-annual">
+    <div class="giving-cards">
+      <div class="giving-card giving-card--helper">
+        <div class="giving-card-icon">❤️</div>
+        <div class="giving-card-badge">Helper</div>
+        <div class="giving-card-price">$120 <span class="giving-card-period">/year</span></div>
+        <a href="https://donate.stripe.com/bJe7sK0Wm15B5pxcAEeAg02" class="giving-card-btn" target="_blank">Commit as Helper</a>
+      </div>
+      <div class="giving-card giving-card--hero">
+        <div class="giving-card-icon">⭐</div>
+        <div class="giving-card-badge">Hero</div>
+        <div class="giving-card-price">$300 <span class="giving-card-period">/year</span></div>
+        <a href="https://donate.stripe.com/6oUcN40Wm4hN6tB0RWeAg03" class="giving-card-btn" target="_blank">Commit as Hero</a>
+      </div>
+      <div class="giving-card giving-card--conqueror">
+        <div class="giving-card-icon">👑</div>
+        <div class="giving-card-badge">Conqueror</div>
+        <div class="giving-card-price">$600 <span class="giving-card-period">/year</span></div>
+        <a href="https://donate.stripe.com/eVqcN4cF48y39FNeIMeAg04" class="giving-card-btn" target="_blank">Commit as Conqueror</a>
+      </div>
+    </div>
+    <p class="stripe-note">Payments powered, managed, and secured by <strong>Stripe</strong>.</p>
+  </div>
+</section>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.giving-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.giving-type-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.giving-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.panel).classList.add('active');
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+        btn.classList.add('copied');
+        btn.textContent = '✓';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.textContent = '⧉';
+        }, 1800);
+      });
+    });
+  });
+</script>
+
+<!-- DOWNLOAD CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-divider"></div>
+  <div class="cta-content">
+    <img src="cyrus-logo.png" alt="Cyrus" style="width:96px;height:96px;object-fit:contain;margin-bottom:24px;filter:drop-shadow(0 0 24px rgba(0,229,255,0.5));display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
+    <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
+    <p class="cta-desc">Free, open-source, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/tag/v1.1.7" class="btn-primary" style="font-size:16px; padding:16px 40px;">
+      <span class="btn-icon">⬇</span>
+      Download Cyrus v1.1.7
+    </a>
+    <p class="cta-note">Windows x64 · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus" target="_blank">ISC License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px;opacity:0.5;">
+      <img src="cyrus-logo.png" alt="Cyrus" style="width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(0,229,255,0.4));" onerror="this.style.display='none'">
+      <div class="footer-wordmark" style="opacity:1;">CYRUS</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/JonathanEDressel/Cyrus" target="_blank">GitHub</a></li>
+      <li><a href="https://github.com/JonathanEDressel/Cyrus/releases" target="_blank">Releases</a></li>
+      <li><a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Issues</a></li>
+      <li><a href="https://account.venmo.com/u/JonathanDressel" target="_blank">Donate</a></li>
+    </ul>
+    <p class="footer-disclaimer">
+      This software is provided as-is. Use at your own risk. The developers are not responsible for any financial losses incurred through the use of this application. Always verify trades directly on your exchange's platform.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
