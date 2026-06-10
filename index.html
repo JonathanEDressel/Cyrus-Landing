@@ -10,7 +10,7 @@
 
   :root {
     --cyan: #00E5FF;
-    --cyan-dim: #0088AA;
+    --cyan-dim: #00AACC;
     --cyan-glow: rgba(0, 229, 255, 0.15);
     --amber: #FFB300;
     --amber-glow: rgba(255, 179, 0, 0.12);
@@ -18,7 +18,7 @@
     --surface-raised: #111122;
     --border: rgba(0, 229, 255, 0.12);
     --text: #E0F7FA;
-    --text-muted: #7BA7B0;
+    --text-muted: #A8D5DC;
     --bg: #000000;
   }
 
@@ -271,7 +271,7 @@
   .hero-desc {
     font-size: 18px;
     font-weight: 300;
-    color: #9ECDD6;
+    color: #C8E8EF;
     max-width: 560px;
     margin: 0 auto 48px;
     line-height: 1.7;
@@ -484,7 +484,8 @@
 
   .exchange-table-wrapper {
     overflow-x: auto;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(0,229,255,0.25);
+    box-shadow: 0 0 32px rgba(0,229,255,0.06);
   }
 
   table {
@@ -494,51 +495,52 @@
   }
 
   thead tr {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    background: rgba(0,229,255,0.05);
+    border-bottom: 1px solid rgba(0,229,255,0.2);
   }
 
   thead th {
     padding: 16px 20px;
     text-align: left;
     font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--cyan);
+    text-shadow: 0 0 10px rgba(0,229,255,0.4);
   }
 
   thead th:not(:first-child) { text-align: center; }
 
   tbody tr {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(0,229,255,0.08);
     transition: background 0.15s;
   }
 
   tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: var(--surface); }
+  tbody tr:hover { background: rgba(0,229,255,0.04); }
 
   tbody td {
     padding: 14px 20px;
-    color: var(--text-muted);
+    color: #B8D9E0;
   }
 
   tbody td:not(:first-child) { text-align: center; }
 
   .td-feature {
-    color: var(--text);
-    font-weight: 500;
+    color: #F0FBFC;
+    font-weight: 600;
   }
 
   .check {
     color: var(--cyan);
-    text-shadow: 0 0 8px rgba(0,229,255,0.5);
-    font-size: 16px;
+    text-shadow: 0 0 12px rgba(0,229,255,0.8);
+    font-size: 18px;
   }
 
   .cross {
-    color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.38);
     font-size: 16px;
   }
 
@@ -561,7 +563,8 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(0,229,255,0.22);
+    box-shadow: 0 0 32px rgba(0,229,255,0.05);
   }
 
   .step-item {
@@ -569,35 +572,41 @@
     gap: 32px;
     align-items: flex-start;
     padding: 36px 40px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
+    border-bottom: 1px solid rgba(0,229,255,0.12);
+    transition: background 0.2s, border-left 0.2s;
+    border-left: 3px solid transparent;
   }
 
   .step-item:last-child { border-bottom: none; }
-  .step-item:hover { background: var(--surface); }
+  .step-item:hover {
+    background: var(--surface-raised);
+    border-left-color: var(--cyan);
+  }
 
   .step-num {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-size: 36px;
     font-weight: 500;
     color: var(--cyan);
-    min-width: 48px;
-    padding-top: 3px;
-    letter-spacing: 1px;
+    text-shadow: 0 0 16px rgba(0,229,255,0.6);
+    min-width: 72px;
+    padding-top: 2px;
+    letter-spacing: 2px;
+    line-height: 1;
   }
 
   .step-title {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    color: var(--text);
+    color: #F0FBFC;
     letter-spacing: 1px;
     margin-bottom: 8px;
   }
 
   .step-desc {
     font-size: 14px;
-    color: var(--text-muted);
+    color: #B8D9E0;
     line-height: 1.65;
   }
 
@@ -819,7 +828,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: #C8E8EF;
   }
 
   .giving-card-price {
@@ -841,8 +850,8 @@
     margin-top: 12px;
     padding: 10px 20px;
     background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
+    border: 1px solid rgba(0,229,255,0.25);
+    color: #C8E8EF;
     font-family: 'Rajdhani', sans-serif;
     font-size: 13px;
     font-weight: 700;
@@ -887,7 +896,8 @@
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--cyan);
+    text-shadow: 0 0 12px rgba(0,229,255,0.4);
   }
 
   .crypto-divider::before,
@@ -895,7 +905,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--border);
+    background: linear-gradient(to right, transparent, rgba(0,229,255,0.35), transparent);
   }
 
   /* Crypto address rows */
@@ -936,7 +946,7 @@
   .crypto-address {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    color: var(--cyan-dim);
+    color: #5FD8F0;
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1098,7 +1108,7 @@
 
   .footer-disclaimer {
     font-size: 12px;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.45);
     max-width: 500px;
     line-height: 1.6;
   }
@@ -1327,14 +1337,14 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab <code style="font-family:'JetBrains Mono',monospace; color:var(--cyan-dim); font-size:13px">Cyrus.Setup.1.1.7.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab <code style="font-family:'JetBrains Mono',monospace; color:#5FD8F0; font-size:13px">Cyrus.Setup.1.1.7.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
       <span class="step-num">02</span>
       <div>
         <div class="step-title">Install and launch</div>
-        <p class="step-desc">Run the installer and follow the setup wizard. Cyrus installs to <code style="font-family:'JetBrains Mono',monospace; color:var(--cyan-dim); font-size:13px">C:\Program Files\Cyrus</code> by default and creates Start Menu and Desktop shortcuts. First-time users will see a Windows SmartScreen prompt — click "More info" → "Run anyway."</p>
+        <p class="step-desc">Run the installer and follow the setup wizard. Cyrus installs to <code style="font-family:'JetBrains Mono',monospace; color:#5FD8F0; font-size:13px">C:\Program Files\Cyrus</code> by default and creates Start Menu and Desktop shortcuts. First-time users will see a Windows SmartScreen prompt — click "More info" → "Run anyway."</p>
       </div>
     </div>
     <div class="step-item">
@@ -1434,36 +1444,6 @@
       </div>
     </div>
     <p class="stripe-note">Payments powered, managed, and secured by <strong>Stripe</strong>.</p>
-
-    <div class="crypto-divider">or donate with crypto</div>
-
-    <div class="crypto-list">
-      <div class="crypto-row">
-        <div class="crypto-row-label"><span class="ci">₿</span> Bitcoin (BTC)</div>
-        <div class="crypto-address">32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD</div>
-        <button class="copy-btn" data-copy="32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD" title="Copy address">⧉</button>
-      </div>
-      <div class="crypto-row">
-        <div class="crypto-row-label"><span class="ci">Ξ</span> Ethereum (ETH)</div>
-        <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
-        <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
-      </div>
-      <div class="crypto-row">
-        <div class="crypto-row-label"><span class="ci">◎</span> Solana (SOL)</div>
-        <div class="crypto-address">7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9</div>
-        <button class="copy-btn" data-copy="7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9" title="Copy address">⧉</button>
-      </div>
-      <div class="crypto-row">
-        <div class="crypto-row-label"><span class="ci">✕</span> Ripple (XRP)</div>
-        <div class="crypto-address">rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh &nbsp;/&nbsp; Tag: 204756592</div>
-        <button class="copy-btn" data-copy="rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh" title="Copy address">⧉</button>
-      </div>
-      <div class="crypto-row">
-        <div class="crypto-row-label"><span class="ci">🐕</span> Shiba Inu (SHIB)</div>
-        <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
-        <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
-      </div>
-    </div>
   </div>
 
   <!-- MONTHLY -->
@@ -1514,6 +1494,37 @@
       </div>
     </div>
     <p class="stripe-note">Payments powered, managed, and secured by <strong>Stripe</strong>.</p>
+  </div>
+
+  <!-- CRYPTO — always visible -->
+  <div class="crypto-divider">or donate with crypto</div>
+
+  <div class="crypto-list">
+    <div class="crypto-row">
+      <div class="crypto-row-label"><span class="ci">₿</span> Bitcoin (BTC)</div>
+      <div class="crypto-address">32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD</div>
+      <button class="copy-btn" data-copy="32BJw5mpyQ6fuLeiR5yrAAR2H8gerB9GAD" title="Copy address">⧉</button>
+    </div>
+    <div class="crypto-row">
+      <div class="crypto-row-label"><span class="ci">Ξ</span> Ethereum (ETH)</div>
+      <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
+      <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
+    </div>
+    <div class="crypto-row">
+      <div class="crypto-row-label"><span class="ci">◎</span> Solana (SOL)</div>
+      <div class="crypto-address">7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9</div>
+      <button class="copy-btn" data-copy="7vfBGpjZTEZEsKNi1ZdYYBPGq1uFzWvLuV6xRP13tSo9" title="Copy address">⧉</button>
+    </div>
+    <div class="crypto-row">
+      <div class="crypto-row-label"><span class="ci">✕</span> Ripple (XRP)</div>
+      <div class="crypto-address">rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh &nbsp;/&nbsp; Tag: 204756592</div>
+      <button class="copy-btn" data-copy="rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh" title="Copy address">⧉</button>
+    </div>
+    <div class="crypto-row">
+      <div class="crypto-row-label"><span class="ci">🐕</span> Shiba Inu (SHIB)</div>
+      <div class="crypto-address">0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A</div>
+      <button class="copy-btn" data-copy="0xc0066CCD708376cF3fA34CF5a3a8eB88AF58c97A" title="Copy address">⧉</button>
+    </div>
   </div>
 </section>
 
