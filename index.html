@@ -979,6 +979,82 @@
 
   .stripe-note strong { color: #635BFF; }
 
+  /* ── CONTACT ── */
+  .contact-section {
+    padding: 96px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    resize: vertical;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--cyan-dim);
+    box-shadow: 0 0 0 2px var(--cyan-glow);
+  }
+
+  .form-group textarea {
+    min-height: 140px;
+  }
+
+  .form-submit {
+    align-self: flex-start;
+  }
+
+  .form-success {
+    display: none;
+    font-size: 14px;
+    color: #00C853;
+    border: 1px solid rgba(0,200,83,0.3);
+    background: rgba(0,200,83,0.06);
+    padding: 14px 20px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+
   /* ── FOOTER ── */
   footer {
     border-top: 1px solid var(--border);
@@ -1073,6 +1149,7 @@
     <li><a href="#install">Install</a></li>
     <li><a href="#security">Security</a></li>
     <li><a href="#support">Donate</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="https://github.com/JonathanEDressel/Cyrus" target="_blank" class="nav-cta">GitHub</a></li>
   </ul>
 </nav>
@@ -1451,6 +1528,23 @@
     });
   });
 
+  // Contact form — handle Netlify AJAX submission
+  (function () {
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', body: data })
+        .then(() => {
+          form.reset();
+          const msg = document.getElementById('form-success');
+          if (msg) { msg.style.display = 'block'; }
+        })
+        .catch(() => { form.submit(); }); // hard fallback
+    });
+  })();
+
   // Copy buttons
   function fallbackCopy(text, btn) {
     const ta = document.createElement('textarea');
@@ -1498,6 +1592,51 @@
     </a>
     <p class="cta-note">Windows x64 · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus" target="_blank">ISC License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Get in touch.</h2>
+  <p class="section-desc">Have a comment, question, or concern? Send a message and I'll get back to you.</p>
+
+  <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact">
+    <!-- Honeypot anti-spam field -->
+    <p style="display:none">
+      <label>Don't fill this out: <input name="bot-field"></label>
+    </p>
+
+    <div class="form-group">
+      <label for="contact-name">Your Name</label>
+      <input type="text" id="contact-name" name="name" placeholder="Jonathan" required autocomplete="name">
+    </div>
+
+    <div class="form-group">
+      <label for="contact-email">Email Address</label>
+      <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label for="contact-subject">Subject</label>
+      <input type="text" id="contact-subject" name="subject" placeholder="Bug report, feature request, general feedback…" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" placeholder="Your message here…" required></textarea>
+    </div>
+
+    <div class="form-group form-submit">
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
+        Send Message
+      </button>
+    </div>
+
+    <div class="form-success" id="form-success">✓ Message sent — thanks! I'll be in touch soon.</div>
+  </form>
 </section>
 
 <!-- FOOTER -->
