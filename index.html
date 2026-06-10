@@ -1570,6 +1570,7 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var href = link.href;
+        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         var fd = new FormData();
         fd.append('form-name', 'download-click');
         fd.append('source', link.dataset.download);
@@ -1579,6 +1580,14 @@
         fd.append('screen_resolution', screen.width + 'x' + screen.height);
         fd.append('viewport', window.innerWidth + 'x' + window.innerHeight);
         fd.append('referrer', document.referrer || 'direct');
+        fd.append('platform', navigator.platform || '');
+        fd.append('cpu_cores', navigator.hardwareConcurrency || '');
+        fd.append('device_memory_gb', navigator.deviceMemory || '');
+        fd.append('pixel_ratio', window.devicePixelRatio || '');
+        fd.append('touch_points', navigator.maxTouchPoints != null ? navigator.maxTouchPoints : '');
+        fd.append('connection_type', conn ? (conn.effectiveType || conn.type || '') : '');
+        fd.append('page_url', location.href);
+        fd.append('click_timestamp', new Date().toISOString());
         fetch('/', { method: 'POST', body: fd })
           .finally(function () { window.location.href = href; });
       });
@@ -1699,6 +1708,14 @@
   <input type="hidden" name="screen_resolution" value="">
   <input type="hidden" name="viewport" value="">
   <input type="hidden" name="referrer" value="">
+  <input type="hidden" name="platform" value="">
+  <input type="hidden" name="cpu_cores" value="">
+  <input type="hidden" name="device_memory_gb" value="">
+  <input type="hidden" name="pixel_ratio" value="">
+  <input type="hidden" name="touch_points" value="">
+  <input type="hidden" name="connection_type" value="">
+  <input type="hidden" name="page_url" value="">
+  <input type="hidden" name="click_timestamp" value="">
   <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
 </form>
 
