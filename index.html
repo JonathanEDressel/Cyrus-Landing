@@ -1570,10 +1570,15 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var href = link.href;
-        var source = link.dataset.download;
         var fd = new FormData();
         fd.append('form-name', 'download-click');
-        fd.append('source', source);
+        fd.append('source', link.dataset.download);
+        fd.append('user_agent', navigator.userAgent || '');
+        fd.append('language', navigator.language || '');
+        fd.append('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+        fd.append('screen_resolution', screen.width + 'x' + screen.height);
+        fd.append('viewport', window.innerWidth + 'x' + window.innerHeight);
+        fd.append('referrer', document.referrer || 'direct');
         fetch('/', { method: 'POST', body: fd })
           .finally(function () { window.location.href = href; });
       });
@@ -1688,6 +1693,12 @@
 <form name="download-click" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
   <input type="hidden" name="form-name" value="download-click">
   <input type="hidden" name="source" value="">
+  <input type="hidden" name="user_agent" value="">
+  <input type="hidden" name="language" value="">
+  <input type="hidden" name="timezone" value="">
+  <input type="hidden" name="screen_resolution" value="">
+  <input type="hidden" name="viewport" value="">
+  <input type="hidden" name="referrer" value="">
   <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
 </form>
 
