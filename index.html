@@ -244,13 +244,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 32px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .hero-subtitle-line {
+      font-size: 11px;
+      letter-spacing: 2px;
+      white-space: normal;
+      text-align: center;
+    }
   }
 
   .hero-subtitle-line span {
@@ -1175,7 +1186,7 @@
           <th>Feature</th>
           <th>Kraken</th>
           <th>Coinbase Advanced <span class="exchange-badge">BETA</span></th>
-          <th>Binance</th>
+          <th>Binance <span class="exchange-badge">BETA</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1441,16 +1452,34 @@
   });
 
   // Copy buttons
+  function fallbackCopy(text, btn) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      btn.classList.add('copied');
+      btn.textContent = '✓';
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '⧉'; }, 1800);
+    } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      navigator.clipboard.writeText(btn.dataset.copy).then(() => {
-        btn.classList.add('copied');
-        btn.textContent = '✓';
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.textContent = '⧉';
-        }, 1800);
-      });
+      const text = btn.dataset.copy;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          btn.classList.add('copied');
+          btn.textContent = '✓';
+          setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '⧉'; }, 1800);
+        }).catch(() => fallbackCopy(text, btn));
+      } else {
+        fallbackCopy(text, btn);
+      }
     });
   });
 </script>
