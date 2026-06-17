@@ -1215,6 +1215,116 @@
     margin: 0 auto;
   }
 
+  /* ── PRODUCT SHOWCASE / APP FRAME ── */
+  .showcase-section {
+    padding-top: 80px;
+    padding-bottom: 24px;
+  }
+
+  .showcase-heading {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .showcase-heading .section-label { justify-content: center; }
+  .showcase-heading .section-label::after { display: none; }
+  .showcase-heading .section-desc { margin-left: auto; margin-right: auto; margin-bottom: 0; }
+
+  .app-frame {
+    border: 1px solid rgba(0,229,255,0.28);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface-raised);
+    box-shadow:
+      0 0 56px rgba(0,229,255,0.10),
+      0 32px 80px rgba(0,0,0,0.65);
+  }
+
+  .app-frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    background: rgba(0,229,255,0.05);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .app-frame-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .app-frame-dot--r { background: #FF5F57; }
+  .app-frame-dot--y { background: #FEBC2E; }
+  .app-frame-dot--g { background: #28C840; }
+
+  .app-frame-label {
+    margin-left: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .app-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ── GALLERY (closer look) ── */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    margin-top: 56px;
+  }
+
+  .gallery-row {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .gallery-row--reverse .gallery-shot { order: 2; }
+
+  .gallery-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .gallery-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--cyan);
+    opacity: 0.5;
+  }
+
+  .gallery-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: #F0FBFC;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .gallery-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1230,6 +1340,9 @@
     .step-item { flex-direction: column; gap: 12px; padding: 24px 20px; }
     section { padding: 64px 20px; }
     .features-grid { grid-template-columns: 1fr; }
+    .gallery { gap: 48px; }
+    .gallery-row { grid-template-columns: 1fr; gap: 24px; }
+    .gallery-row--reverse .gallery-shot { order: 0; }
   }
 
   /* ── Scroll reveal ── */
@@ -1350,6 +1463,27 @@
   </div>
 </div>
 
+<!-- PRODUCT SHOWCASE -->
+<section class="showcase-section">
+  <div class="showcase-heading">
+    <div class="section-label reveal">A Look Inside</div>
+    <h2 class="section-title reveal">Your whole portfolio, at a glance.</h2>
+    <p class="section-desc reveal">One unified dashboard for balances, open orders, live prices, and the automations running quietly in the background — across every connected exchange.</p>
+  </div>
+
+  <div class="app-frame reveal">
+    <div class="app-frame-bar">
+      <span class="app-frame-dot app-frame-dot--r"></span>
+      <span class="app-frame-dot app-frame-dot--y"></span>
+      <span class="app-frame-dot app-frame-dot--g"></span>
+      <span class="app-frame-label">Cyrus — Overview</span>
+    </div>
+    <img src="Screenshot 2026-06-17 142907.png" alt="Cyrus overview dashboard showing portfolio breakdown, open orders, automations, live BTC/USDT price chart, and the automation flow diagram" loading="lazy">
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FEATURES -->
 <section id="features">
   <div class="section-label">Capabilities</div>
@@ -1386,6 +1520,60 @@
       <span class="feature-icon">⏱</span>
       <div class="feature-title">Cooldown Controls</div>
       <p class="feature-desc">Prevent runaway automation with configurable cooldown periods on every rule. Set the minimum time between executions and trade with confidence.</p>
+    </div>
+  </div>
+
+  <!-- CLOSER LOOK GALLERY -->
+  <div class="gallery">
+    <div class="gallery-row reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus — Automations</span>
+        </div>
+        <img src="Screenshot 2026-06-17 142925.png" alt="Cyrus automations table listing rules with their triggers, actions, status, and last execution time" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Automation Rules</div>
+        <h3 class="gallery-title">Set your rules once. Cyrus does the rest.</h3>
+        <p class="gallery-desc">Each rule pairs a trigger — an order filling or a balance crossing a threshold — with an action like converting an asset or withdrawing to a saved address. See every rule's status and last run in one place, with cooldowns to keep automation in check.</p>
+      </div>
+    </div>
+
+    <div class="gallery-row gallery-row--reverse reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus — Open Orders</span>
+        </div>
+        <img src="Screenshot 2026-06-17 142934.png" alt="Cyrus open orders view rendered as an interactive node graph grouped by trading pair" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Live Monitoring</div>
+        <h3 class="gallery-title">Every open order, every exchange — live.</h3>
+        <p class="gallery-desc">Watch all your open orders update automatically every 15 seconds, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, and Binance.</p>
+      </div>
+    </div>
+
+    <div class="gallery-row reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus — Profile</span>
+        </div>
+        <img src="Screenshot 2026-06-17 143009.png" alt="Cyrus profile page showing exchange connections, the add-connection form, and desktop notification settings" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Exchange Connections</div>
+        <h3 class="gallery-title">Connect securely, stay in control.</h3>
+        <p class="gallery-desc">Add an exchange in seconds and test the connection before you trade. Your API keys are encrypted at rest and stored locally on your device — never on a server. Toggle native desktop notifications so you know the moment a rule fires.</p>
+      </div>
     </div>
   </div>
 </section>
