@@ -1500,7 +1500,7 @@
   <div class="downloads-content">
     <span class="downloads-count" id="download-count">—</span>
     <div class="downloads-caption">Total Downloads</div>
-    <p class="downloads-note">Counted live across every Cyrus release on GitHub.</p>
+    <p class="downloads-note">Updated live with every download.</p>
   </div>
 </section>
 
@@ -1964,18 +1964,30 @@
     });
   })();
 
-  // Total downloads across all GitHub releases
+  // Total download count — Netlify form submissions via serverless function,
+  // falling back to GitHub release download totals (e.g. in local previews)
   (function () {
-    fetch('https://api.github.com/repos/JonathanEDressel/Cyrus/releases?per_page=100')
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (releases) {
-        var total = 0;
-        releases.forEach(function (rel) {
-          (rel.assets || []).forEach(function (a) {
-            if (a.name && a.name.indexOf('.exe') === a.name.length - 4) total += a.download_count || 0;
+    function githubFallback() {
+      return fetch('https://api.github.com/repos/JonathanEDressel/Cyrus/releases?per_page=100')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (releases) {
+          var total = 0;
+          releases.forEach(function (rel) {
+            (rel.assets || []).forEach(function (a) {
+              if (a.name && a.name.indexOf('.exe') === a.name.length - 4) total += a.download_count || 0;
+            });
           });
+          return total;
         });
-        // Element lives below this script, so resolve it once the DOM is ready
+    }
+    fetch('/.netlify/functions/download-count')
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (data) {
+        if (typeof data.count !== 'number') return Promise.reject();
+        return data.count;
+      })
+      .catch(githubFallback)
+      .then(function (total) {
         var render = function () {
           var el = document.getElementById('download-count');
           if (!el) return;
