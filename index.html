@@ -436,6 +436,36 @@
     color: var(--text-muted);
   }
 
+  /* ── DOWNLOADS ── */
+  .downloads-content {
+    text-align: center;
+    padding: 24px 0;
+  }
+
+  .downloads-count {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(72px, 12vw, 140px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--cyan);
+    text-shadow: 0 0 40px rgba(0,229,255,0.45);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .downloads-caption {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .downloads-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
   /* ── FEATURES ── */
   .features-grid {
     display: grid;
@@ -1463,6 +1493,19 @@
   </div>
 </div>
 
+<!-- DOWNLOADS -->
+<section id="downloads">
+  <div class="section-label">Downloads</div>
+  <h2 class="section-title">Join the traders already running Cyrus.</h2>
+  <div class="downloads-content">
+    <span class="downloads-count" id="download-count">—</span>
+    <div class="downloads-caption">Total Downloads</div>
+    <p class="downloads-note">Counted live across every Cyrus release on GitHub.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- PRODUCT SHOWCASE -->
 <section class="showcase-section">
   <div class="showcase-heading">
@@ -1919,6 +1962,41 @@
           .finally(function () { window.location.href = href; });
       });
     });
+  })();
+
+  // Total downloads across all GitHub releases
+  (function () {
+    fetch('https://api.github.com/repos/JonathanEDressel/Cyrus/releases?per_page=100')
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (releases) {
+        var total = 0;
+        releases.forEach(function (rel) {
+          (rel.assets || []).forEach(function (a) {
+            if (a.name && a.name.indexOf('.exe') === a.name.length - 4) total += a.download_count || 0;
+          });
+        });
+        // Element lives below this script, so resolve it once the DOM is ready
+        var render = function () {
+          var el = document.getElementById('download-count');
+          if (!el) return;
+          var start = null;
+          var duration = 1200;
+          var step = function (ts) {
+            if (start === null) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(total * eased).toLocaleString();
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        };
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', render);
+        } else {
+          render();
+        }
+      })
+      .catch(function () {}); // leave the placeholder if the API is unreachable
   })();
 
   // Copy buttons
