@@ -1418,6 +1418,155 @@
       transition: none !important;
     }
   }
+
+  /* ── EMAIL MODAL ── */
+  .email-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .email-modal.active {
+    display: flex;
+  }
+
+  .email-modal-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 40px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(24px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .email-modal-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .email-modal-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .email-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .email-modal-input {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+
+  .email-modal-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .email-modal-input:focus {
+    border-color: var(--cyan-dim);
+    box-shadow: 0 0 0 2px var(--cyan-glow);
+  }
+
+  .email-modal-actions {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .email-modal-btn-submit {
+    background: var(--cyan);
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 0 16px rgba(0,229,255,0.3);
+  }
+
+  .email-modal-btn-submit:hover {
+    box-shadow: 0 0 28px rgba(0,229,255,0.6);
+    transform: translateY(-1px);
+  }
+
+  .email-modal-btn-skip {
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .email-modal-btn-skip:hover {
+    border-color: var(--cyan-dim);
+    color: var(--text);
+    background: rgba(0,229,255,0.04);
+  }
+
+  .email-modal-privacy {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .email-modal-privacy strong {
+    color: var(--cyan-dim);
+  }
+
+  @media (max-width: 480px) {
+    .email-modal-content {
+      padding: 28px 20px;
+    }
+
+    .email-modal-title {
+      font-size: 20px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1945,35 +2094,6 @@
     });
   })();
 
-  // Download click tracking via Netlify Forms
-  (function () {
-    document.querySelectorAll('[data-download]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        var href = link.href;
-        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-        var fd = new FormData();
-        fd.append('form-name', 'download-click');
-        fd.append('source', link.dataset.download);
-        fd.append('user_agent', navigator.userAgent || '');
-        fd.append('language', navigator.language || '');
-        fd.append('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-        fd.append('screen_resolution', screen.width + 'x' + screen.height);
-        fd.append('viewport', window.innerWidth + 'x' + window.innerHeight);
-        fd.append('referrer', document.referrer || 'direct');
-        fd.append('platform', navigator.platform || '');
-        fd.append('cpu_cores', navigator.hardwareConcurrency || '');
-        fd.append('device_memory_gb', navigator.deviceMemory || '');
-        fd.append('pixel_ratio', window.devicePixelRatio || '');
-        fd.append('touch_points', navigator.maxTouchPoints != null ? navigator.maxTouchPoints : '');
-        fd.append('connection_type', conn ? (conn.effectiveType || conn.type || '') : '');
-        fd.append('page_url', location.href);
-        fd.append('click_timestamp', new Date().toISOString());
-        fetch('/', { method: 'POST', body: fd })
-          .finally(function () { window.location.href = href; });
-      });
-    });
-  })();
 
   // Total download count — Netlify form submissions via serverless function,
   // falling back to GitHub release download totals (e.g. in local previews)
@@ -2126,7 +2246,15 @@
   </form>
 </section>
 
-<!-- Hidden Netlify form for download-click tracking -->
+<!-- Hidden Netlify forms -->
+<form name="email-notification" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
+  <input type="hidden" name="form-name" value="email-notification">
+  <input type="email" name="email" placeholder="your@email.com">
+  <input type="hidden" name="page_url" value="">
+  <input type="hidden" name="click_timestamp" value="">
+  <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
+</form>
+
 <form name="download-click" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
   <input type="hidden" name="form-name" value="download-click">
   <input type="hidden" name="source" value="">
@@ -2166,6 +2294,38 @@
   </div>
 </footer>
 
+<!-- EMAIL CAPTURE MODAL -->
+<div class="email-modal" id="email-modal">
+  <div class="email-modal-content">
+    <h3 class="email-modal-title">Stay Updated</h3>
+    <p class="email-modal-subtitle">Get notified when new features and updates are released.</p>
+
+    <form class="email-modal-form" id="email-form" onsubmit="handleEmailSubmit(event)">
+      <input
+        type="email"
+        class="email-modal-input"
+        id="modal-email"
+        name="email"
+        placeholder="your@email.com"
+        autocomplete="email"
+      >
+    </form>
+
+    <div class="email-modal-actions">
+      <button type="submit" class="email-modal-btn-submit" id="email-submit-btn" onclick="handleEmailSubmit(event)">
+        Get Notified
+      </button>
+      <button type="button" class="email-modal-btn-skip" onclick="skipEmailAndDownload()">
+        Skip & Download
+      </button>
+    </div>
+
+    <p class="email-modal-privacy">
+      <strong>Your privacy matters.</strong> Your email won't be shared with anyone. We'll only use it to notify you about Cyrus updates.
+    </p>
+  </div>
+</div>
+
 <script>
   // ── Scroll reveal: fade + slide content in as it enters the viewport ──
   (function () {
@@ -2200,6 +2360,107 @@
 
     targets.forEach(el => observer.observe(el));
   })();
+
+  // ── Email modal functionality ──
+  let pendingDownloadUrl = null;
+
+  function showEmailModal(downloadUrl) {
+    pendingDownloadUrl = downloadUrl;
+    const modal = document.getElementById('email-modal');
+    const emailInput = document.getElementById('modal-email');
+    modal.classList.add('active');
+    emailInput.focus();
+  }
+
+  function closeEmailModal() {
+    const modal = document.getElementById('email-modal');
+    modal.classList.remove('active');
+    document.getElementById('modal-email').value = '';
+    pendingDownloadUrl = null;
+  }
+
+  function skipEmailAndDownload() {
+    if (pendingDownloadUrl) {
+      trackDownload('skipped_email');
+      closeEmailModal();
+      window.location.href = pendingDownloadUrl;
+    }
+  }
+
+  function handleEmailSubmit(event) {
+    event.preventDefault();
+    const email = document.getElementById('modal-email').value.trim();
+
+    if (!email) {
+      skipEmailAndDownload();
+      return;
+    }
+
+    const submitBtn = document.getElementById('email-submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    const fd = new FormData();
+    fd.append('form-name', 'email-notification');
+    fd.append('email', email);
+    fd.append('page_url', location.href);
+    fd.append('click_timestamp', new Date().toISOString());
+
+    fetch('/', { method: 'POST', body: fd })
+      .catch(err => console.log('Email submission error:', err))
+      .finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        gtag('event', 'email_capture', { event_category: 'download', event_label: 'email_submitted' });
+
+        // Track download with device analytics
+        trackDownload('email_submitted');
+
+        closeEmailModal();
+        if (pendingDownloadUrl) {
+          window.location.href = pendingDownloadUrl;
+        }
+      });
+  }
+
+  function trackDownload(source) {
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const fd = new FormData();
+    fd.append('form-name', 'download-click');
+    fd.append('source', source);
+    fd.append('user_agent', navigator.userAgent || '');
+    fd.append('language', navigator.language || '');
+    fd.append('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+    fd.append('screen_resolution', screen.width + 'x' + screen.height);
+    fd.append('viewport', window.innerWidth + 'x' + window.innerHeight);
+    fd.append('referrer', document.referrer || 'direct');
+    fd.append('platform', navigator.platform || '');
+    fd.append('cpu_cores', navigator.hardwareConcurrency || '');
+    fd.append('device_memory_gb', navigator.deviceMemory || '');
+    fd.append('pixel_ratio', window.devicePixelRatio || '');
+    fd.append('touch_points', navigator.maxTouchPoints != null ? navigator.maxTouchPoints : '');
+    fd.append('connection_type', conn ? (conn.effectiveType || conn.type || '') : '');
+    fd.append('page_url', location.href);
+    fd.append('click_timestamp', new Date().toISOString());
+    fetch('/', { method: 'POST', body: fd }).catch(err => console.log('Download tracking error:', err));
+  }
+
+  // Close modal when clicking outside
+  document.getElementById('email-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'email-modal') {
+      closeEmailModal();
+    }
+  });
+
+  // Intercept all download links
+  document.querySelectorAll('[data-download]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showEmailModal(link.href);
+      gtag('event', 'click', { event_category: 'download', event_label: 'modal_opened' });
+    });
+  });
 </script>
 
 </body>
