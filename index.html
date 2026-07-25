@@ -1597,7 +1597,7 @@
     <div class="orbital-ring-2"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Free & Open Source</div>
+    <div class="hero-eyebrow">Free &amp; Source-Available</div>
     <img class="hero-logo" src="cyrus-logo.png" alt="Cyrus Logo" onerror="this.style.display='none'">
     <h1 class="hero-title">CYRUS</h1>
     <div class="hero-subtitle-line">
@@ -1607,7 +1607,7 @@
       A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus executes trades, converts assets, and withdraws to your wallets automatically across Kraken, Coinbase, Binance, and Robinhood.
     </p>
     <div class="hero-actions">
-      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.1/Cyrus.Setup.1.2.1.exe" class="btn-primary" data-download="hero" onclick="gtag('event','click',{event_category:'hero',event_label:'download_windows'})">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.2/Cyrus.Setup.1.2.2.exe" class="btn-primary" data-download="hero" onclick="gtag('event','click',{event_category:'hero',event_label:'download_windows'})">
         <span class="btn-icon">⬇</span>
         Download for Windows
       </a>
@@ -1616,7 +1616,7 @@
         View Source
       </a>
     </div>
-    <p class="hero-version">Latest release: <code>v1.2.1</code> · Windows x64 · No Python or Node required</p>
+    <p class="hero-version">Latest release: <code>v1.2.2</code> · Windows x64 · No Python or Node required</p>
   </div>
 </section>
 
@@ -1689,12 +1689,12 @@
     <div class="feature-card">
       <span class="feature-icon">⚡</span>
       <div class="feature-title">Automation Rules</div>
-      <p class="feature-desc">Trigger actions when orders fill or balance thresholds are hit. Withdraw to a saved address, convert one asset to another — all automatically.</p>
+      <p class="feature-desc">Trigger actions when an order fills, a balance crosses a threshold, or a price hits your target. Withdraw to a saved address or convert one asset into another — all automatically.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📊</span>
       <div class="feature-title">Real-Time Order Monitoring</div>
-      <p class="feature-desc">Watch your open orders across all connected exchanges with live auto-refresh every 15 seconds. No browser tabs required.</p>
+      <p class="feature-desc">Watch your open orders across all connected exchanges with automatic refresh in the background. No browser tabs required.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🔗</span>
@@ -1715,6 +1715,21 @@
       <span class="feature-icon">⏱</span>
       <div class="feature-title">Cooldown Controls</div>
       <p class="feature-desc">Prevent runaway automation with configurable cooldown periods on every rule. Set the minimum time between executions and trade with confidence.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🟢</span>
+      <div class="feature-title">Live Engine Status</div>
+      <p class="feature-desc">A heartbeat on the Automations page shows exactly when your rules were last checked — so you never have to wonder whether automation is actually running.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🖥</span>
+      <div class="feature-title">Runs in the Tray</div>
+      <p class="feature-desc">Close the window and Cyrus keeps working from the system tray. Enable start-at-login so your rules survive a reboot without you thinking about it.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <div class="feature-title">Explainable Execution Log</div>
+      <p class="feature-desc">Every run is recorded — and so is every skip, with the reason. Below threshold, under an exchange minimum, cooling down: nothing happens without an explanation.</p>
     </div>
   </div>
 
@@ -1750,7 +1765,7 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Live Monitoring</div>
         <h3 class="gallery-title">Every open order, every exchange — live.</h3>
-        <p class="gallery-desc">Watch all your open orders update automatically every 15 seconds, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, and Robinhood.</p>
+        <p class="gallery-desc">Watch all your open orders refresh automatically in the background, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, and Robinhood.</p>
       </div>
     </div>
 
@@ -1860,7 +1875,7 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab <code style="font-family:'JetBrains Mono',monospace; color:#5FD8F0; font-size:13px">Cyrus.Setup.1.2.1.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab <code style="font-family:'JetBrains Mono',monospace; color:#5FD8F0; font-size:13px">Cyrus.Setup.1.2.2.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
@@ -1888,7 +1903,7 @@
       <span class="step-num">05</span>
       <div>
         <div class="step-title">Create your first automation rule</div>
-        <p class="step-desc">Open Custom Commands and configure a trigger — either an order fill or a balance threshold — paired with an action like converting an asset or withdrawing to a saved address. Cyrus checks your rules every 15 seconds in the background.</p>
+        <p class="step-desc">Open Automations and configure a trigger — an order fill, a balance threshold, or a price target — paired with an action like converting an asset or withdrawing to a saved address. Cyrus checks your rules every minute in the background, and shows you when it last did.</p>
       </div>
     </div>
   </div>
@@ -1947,7 +1962,7 @@
 <section class="support-section" id="support">
   <div class="section-label">Support the Project</div>
   <h2 class="section-title">Support the project.</h2>
-  <p class="section-desc">Cyrus is free and open-source. Every contribution — however small — goes directly toward continued development.</p>
+  <p class="section-desc">Cyrus is free for personal use and its source is public. Every contribution — however small — goes directly toward continued development.</p>
 
   <!-- PATREON — featured first -->
   <a href="https://www.patreon.com/c/CyrusCrypto" class="patreon-card" target="_blank" rel="noopener" onclick="gtag('event','click',{event_category:'donate',event_label:'patreon'})">
@@ -2192,12 +2207,12 @@
   <div class="cta-content">
     <img src="cyrus-logo.png" alt="Cyrus" style="width:96px;height:96px;object-fit:contain;margin-bottom:24px;filter:drop-shadow(0 0 24px rgba(0,229,255,0.5));display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
     <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
-    <p class="cta-desc">Free, open-source, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
-    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.1/Cyrus.Setup.1.2.1.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta" onclick="gtag('event','click',{event_category:'cta',event_label:'download_cta'})">
+    <p class="cta-desc">Free for personal use, source-available, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.2/Cyrus.Setup.1.2.2.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta" onclick="gtag('event','click',{event_category:'cta',event_label:'download_cta'})">
       <span class="btn-icon">⬇</span>
-      Download Cyrus v1.2.1
+      Download Cyrus v1.2.2
     </a>
-    <p class="cta-note">Windows x64 · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus" target="_blank">ISC License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
+    <p class="cta-note">Windows x64 · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
 </section>
 
