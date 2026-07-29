@@ -2505,11 +2505,30 @@
   }
 
   function skipEmailAndDownload() {
-    if (pendingDownloadUrl) {
-      trackDownload('skipped_email');
-      closeEmailModal();
-      window.location.href = pendingDownloadUrl;
-    }
+    // Hold the URL locally: closeEmailModal() clears pendingDownloadUrl, so
+    // reading it afterwards navigates to null and no file is ever fetched.
+    const url = pendingDownloadUrl;
+    if (!url) return;
+    trackDownload('skipped_email');
+    closeEmailModal();
+    startDownload(url);
+  }
+
+  /** Fetch the installer without tearing down the page mid-request.
+   *
+   * A plain location assignment cancels the analytics and mailing-list POSTs
+   * that were just fired. An anchor click on a cross-origin attachment lets the
+   * browser download in the background and leaves the page (and those requests)
+   * alone.
+   */
+  function startDownload(url) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.rel = 'noopener';
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }
 
   function handleEmailSubmit(event) {
@@ -2532,6 +2551,8 @@
     }
     clearEmailError();
 
+    // Captured before the modal closes, for the same reason as in the skip path.
+    const url = pendingDownloadUrl;
     const submitBtn = document.getElementById('email-submit-btn');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Submitting...';
@@ -2543,7 +2564,7 @@
     fd.append('page_url', location.href);
     fd.append('click_timestamp', new Date().toISOString());
 
-    fetch('/', { method: 'POST', body: fd })
+    fetch('/', { method: 'POST', body: fd, keepalive: true })
       .catch(err => console.log('Email submission error:', err))
       .finally(() => {
         submitBtn.textContent = originalText;
@@ -2554,9 +2575,7 @@
         trackDownload('email_submitted');
 
         closeEmailModal();
-        if (pendingDownloadUrl) {
-          window.location.href = pendingDownloadUrl;
-        }
+        if (url) startDownload(url);
       });
   }
 
@@ -2579,7 +2598,7 @@
     fd.append('connection_type', conn ? (conn.effectiveType || conn.type || '') : '');
     fd.append('page_url', location.href);
     fd.append('click_timestamp', new Date().toISOString());
-    fetch('/', { method: 'POST', body: fd }).catch(err => console.log('Download tracking error:', err));
+    fetch('/', { method: 'POST', body: fd, keepalive: true }).catch(err => console.log('Download tracking error:', err));
   }
 
   // Close modal when clicking outside
