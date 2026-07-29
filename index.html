@@ -1604,7 +1604,7 @@
       — AUTOMATE <span>CRYPTO</span> TRANSACTIONS —
     </div>
     <p class="hero-desc">
-      A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus executes trades, converts assets, and withdraws to your wallets automatically across Kraken, Coinbase, Binance, and Robinhood.
+      A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, and Robinhood.
     </p>
     <div class="hero-actions">
       <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.3/Cyrus.Setup.1.2.3.exe" class="btn-primary" data-download="hero" onclick="gtag('event','click',{event_category:'hero',event_label:'download_windows'})">
@@ -1637,7 +1637,7 @@
     </div>
     <div class="stat-item">
       <span class="stat-value">0</span>
-      <span class="stat-label">Cloud Dependencies</span>
+      <span class="stat-label">Cloud Accounts</span>
     </div>
   </div>
 </div>
@@ -1689,7 +1689,7 @@
     <div class="feature-card">
       <span class="feature-icon">⚡</span>
       <div class="feature-title">Automation Rules</div>
-      <p class="feature-desc">Trigger actions when an order fills, a balance crosses a threshold, or a price hits your target. Withdraw to a saved address or convert one asset into another — all automatically.</p>
+      <p class="feature-desc">Trigger actions when an order fills, a balance crosses a threshold, or a price hits your target. Price rules read every minute's high and low, so a spike that comes and goes between checks still counts. Withdraw to a saved address or convert one asset into another — all automatically.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📊</span>
@@ -1758,9 +1758,53 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Automation Rules</div>
         <h3 class="gallery-title">Set your rules once. Cyrus does the rest.</h3>
-        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. Click any circle in the chart to edit the rule behind it. See every rule's status and last run in one place, with cooldowns to keep automation in check.</p>
+        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. Click any circle in the chart to edit the rule behind it. Click any circle to edit the rule behind it, and see every rule's status and last run in one place, with cooldowns to keep automation in check.</p>
       </div>
     </div>
+
+
+    <!-- TODO: screenshots needed before these two rows go live. Capture with the
+         window maximised, then delete the comment markers around the row you
+         have a shot for.
+           Balancer -> "Screenshot balancer.png": Balancer page, 4-6 bars, at
+                       least one over its cap (amber), caps visibly set.
+           Holdings -> "Screenshot holdings.png": Holdings page with a row
+                       selected so the detail panel is open.
+
+    <div class="gallery-row gallery-row--reverse reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus &mdash; Balancer</span>
+        </div>
+        <img src="Screenshot balancer.png" alt="Cyrus balancer page: a bar per holding showing its share of the portfolio, with draggable maximum-allocation handles above each bar" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Portfolio Balancer</div>
+        <h3 class="gallery-title">Don&rsquo;t let one winner become your whole portfolio.</h3>
+        <p class="gallery-desc">Drag a ceiling onto any holding. When it grows past that share of your account, Cyrus sells just the excess into the asset you picked, landing below the line so the rule doesn&rsquo;t fire again on the next check. Simulate-only mode lets you watch it decide for a week before it trades a cent.</p>
+      </div>
+    </div>
+
+    <div class="gallery-row reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus &mdash; Holdings</span>
+        </div>
+        <img src="Screenshot holdings.png" alt="Cyrus holdings page: a sortable table of every position with price, daily and weekly change, a seven-day trend line, market cap, and distance from all-time high" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Holdings</div>
+        <h3 class="gallery-title">Know what you own, not just what it&rsquo;s worth.</h3>
+        <p class="gallery-desc">Market cap and rank, circulating versus maximum supply, all-time highs and the gain it would take to reach them again, momentum from one hour to thirty days &mdash; with your own position sized against all of it. Every figure says where it came from, and which exchange holds what when a coin is split across two.</p>
+      </div>
+    </div>
+    -->
 
     <div class="gallery-row gallery-row--reverse reveal">
       <div class="gallery-shot app-frame">
@@ -1847,6 +1891,34 @@
           <td><span class="check">✓</span></td>
         </tr>
         <tr>
+          <td class="td-feature">Trigger: Price target</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Trigger: Allocation cap (balancer)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Catches price spikes between checks</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">—</span></td>
+        </tr>
+        <tr>
+          <td class="td-feature">Holdings fundamentals (market cap, supply, ATH)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
           <td class="td-feature">Action: Convert crypto</td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -1906,7 +1978,7 @@
       <span class="step-num">04</span>
       <div>
         <div class="step-title">Connect your exchange</div>
-        <p class="step-desc">Go to Profile → Exchange Connections. Enter your exchange API key and secret (read + trade permissions recommended), then click Test to validate. Your keys are encrypted at rest using AES-128.</p>
+        <p class="step-desc">Go to Profile → Exchange Connections. Enter your exchange API key and secret (read + trade permissions recommended), then click Test to validate. Your keys are encrypted at rest using AES-128. Robinhood is the exception — it issues no secret at all, so Cyrus explains what it needs and offers a small key generator you can download and run offline to create the keypair yourself.</p>
       </div>
     </div>
     <div class="step-item">
@@ -1942,7 +2014,7 @@
     </div>
     <div class="security-card">
       <div class="security-title">Offline-First Architecture</div>
-      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend runs on localhost only — CORS is restricted to 127.0.0.1:5000.</p>
+      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend listens on localhost only and is never exposed to your network. The single outbound request is to a public market-data API for coin fundamentals on the Holdings page, and it sends nothing but a ticker symbol.</p>
     </div>
   </div>
 </section>
