@@ -1546,6 +1546,13 @@
     background: rgba(0,229,255,0.04);
   }
 
+  .email-modal-error {
+    margin: -4px 0 0;
+    font-size: 13px;
+    color: #F87171;
+    line-height: 1.5;
+  }
+
   .email-modal-privacy {
     font-size: 12px;
     color: var(--text-muted);
@@ -2383,10 +2390,15 @@
 </footer>
 
 <!-- EMAIL CAPTURE MODAL -->
-<div class="email-modal" id="email-modal">
+<div class="email-modal" id="email-modal" role="dialog" aria-modal="true"
+     aria-labelledby="email-modal-title" aria-describedby="email-modal-subtitle">
   <div class="email-modal-content">
-    <h3 class="email-modal-title">Stay Updated</h3>
-    <p class="email-modal-subtitle">Get notified when new features and updates are released.</p>
+    <h3 class="email-modal-title" id="email-modal-title">Stay Updated</h3>
+    <p class="email-modal-subtitle" id="email-modal-subtitle">
+      Leave your email and we'll tell you when a new version is out — new features, fixes,
+      and anything that needs your attention. Entirely optional: skip it and your download
+      starts straight away.
+    </p>
 
     <form class="email-modal-form" id="email-form" onsubmit="handleEmailSubmit(event)">
       <input
@@ -2396,15 +2408,17 @@
         name="email"
         placeholder="your@email.com"
         autocomplete="email"
+        aria-describedby="email-error"
       >
+      <p class="email-modal-error" id="email-error" role="alert" hidden></p>
     </form>
 
     <div class="email-modal-actions">
       <button type="submit" class="email-modal-btn-submit" id="email-submit-btn" onclick="handleEmailSubmit(event)">
-        Get Notified
+        Email me updates &amp; download
       </button>
       <button type="button" class="email-modal-btn-skip" onclick="skipEmailAndDownload()">
-        Skip & Download
+        Skip &amp; download
       </button>
     </div>
 
@@ -2452,10 +2466,14 @@
   // ── Email modal functionality ──
   let pendingDownloadUrl = null;
 
-  function showEmailModal(downloadUrl) {
+  let emailModalOpener = null;
+
+  function showEmailModal(downloadUrl, opener) {
     pendingDownloadUrl = downloadUrl;
+    emailModalOpener = opener || null;
     const modal = document.getElementById('email-modal');
     const emailInput = document.getElementById('modal-email');
+    clearEmailError();
     modal.classList.add('active');
     emailInput.focus();
   }
@@ -2464,7 +2482,26 @@
     const modal = document.getElementById('email-modal');
     modal.classList.remove('active');
     document.getElementById('modal-email').value = '';
+    clearEmailError();
     pendingDownloadUrl = null;
+    // Send focus back where it came from, so dismissing with the keyboard
+    // doesn't dump you at the top of the document.
+    if (emailModalOpener && typeof emailModalOpener.focus === 'function') {
+      emailModalOpener.focus();
+    }
+    emailModalOpener = null;
+  }
+
+  function clearEmailError() {
+    const err = document.getElementById('email-error');
+    err.hidden = true;
+    err.textContent = '';
+  }
+
+  function showEmailError(message) {
+    const err = document.getElementById('email-error');
+    err.textContent = message;
+    err.hidden = false;
   }
 
   function skipEmailAndDownload() {
@@ -2477,12 +2514,23 @@
 
   function handleEmailSubmit(event) {
     event.preventDefault();
-    const email = document.getElementById('modal-email').value.trim();
+    const input = document.getElementById('modal-email');
+    const email = input.value.trim();
 
+    // Empty is a legitimate "no thanks" — go straight to the download.
     if (!email) {
       skipEmailAndDownload();
       return;
     }
+
+    // A typo shouldn't be stored as if it were a subscriber, and it shouldn't
+    // block the download either — tell them, and let them fix it or skip.
+    if (!input.checkValidity()) {
+      showEmailError('That doesn\'t look like an email address. Fix it, or skip to download.');
+      input.focus();
+      return;
+    }
+    clearEmailError();
 
     const submitBtn = document.getElementById('email-submit-btn');
     const originalText = submitBtn.textContent;
@@ -2541,11 +2589,18 @@
     }
   });
 
+  // Escape dismisses it, like any other dialog.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const modal = document.getElementById('email-modal');
+    if (modal.classList.contains('active')) closeEmailModal();
+  });
+
   // Intercept all download links
   document.querySelectorAll('[data-download]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      showEmailModal(link.href);
+      showEmailModal(link.href, link);
       gtag('event', 'click', { event_category: 'download', event_label: 'modal_opened' });
     });
   });
