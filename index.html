@@ -771,6 +771,24 @@
     margin: 0 auto;
   }
 
+  .sponsor-embed {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 8px;
+  }
+
+  .sponsor-embed iframe {
+    max-width: 100%;
+    border-radius: 6px;
+    color-scheme: light;
+  }
+
+  @media (max-width: 640px) {
+    .sponsor-embed iframe {
+      height: 260px;
+    }
+  }
+
   /* Patreon featured card */
   .patreon-card {
     display: flex;
@@ -2056,6 +2074,12 @@
     </div>
     <span class="patreon-card-cta">Become a Patron</span>
   </a>
+
+  <!-- GITHUB SPONSORS — the card is served by github.com, so it can't be styled
+       from here; it's centred and allowed to scale down on narrow screens. -->
+  <div class="sponsor-embed">
+    <iframe src="https://github.com/sponsors/JonathanEDressel/card" title="Sponsor JonathanEDressel" height="225" width="600" style="border: 0;" loading="lazy"></iframe>
+  </div>
 
   <div class="crypto-divider">or give directly</div>
 
