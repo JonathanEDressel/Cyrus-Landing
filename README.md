@@ -5,6 +5,11 @@ for automating and monitoring cryptocurrency trading across multiple exchanges.
 
 A single static `index.html` (styles and scripts inline), deployed on Netlify.
 
+[![Sponsor JonathanEDressel](https://img.shields.io/badge/Sponsor-JonathanEDressel-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/JonathanEDressel)
+
+If Cyrus is useful to you, [sponsoring it on GitHub](https://github.com/sponsors/JonathanEDressel)
+keeps development going.
+
 ## Layout
 
 | Path | Purpose |
@@ -32,15 +37,6 @@ There is no build step. Edit `index.html` and deploy — Netlify publishes on pu
 
 Screenshots are taken with the app in demo mode (Ctrl+Shift+double-click the sidebar logo),
 so no real balances or account details appear on a public page.
-
-## Sponsors & Support
-
-[![Sponsor JonathanEDressel](https://img.shields.io/badge/Sponsor-JonathanEDressel-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/JonathanEDressel)
-
-<!-- GitHub strips <iframe> from rendered Markdown, so the badge above is what
-     actually appears on github.com. The embed is kept for anywhere this file is
-     rendered by something that allows iframes. -->
-<iframe src="https://github.com/sponsors/JonathanEDressel/button" title="Sponsor JonathanEDressel" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
 
 ## License
 
