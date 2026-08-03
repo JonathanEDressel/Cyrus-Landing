@@ -1670,7 +1670,7 @@
   <div class="showcase-heading">
     <div class="section-label reveal">A Look Inside</div>
     <h2 class="section-title reveal">Your whole portfolio, at a glance.</h2>
-    <p class="section-desc reveal">One unified dashboard for balances, open orders, live prices, and the automations running quietly in the background — across every connected exchange.</p>
+    <p class="section-desc reveal">One unified dashboard for balances, open orders, live prices, and the automations running quietly in the background — across every connected exchange. Resting limit orders get their own card, split buy against sell, so you can see what you have working before you drill in.</p>
   </div>
 
   <div class="app-frame reveal">
@@ -1680,7 +1680,7 @@
       <span class="app-frame-dot app-frame-dot--g"></span>
       <span class="app-frame-label">Cyrus — Overview</span>
     </div>
-    <img src="shot-overview.png" alt="Cyrus overview dashboard: portfolio doughnut with total value, open order and automation counts, a live BTC/USD chart, and the automation flow diagram" loading="lazy">
+    <img src="shot-overview.png" alt="Cyrus overview dashboard: tiles for portfolio value, 24h change, open orders, limit orders, automations and allocation caps, above a portfolio doughnut, a live BTC/USD chart, biggest holdings with seven-day trend lines, and a resting limit orders card split into buys and sells" loading="lazy">
   </div>
 </section>
 
@@ -1826,14 +1826,6 @@
       </div>
     </div>
 
-    <!-- Limit Orders gallery row. Parked in a template (not an HTML comment,
-         which cannot legally contain the double hyphens in the BEM class names)
-         until shot-limitorders.png exists. Capture it from the Limit Orders page
-         with demo mode on, showing the ladder wizard's review step. To publish:
-         unwrap the template, and flip the Profile row below from
-         "gallery-row reveal" to add "gallery-row_ _reverse" (real double hyphen)
-         so the left/right alternation keeps working. -->
-    <template id="gallery-row-limitorders">
     <div class="gallery-row reveal">
       <div class="gallery-shot app-frame">
         <div class="app-frame-bar">
@@ -1842,17 +1834,16 @@
           <span class="app-frame-dot app-frame-dot--g"></span>
           <span class="app-frame-label">Cyrus &mdash; Limit Orders</span>
         </div>
-        <img src="shot-limitorders.png" alt="Cyrus limit orders page: a table of resting buy and sell limit orders across four exchanges, with the ladder wizard open showing each rung's price and size before submitting" loading="lazy">
+        <img src="shot-limitorders.png" alt="Cyrus limit orders page: buy and sell tabs over a sortable table of 39 resting buy orders across four exchanges, each row showing the exchange, pair, limit price, volume, filled amount with partial fills flagged, estimated total, and a cancel button" loading="lazy">
       </div>
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Limit Orders</div>
         <h3 class="gallery-title">Ladder into a position, one rung at a time.</h3>
-        <p class="gallery-desc">Place a single limit order, or stagger dozens across a price band in one pass &mdash; set the span by percentage or exact price, commit a share of your balance, and Cyrus snaps every rung to the exchange&rsquo;s tick grid. Edit any rung before you submit, then watch them go out one by one, paced to each exchange&rsquo;s rate limits, with a stop button and a per-rung result. Every resting order across every exchange lands back in one sortable table.</p>
+        <p class="gallery-desc">Place a single limit order, or stagger dozens across a price band in one pass &mdash; set the span by percentage or exact price, commit a share of your balance, and Cyrus snaps every rung to the exchange&rsquo;s tick grid. Edit any rung before you submit, then watch them go out one by one, paced to each exchange&rsquo;s rate limits, with a stop button and a per-rung result. Every resting order across every exchange lands back in one sortable table, partial fills and all.</p>
       </div>
     </div>
-    </template>
 
-    <div class="gallery-row reveal">
+    <div class="gallery-row gallery-row--reverse reveal">
       <div class="gallery-shot app-frame">
         <div class="app-frame-bar">
           <span class="app-frame-dot app-frame-dot--r"></span>
