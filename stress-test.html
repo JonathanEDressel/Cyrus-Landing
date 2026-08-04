@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flash Crash Stress Test — Cyrus</title>
+<meta name="description" content="Interactive correlated Monte Carlo flash crash stress test for a crypto portfolio. Runs entirely in your browser — no account, no data leaves the page.">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W7RF4LTET7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W7RF4LTET7');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── LIGHT THEME (default) ── */
+  :root{
+    --bg:#f2f5fa;
+    --panel:#ffffff;
+    --panel-2:#fbfcfe;
+    --card:#ffffff;
+    --card-hover:#f7f9fc;
+    --line:#dde4ee;
+    --line-soft:#eaeef6;
+    --head:#f1f4fa;
+    --zebra:#f8fafc;
+    --row-hover:#eef3fb;
+    --grp-bg:#eaeff7;
+    --input-bg:#ffffff;
+    --cell-bg:#fdfefe;
+    --cell-line-hover:#c3cede;
+    --txt:#141d2b;
+    --txt-dim:#5a6a82;
+    --txt-faint:#5c6b83;
+    --accent:#1f6feb;
+    --accent-ink:#0f4fb0;
+    --accent-rgb:31,111,235;
+    --accent-wash:#f4f9ff;
+    --code-bg:#eaf1fd;
+    --good:#0b8457;
+    --good-rgb:11,132,87;
+    --warn:#8a5000;
+    --bad:#d02437;
+    --btn-a:#2a6fcb;
+    --btn-b:#1a5fcf;
+    --btn-line:#154da8;
+    --btn-txt:#ffffff;
+    --btn-ghost-line:#bfcbdc;
+    --bar-track:rgba(20,29,43,.09);
+    --bar-hot:#f0a13a;
+    --heat-hi:#0a2242;
+    --heat-mid:#0d2b52;
+    --heat-lo:#3b4a61;
+    --heat-line:#ffffff;
+    --scrim:rgba(13,22,38,.55);
+    --scrim-solid:rgba(13,22,38,.6);
+    --err-bg:#fdeef0; --err-line:#f4c2c9; --err-txt:#98202f;
+    --warn-bg:#fdf5e6; --warn-line:#f0dcb0; --warn-txt:#7d4a00;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --shadow:0 1px 2px rgba(20,29,43,.05), 0 8px 24px rgba(20,29,43,.06);
+    --shadow-lift:0 6px 16px rgba(20,29,43,.14);
+    --shadow-pop:0 18px 44px rgba(13,22,38,.28);
+    color-scheme:light;
+  }
+
+  /* ── DARK THEME ── */
+  :root[data-theme="dark"]{
+    --bg:#0b0f17;
+    --panel:#141c2b;
+    --panel-2:#18212f;
+    --card:#161f2e;
+    --card-hover:#1d2736;
+    --line:#243044;
+    --line-soft:#1c2637;
+    --head:#101827;
+    --zebra:#131b28;
+    --row-hover:#1b2433;
+    --grp-bg:#0e1523;
+    --input-bg:#0d1421;
+    --cell-bg:#0c1320;
+    --cell-line-hover:#34455f;
+    --txt:#ffffff;
+    --txt-dim:#e9eff8;
+    --txt-faint:#cbd6e4;
+    --accent:#4da3ff;
+    --accent-ink:#9fd0ff;
+    --accent-rgb:77,163,255;
+    --accent-wash:#152233;
+    --code-bg:rgba(77,163,255,.12);
+    --good:#2fd48f;
+    --good-rgb:47,212,143;
+    --warn:#f2b544;
+    --bad:#ff5d6c;
+    --btn-a:#5aabff;
+    --btn-b:#2f7fe0;
+    --btn-line:#2f7fe0;
+    --btn-txt:#04101f;
+    --btn-ghost-line:#334463;
+    --bar-track:rgba(255,255,255,.09);
+    --bar-hot:#ff8a5d;
+    --heat-hi:#06101f;
+    --heat-mid:#cfe4ff;
+    --heat-lo:#c6d5e8;
+    --heat-line:#141c2b;
+    --scrim:rgba(0,0,0,.66);
+    --scrim-solid:rgba(0,0,0,.72);
+    --err-bg:rgba(255,93,108,.13); --err-line:rgba(255,93,108,.34); --err-txt:#ffb3bb;
+    --warn-bg:rgba(242,181,68,.11); --warn-line:rgba(242,181,68,.3); --warn-txt:#ffd58f;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 26px rgba(0,0,0,.42);
+    --shadow-lift:0 6px 18px rgba(0,0,0,.5);
+    --shadow-pop:0 20px 48px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1100px 520px at 12% -8%, rgba(var(--accent-rgb),.07), transparent 62%),
+      radial-gradient(900px 460px at 96% -2%, rgba(124,92,255,.06), transparent 58%),
+      var(--bg);
+    color:var(--txt);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    padding:22px 18px 70px;
+  }
+  .wrap{max-width:1400px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header.top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+  h1{font-size:22px;line-height:1.2;margin:0 0 4px;letter-spacing:-.02em}
+  h1 .dot{color:var(--accent)}
+  .sub{color:var(--txt-dim);font-size:13px;max-width:70ch;margin:0}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--panel);border:1px solid var(--line);
+    padding:7px 12px;border-radius:999px;font-size:12px;color:var(--txt-dim);
+    font-family:var(--mono);box-shadow:var(--shadow)
+  }
+  .badge b{color:var(--txt);font-weight:600}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px rgba(var(--good-rgb),.16)}
+
+  /* ---------- theme switch (fixed, bottom left) ---------- */
+  .theme-switch{
+    position:fixed;bottom:18px;left:18px;z-index:80;
+    display:inline-flex;align-items:center;gap:2px;padding:4px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    box-shadow:var(--shadow)
+  }
+  .theme-opt{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:32px;height:32px;padding:0;border:0;border-radius:999px;
+    background:transparent;color:var(--txt-faint);cursor:pointer;
+    transition:background .16s,color .16s
+  }
+  .theme-opt svg{width:17px;height:17px;display:block}
+  .theme-opt:hover{color:var(--txt);background:var(--card-hover)}
+  .theme-opt[aria-pressed="true"]{
+    background:rgba(var(--accent-rgb),.13);color:var(--accent);
+    box-shadow:inset 0 0 0 1px rgba(var(--accent-rgb),.34)
+  }
+  .theme-opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (max-width:640px){ .theme-switch{bottom:12px;left:12px} }
+  @media print{ .theme-switch{display:none} }
+
+  /* ---------- walkthrough launcher ---------- */
+  .title-row{display:flex;align-items:flex-start;gap:13px}
+  .tour-btn{
+    display:inline-flex;align-items:center;gap:8px;flex:none;
+    margin-top:1px;padding:8px 13px 8px 10px;border-radius:999px;
+    background:var(--card);border:1px solid var(--line);color:var(--accent-ink);
+    font-size:12px;font-weight:700;letter-spacing:.02em;
+    box-shadow:var(--shadow);position:relative
+  }
+  .tour-btn svg{width:19px;height:19px;flex:none}
+  .tour-btn:hover{border-color:var(--accent);background:var(--accent-wash)}
+  .tour-btn::after{
+    content:"";position:absolute;inset:-4px;border-radius:999px;
+    border:2px solid var(--accent);opacity:0;pointer-events:none
+  }
+  .tour-btn.attn::after{animation:tourPing 2.4s ease-out infinite}
+  @keyframes tourPing{
+    0%{opacity:.55;transform:scale(.94)}
+    70%{opacity:0;transform:scale(1.14)}
+    100%{opacity:0;transform:scale(1.14)}
+  }
+  @media (prefers-reduced-motion:reduce){ .tour-btn.attn::after{animation:none} }
+  @media (max-width:520px){ .tour-btn-label{display:none} .tour-btn{padding:9px} }
+
+  /* ---------- walkthrough overlay ---------- */
+  .tour-scrim{position:fixed;inset:0;z-index:900;background:transparent;cursor:pointer}
+  .tour-spot{
+    position:fixed;z-index:901;border-radius:11px;pointer-events:none;
+    border:2px solid var(--accent);
+    box-shadow:0 0 0 9999px var(--scrim), 0 0 0 4px rgba(var(--accent-rgb),.22);
+    transition:top .22s cubic-bezier(.4,0,.2,1), left .22s cubic-bezier(.4,0,.2,1),
+               width .22s cubic-bezier(.4,0,.2,1), height .22s cubic-bezier(.4,0,.2,1)
+  }
+  .tour-spot.center{border-color:transparent;box-shadow:0 0 0 9999px var(--scrim-solid)}
+  .tour-card{
+    position:fixed;z-index:903;width:min(400px,calc(100vw - 28px));
+    background:var(--card);border:1px solid var(--line);border-radius:13px;
+    box-shadow:var(--shadow-pop);
+    padding:0;overflow:hidden
+  }
+  .tour-prog{height:3px;background:var(--line-soft)}
+  .tour-prog > i{display:block;height:100%;background:var(--accent);transition:width .22s ease}
+  .tour-card .inner{padding:15px 17px 14px;max-height:min(42vh,460px);overflow-y:auto;overscroll-behavior:contain}
+  .tour-step{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--txt-faint);margin-bottom:7px
+  }
+  .tour-card h4{margin:0 0 8px;font-size:15.5px;letter-spacing:-.01em;color:var(--txt)}
+  .tour-card p{margin:0 0 9px;font-size:13px;line-height:1.62;color:var(--txt-dim)}
+  .tour-card p:last-of-type{margin-bottom:0}
+  .tour-card p b{color:var(--txt)}
+  .tour-card code{
+    font-family:var(--mono);font-size:12px;color:var(--accent-ink);
+    background:var(--code-bg);padding:1px 5px;border-radius:4px
+  }
+  .tour-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:11px 17px 13px;border-top:1px solid var(--line-soft);background:var(--panel-2)
+  }
+  .tour-foot .keys{font-size:11px;color:var(--txt-faint)}
+  .tour-foot .keys kbd{
+    font-family:var(--mono);font-size:10.5px;background:var(--card);border:1px solid var(--line);
+    border-bottom-width:2px;border-radius:4px;padding:1px 4px;color:var(--txt-dim)
+  }
+  .tour-nav{display:flex;gap:8px}
+  .tour-nav button{padding:8px 14px;font-size:12.5px;border-radius:8px}
+  @media (max-width:640px){
+    .tour-foot .keys{display:none}
+    .tour-foot{justify-content:flex-end}
+  }
+
+  /* ---------- panels ---------- */
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);
+    margin-bottom:18px;overflow:hidden
+  }
+  .panel > .head{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    padding:13px 16px;border-bottom:1px solid var(--line-soft);
+    background:var(--panel-2)
+  }
+  .panel > .head h2{
+    margin:0;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-dim)
+  }
+  .panel > .body{padding:16px}
+  .hint{color:var(--txt-faint);font-size:12px}
+
+  /* ---------- controls ---------- */
+  .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;align-items:end}
+  .field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-dim);margin-bottom:6px}
+  .field .unit{color:var(--txt-faint);text-transform:none;letter-spacing:0}
+  input[type=number]{
+    width:100%;background:var(--input-bg);border:1px solid var(--line);color:var(--txt);
+    padding:10px 11px;border-radius:9px;font-family:var(--mono);font-size:14px;
+    transition:border-color .15s,box-shadow .15s
+  }
+  input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.16)}
+  select{
+    width:100%;background:var(--input-bg);border:1px solid var(--line);color:var(--txt);
+    padding:10px 11px;border-radius:9px;font-family:var(--mono);font-size:14px;cursor:pointer;
+    transition:border-color .15s,box-shadow .15s
+  }
+  select:hover{border-color:var(--cell-line-hover)}
+  select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.16)}
+  input:disabled{opacity:.62;cursor:not-allowed}
+  input.cell{padding:7px 8px;font-size:13px;text-align:right;border-radius:7px;background:var(--cell-bg)}
+  input.cell:hover{border-color:var(--cell-line-hover)}
+  .range-pair{display:flex;gap:8px;align-items:center}
+  .range-pair span{color:var(--txt-faint)}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap}
+  button{
+    font:inherit;font-weight:600;cursor:pointer;border-radius:9px;padding:11px 18px;
+    border:1px solid transparent;transition:transform .06s,filter .15s,background .15s
+  }
+  button:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(180deg,var(--btn-a),var(--btn-b));color:var(--btn-txt);border-color:var(--btn-line);box-shadow:0 1px 2px rgba(var(--accent-rgb),.35)}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-primary[disabled]{opacity:.6;cursor:progress;filter:none}
+  .btn-ghost{background:var(--card);border-color:var(--line);color:var(--txt-dim)}
+  .btn-ghost:hover{color:var(--txt);border-color:var(--btn-ghost-line);background:var(--card-hover)}
+
+  /* ---------- tables ---------- */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:780px}
+  thead th{
+    position:sticky;top:0;z-index:2;
+    background:var(--head);color:var(--txt-dim);
+    font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;
+    text-align:right;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap
+  }
+  thead th:first-child,tbody td:first-child{text-align:left}
+  tbody td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line-soft);font-family:var(--mono);white-space:nowrap}
+  tbody tr:nth-child(even) td{background:var(--zebra)}
+  tbody tr:hover td{background:var(--row-hover)}
+  tbody tr.anchor td{background:rgba(var(--accent-rgb),.07)}
+  tbody tr.anchor:hover td{background:rgba(var(--accent-rgb),.11)}
+  .asset{display:flex;align-items:center;gap:9px;font-family:inherit}
+  .tick{font-weight:700;letter-spacing:.01em}
+  .name{color:var(--txt-faint);font-size:11.5px}
+  .chip{
+    font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+    padding:2px 6px;border-radius:5px;border:1px solid;
+    color:var(--c);border-color:var(--cb);background:var(--cbg)
+  }
+  .chip.anchor{--c:#12539e;--cb:#bcd4f5;--cbg:#e8f1fd}
+  .chip.major{--c:#0a6b4a;--cb:#b5e0cd;--cbg:#e7f6ef}
+  .chip.meme{--c:#a3243a;--cb:#f3c4cc;--cbg:#fdedf0}
+  .chip.alt{--c:#6a3bb5;--cb:#d8cbf5;--cbg:#f3eefe}
+  :root[data-theme="dark"] .chip.anchor{--c:#8cc6ff;--cb:rgba(140,198,255,.32);--cbg:rgba(140,198,255,.10)}
+  :root[data-theme="dark"] .chip.major{--c:#7fe3c0;--cb:rgba(127,227,192,.28);--cbg:rgba(127,227,192,.09)}
+  :root[data-theme="dark"] .chip.meme{--c:#ffa8b2;--cb:rgba(255,168,178,.28);--cbg:rgba(255,168,178,.09)}
+  :root[data-theme="dark"] .chip.alt{--c:#d9b6ff;--cb:rgba(217,182,255,.28);--cbg:rgba(217,182,255,.09)}
+
+  .grp th{
+    text-align:left !important;font-family:inherit;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--txt-faint);background:var(--grp-bg);padding:7px 10px;border-bottom:1px solid var(--line-soft);position:static
+  }
+  .neg{color:var(--bad)}
+  .pos{color:var(--good)}
+  .mild{color:var(--warn)}
+  .dim{color:var(--txt-faint)}
+  .sub-val{display:block;font-size:10.5px;color:var(--txt-faint);margin-top:1px;font-weight:400}
+  .sub-val.neg{color:var(--bad)}
+  .sub-val.pos{color:var(--good)}
+  .sub-val.mild{color:var(--warn)}
+  .sub-val.dim{color:var(--txt-faint)}
+  .bar{position:relative;height:5px;border-radius:3px;background:var(--bar-track);margin-top:5px;overflow:hidden}
+  .bar > i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--bar-hot),var(--bad));border-radius:3px}
+
+  /* ---------- stat tiles ---------- */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+  .tile{background:var(--panel-2);border:1px solid var(--line-soft);border-radius:11px;padding:13px 14px}
+  .tile .k{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:7px}
+  .tile .v{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.01em}
+  .tile .m{font-size:11.5px;color:var(--txt-faint);margin-top:3px;font-family:var(--mono)}
+
+  /* ---------- correlation heat ---------- */
+  #corrWrap table{min-width:640px;font-size:11px}
+  #corrWrap td,#corrWrap th{padding:5px 6px;border:1px solid var(--heat-line)}
+  #corrWrap thead th{font-size:10px;letter-spacing:.02em;text-align:center}
+  #corrWrap td{text-align:center;font-family:var(--mono);background:rgba(var(--accent-rgb),var(--a,0));color:var(--heat-lo)}
+  #corrWrap td.mid{color:var(--heat-mid)}
+  #corrWrap td.hi{color:var(--heat-hi)}
+  #corrWrap tbody th{
+    text-align:left;font-size:10.5px;font-weight:700;color:var(--txt-dim);
+    background:var(--head);position:sticky;left:0;font-family:var(--mono);border-right:1px solid var(--line)
+  }
+
+  details.meth{border-top:1px solid var(--line-soft);padding:13px 16px;background:var(--panel-2)}
+  details.meth summary{cursor:pointer;color:var(--txt-dim);font-size:12px;font-weight:600;letter-spacing:.04em}
+  details.meth summary:hover{color:var(--txt)}
+  details.meth .inner{padding-top:11px;color:var(--txt-dim);font-size:12.5px;max-width:105ch}
+  details.meth code{font-family:var(--mono);color:var(--accent-ink);background:#eaf1fd;padding:1px 5px;border-radius:4px}
+  details.meth ol{padding-left:18px;margin:8px 0}
+  details.meth li{margin:5px 0}
+  details.meth b{color:var(--txt)}
+
+  .msg{padding:10px 13px;border-radius:9px;font-size:12.5px;margin-top:12px;display:none}
+  .msg.show{display:block}
+  .msg.err{background:var(--err-bg);border:1px solid var(--err-line);color:var(--err-txt)}
+  .msg.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-txt)}
+
+  /* ---------- plain-English summary ---------- */
+  .narr{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+  @media (max-width:900px){ .narr{grid-template-columns:1fr;gap:18px} }
+  .narr h3{
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-dim);
+    margin:0 0 10px;font-weight:700
+  }
+  .narr p{margin:0 0 10px;color:var(--txt);font-size:13.5px;line-height:1.6;max-width:72ch}
+  .narr p.lede{font-size:14.5px}
+  .narr ul{margin:0;padding:0;list-style:none}
+  .narr ul li{
+    position:relative;padding:9px 0 9px 26px;font-size:13.5px;line-height:1.55;
+    border-bottom:1px solid var(--line-soft)
+  }
+  .narr ul li:last-child{border-bottom:0}
+  .narr ul li::before{
+    content:"";position:absolute;left:7px;top:16px;width:6px;height:6px;border-radius:50%;
+    background:var(--accent)
+  }
+  .narr ul li.hot::before{background:var(--bad)}
+  .narr ul li.ok::before{background:var(--good)}
+  .narr ul li b{font-family:var(--mono);font-weight:600}
+  .glossary{border-top:1px solid var(--line-soft);margin-top:4px;padding-top:14px}
+  .glossary dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 14px;align-items:baseline}
+  .glossary dt{
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent-ink);white-space:nowrap
+  }
+  .glossary dd{margin:0;font-size:12.5px;color:var(--txt-dim);line-height:1.5}
+  .callout{
+    background:var(--panel-2);border:1px solid var(--line-soft);border-left:3px solid var(--accent);
+    border-radius:9px;padding:12px 14px;font-size:12.5px;color:var(--txt-dim);line-height:1.6;margin-top:14px
+  }
+  .callout b{color:var(--txt)}
+
+  .empty{padding:44px 16px;text-align:center;color:var(--txt-faint)}
+  footer{color:var(--txt-faint);font-size:11.5px;text-align:center;margin-top:22px;line-height:1.7}
+  .footer-home{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;margin-top:14px;border-radius:50%;
+    background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+    transition:border-color .18s,transform .12s,box-shadow .18s
+  }
+  .footer-home img{width:22px;height:22px;object-fit:contain;display:block}
+  .footer-home:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-lift)}
+  .footer-home:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0
+  }
+
+  @media (max-width:640px){
+    body{padding:14px 10px 50px}
+    h1{font-size:19px}
+    .panel > .body{padding:12px}
+  }
+</style>
+<script>
+/* Applied before first paint so a remembered dark choice never flashes white. */
+(function(){
+  var saved=null;
+  try{ saved=localStorage.getItem("cyrus.theme"); }catch(e){}
+  var dark = saved ? saved==="dark"
+                   : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.setAttribute("data-theme", dark?"dark":"light");
+})();
+</script>
+</head>
+<body>
+
+<!-- THEME SWITCH -->
+<div class="theme-switch" role="group" aria-label="Colour theme">
+  <button type="button" class="theme-opt" id="themeLight" aria-pressed="true" title="Light theme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+    </svg>
+    <span class="sr-only">Light theme</span>
+  </button>
+  <button type="button" class="theme-opt" id="themeDark" aria-pressed="false" title="Dark theme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20.5 14.4A8.6 8.6 0 1 1 9.6 3.5a6.9 6.9 0 0 0 10.9 10.9z"/>
+    </svg>
+    <span class="sr-only">Dark theme</span>
+  </button>
+</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="title-row">
+      <button class="tour-btn attn" id="tourBtn" title="Start the guided walkthrough" aria-label="Start the guided walkthrough">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M15.4 8.6 13.1 13.1 8.6 15.4 10.9 10.9z" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="tour-btn-label">Walkthrough</span>
+      </button>
+      <div>
+        <h1>Correlated Monte Carlo Flash Crash Stress Test<span class="dot">.</span></h1>
+        <p class="sub"><span class="anchor-name">XLM</span>-anchored crash propagation across a 13-asset crypto book. Cholesky-correlated idiosyncratic shocks, full-distribution tail metrics. Everything runs locally in this page.</p>
+      </div>
+    </div>
+    <div class="badge"><span class="pulse"></span> Engine <b>vanilla&nbsp;JS</b> · Box–Muller + Cholesky</div>
+  </header>
+
+  <!-- ============ CONTROL PANEL ============ -->
+  <section class="panel">
+    <div class="head">
+      <h2>Control Panel</h2>
+      <span class="hint">The anchor scenario drives every other asset through its crash beta.</span>
+    </div>
+    <div class="body">
+      <div class="controls">
+        <div class="field" id="fieldAnchor">
+          <label for="anchorSel">Anchor asset <span class="unit">(drives the crash)</span></label>
+          <select id="anchorSel"></select>
+        </div>
+        <div class="field" id="fieldRange">
+          <label for="xlmLo"><span class="anchor-name">XLM</span> target price range <span class="unit">(USD)</span></label>
+          <div class="range-pair">
+            <input type="number" id="xlmLo" value="0.08" step="0.001" min="0.000001">
+            <span>–</span>
+            <input type="number" id="xlmHi" value="0.11" step="0.001" min="0.000001">
+          </div>
+        </div>
+        <div class="field" id="fieldRuns">
+          <label for="runs">Simulation runs</label>
+          <input type="number" id="runs" value="10000" step="1000" min="100" max="200000">
+        </div>
+        <div class="field" id="fieldNoise">
+          <label for="noise">Noise <span class="unit">(% idiosyncratic)</span></label>
+          <input type="number" id="noise" value="12" step="1" min="0" max="100">
+        </div>
+        <div class="field" id="fieldSeed">
+          <label for="seed">Seed <span class="unit">(0 = random)</span></label>
+          <input type="number" id="seed" value="42" step="1" min="0">
+        </div>
+        <div class="field" id="fieldRun">
+          <div class="btn-row">
+            <button class="btn-primary" id="runBtn">Run Stress Test</button>
+            <button class="btn-ghost" id="resetBtn" title="Restore default spots and betas">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="msg" id="msg"></div>
+    </div>
+  </section>
+
+  <!-- ============ ASSET INPUT TABLE ============ -->
+  <section class="panel">
+    <div class="head">
+      <h2>Portfolio Assumptions</h2>
+      <span class="hint">Editable — starting spot price and crash beta vs. the <span class="anchor-name">XLM</span> anchor move.</span>
+    </div>
+    <div class="scroll">
+      <table id="inputTable">
+        <thead>
+          <tr>
+            <th style="min-width:230px">Asset</th>
+            <th style="width:170px" id="thSpot">Starting Spot Price ($)</th>
+            <th style="width:150px" id="thBeta">Crash Beta (β)</th>
+            <th style="width:230px">Interpretation</th>
+          </tr>
+        </thead>
+        <tbody id="inputBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ SCENARIO SUMMARY ============ -->
+  <section class="panel" id="summaryPanel" style="display:none">
+    <div class="head"><h2>Anchor Scenario</h2><span class="hint" id="scenarioMeta"></span></div>
+    <div class="body"><div class="tiles" id="tiles"></div></div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="panel">
+    <div class="head">
+      <h2>Stress Test Results</h2>
+      <div class="btn-row">
+        <button class="btn-ghost" id="csvBtn" style="display:none;padding:7px 13px;font-size:12px">Export CSV</button>
+      </div>
+    </div>
+    <div id="resultsHost">
+      <div class="empty" id="resultsEmpty">No simulation yet — set your assumptions and hit <b>Run Stress Test</b>.</div>
+      <div class="scroll" id="resultsScroll" style="display:none">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th style="min-width:210px">Asset</th>
+              <th>Starting Spot</th>
+              <th id="thMean">Mean Landing</th>
+              <th id="thMild">95% Upper Floor<span class="sub-val">mild tail</span></th>
+              <th id="thVar95">95% VaR (5th pct)<span class="sub-val">severe tail</span></th>
+              <th id="thVar99">99% VaR (1st pct)<span class="sub-val">black swan</span></th>
+              <th id="thCvar">99% CVaR<span class="sub-val">expected shortfall</span></th>
+              <th id="thMdd">Max Drawdown</th>
+            </tr>
+          </thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <details class="meth">
+      <summary>Methodology &amp; math engine</summary>
+      <div class="inner">
+        <ol>
+          <li><b>Anchor sampling.</b> Each run <code>k</code> draws an anchor landing price uniformly from the target range, giving the anchor return <code>R_anchor,k = P_land / P_spot,anchor − 1</code>.</li>
+          <li><b>Correlated shocks.</b> A 13×13 correlation matrix <code>Σ</code> is built from asset-class blocks (anchor / majors / memes / alts) and decomposed with a pure-JS Cholesky routine so that <code>L·Lᵀ = Σ</code> (diagonal jitter is added automatically if <code>Σ</code> is not numerically positive-definite). Independent <code>N(0,1)</code> draws <code>Z</code> come from the Box–Muller transform and are mapped to correlated normals via the matrix product <code>X = L·Z</code>.</li>
+          <li><b>Downside noise.</b> <code>ε_i,k = σ_i · X_i,k</code> with <code>σ_i = (noise% / 100) · |R_anchor,k|</code>, so idiosyncratic dispersion scales with crash severity. Negative draws are additionally multiplied by 1.35 to produce the fat left tail characteristic of a liquidity flash crash.</li>
+          <li><b>Asset return.</b> <code>R_i,k = β_i · R_anchor,k + ε_i,k</code>, floored at −99.5%. The anchor leg lands inside your target band by definition, so it takes neither a beta nor idiosyncratic noise. Landing price is <code>P_i,k = P_spot,i · (1 + R_i,k)</code>.</li>
+          <li><b>Metrics.</b> Computed on the full sorted price distribution: mean; 95th percentile (mild-tail upper floor); 5th percentile (95% VaR); 1st percentile (99% VaR); the average of all outcomes at or below the 1st percentile (99% CVaR / expected shortfall); and max drawdown from the single worst run, <code>min(P_i,k) / P_spot,i − 1</code>.</li>
+        </ol>
+        <p>The seed field drives a deterministic Mulberry32 PRNG, so a given configuration reproduces exactly; set it to 0 for a fresh random stream each run. Note that with high betas, a deep anchor crash and large noise, returns can hit the −99.5% floor — when the 95% and 99% tail figures for an asset are identical, that floor is binding and the tail is truncated rather than estimated.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ CORRELATION MATRIX ============ -->
+  <section class="panel" id="secCorr">
+    <div class="head">
+      <h2>Correlation Matrix (Σ)</h2>
+      <span class="hint">Block structure by asset class — the input to the Cholesky decomposition.</span>
+    </div>
+    <div class="scroll" id="corrWrap"></div>
+  </section>
+
+  <!-- ============ PLAIN-ENGLISH SUMMARY ============ -->
+  <section class="panel" id="secSummary">
+    <div class="head">
+      <h2>What This Means — Plain English</h2>
+      <span class="hint">Written for a reader seeing this dashboard for the first time.</span>
+    </div>
+    <div class="body">
+      <div class="narr">
+        <div>
+          <h3>What this tool does</h3>
+          <p class="lede">It answers one question: <b>“if my anchor asset crashes to somewhere between my two target prices, where does the rest of my crypto book probably land?”</b></p>
+          <p>Rather than guessing a single number, it replays the crash thousands of times. Each replay picks a slightly different landing price for the anchor inside your target range, then pushes that shock out to every other coin through two dials you control: its <b>beta</b> (how hard it amplifies or dampens the anchor's move) and the <b>noise</b> setting (how much each coin can wander off its beta on its own).</p>
+          <p>Crucially, that wandering is <b>correlated</b>, not independent. In a real flash crash coins do not fall in isolation — majors move together, memes move together, and everything moves somewhat with everything else. The correlation matrix at the top of this page encodes those relationships, and the Cholesky decomposition is the piece of maths that makes the random draws respect them. Ignore that step and you get a comfortably wrong answer, because independent randomness quietly cancels itself out and hides your true tail risk.</p>
+          <p>The result is a full distribution of landing prices for every asset. The results table reports the middle of that distribution and — more importantly — its bad end.</p>
+
+          <h3 style="margin-top:20px">What your scenario showed</h3>
+          <ul id="narrFindings"><li class="dim">Run the stress test to generate a reading.</li></ul>
+        </div>
+
+        <div>
+          <h3>How to read the columns</h3>
+          <div class="glossary">
+            <dl>
+              <dt>Starting Spot</dt>
+              <dd>Today's price you typed in — the baseline every loss is measured against.</dd>
+
+              <dt>Mean Landing</dt>
+              <dd>The average outcome across all runs. A reasonable central expectation, but it deliberately hides the tails.</dd>
+
+              <dt>95% Upper Floor</dt>
+              <dd>The mild end: only 5% of runs finished <em>better</em> than this. Treat it as a realistic good case, not a target.</dd>
+
+              <dt>95% VaR</dt>
+              <dd>The 5th percentile. 95% of runs finished at or above this price, so 1 run in 20 was worse. This is the standard “bad day” planning number.</dd>
+
+              <dt>99% VaR</dt>
+              <dd>The 1st percentile — the black-swan line. Only 1 run in 100 was worse.</dd>
+
+              <dt>99% CVaR</dt>
+              <dd>Expected shortfall: the <em>average</em> of that worst 1% of runs. It answers “if the black swan does show up, how bad is it typically?” — always at or below the 99% VaR, and the honest number for sizing a worst case.</dd>
+
+              <dt>Max Drawdown</dt>
+              <dd>The single worst run out of all of them. Useful as a stress bound, but it is one draw of noise, so read it as a limit rather than a forecast.</dd>
+            </dl>
+          </div>
+          <div class="callout">
+            <b>What this is not.</b> Every number here is a consequence of the assumptions you entered — the target range, the betas, the noise level and the correlation blocks. It is a way to see how those assumptions interact and where your portfolio is most fragile, not a prediction of prices. Low-liquidity and high-beta names in particular will always look violent here, which is the model working as intended rather than a signal about them.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Illustrative risk modelling only — not investment advice. Correlations, betas and the uniform anchor prior are assumptions, not forecasts.<br>
+    Runs entirely in your browser — nothing you type here is sent anywhere.<br>
+    <a class="footer-home" href="index.html" title="Back to Cyrus">
+      <img src="cyrus-logo.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'←',style:'font-size:17px;color:#1f6feb'}))">
+      <span class="sr-only">Back to Cyrus</span>
+    </a>
+  </footer>
+</div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   1. UNIVERSE
+   ============================================================ */
+const GROUPS = {
+  anchor: {label:"Anchor",            cls:"anchor"},   // a role, assigned at runtime
+  major : {label:"Majors",            cls:"major"},
+  meme  : {label:"High-Beta / Memes", cls:"meme"},
+  alt   : {label:"DeFi / RWA / Alts", cls:"alt"}
+};
+const CLASS_ORDER = ["major","meme","alt"];
+
+const ASSETS = [
+  {t:"XLM",  n:"Stellar Lumens", g:"major",  spot:0.1600,     beta:1.00, note:"Payment rail, retail-heavy"},
+  {t:"BTC",  n:"Bitcoin",        g:"major",  spot:95000,      beta:0.45, note:"Defensive, deepest liquidity"},
+  {t:"ETH",  n:"Ethereum",       g:"major",  spot:3200,       beta:0.60, note:"Defensive, deep liquidity"},
+  {t:"XRP",  n:"Ripple",         g:"major",  spot:2.2000,     beta:0.85, note:"Payment-rail correlated"},
+  {t:"SOL",  n:"Solana",         g:"major",  spot:150.00,     beta:0.75, note:"High-beta L1"},
+  {t:"DOT",  n:"Polkadot",       g:"major",  spot:3.8000,     beta:0.80, note:"Thin bid depth"},
+  {t:"AVAX", n:"Avalanche",      g:"major",  spot:22.000,     beta:0.85, note:"Thin bid depth"},
+  {t:"ADA",  n:"Cardano",        g:"major",  spot:0.6000,     beta:0.90, note:"Retail-heavy flow"},
+  {t:"SHIB", n:"Shiba Inu",      g:"meme",   spot:0.00001100, beta:1.25, note:"Reflexive, sentiment-led"},
+  {t:"PEPE", n:"Pepe",           g:"meme",   spot:0.00000900, beta:1.35, note:"Extreme reflexivity"},
+  {t:"DOGE", n:"Dogecoin",       g:"meme",   spot:0.1600,     beta:1.20, note:"Liquid but momentum-led"},
+  {t:"ONDO", n:"Ondo Finance",   g:"alt",    spot:0.8500,     beta:1.05, note:"RWA / small float"},
+  {t:"LUNC", n:"Terra Luna Classic", g:"alt",spot:0.00006000, beta:1.60, note:"Post-collapse chain — no bid depth"}
+];
+const N = ASSETS.length;
+
+/* Which asset defines the crash. A role, not a property — any asset can hold it. */
+const ANCHOR_KEY = "cyrus.stressTest.anchor";
+const DEFAULT_RANGE = [0.50, 0.6875];   // the original $0.08–$0.11 against a $0.16 XLM spot
+let ANCHOR = 0;
+let STORED_RANGE = null;
+
+/* The target band is quoted in the anchor's own currency, so it is stored alongside the
+   anchor — restoring one without the other would reload a nonsense scenario. */
+function loadAnchor(){
+  let raw=null;
+  try{ raw=localStorage.getItem(ANCHOR_KEY); }catch(e){}
+  let t=raw, lo=null, hi=null;
+  if(raw && raw.charAt(0)==="{"){
+    try{ const o=JSON.parse(raw); t=o.t; lo=o.lo; hi=o.hi; }catch(e){ t=null; }
+  }
+  const i = t ? ASSETS.findIndex(a=>a.t===t) : -1;
+  ANCHOR = i>=0 ? i : 0;
+  const plausible = i>=0 && isFinite(lo) && isFinite(hi) && lo>0 && lo<hi &&
+                    lo < ASSETS[ANCHOR].spot*5;     // reject a band left over from another anchor
+  STORED_RANGE = plausible ? [lo,hi] : null;
+}
+function saveAnchor(){
+  const lo=parseFloat($("xlmLo").value), hi=parseFloat($("xlmHi").value);
+  const payload={t:ASSETS[ANCHOR].t};
+  if(isFinite(lo)&&isFinite(hi)&&lo>0&&lo<hi){ payload.lo=lo; payload.hi=hi; }
+  try{ localStorage.setItem(ANCHOR_KEY, JSON.stringify(payload)); }catch(e){}
+}
+
+/* A band that fits the anchor's spot price, used for a new anchor or a missing/invalid store. */
+function rebaseRange(){
+  const el=$("spot_"+ANCHOR);
+  const typed=el?parseFloat(el.value):NaN;
+  const spot=(isFinite(typed)&&typed>0)?typed:ASSETS[ANCHOR].spot;
+  const round=v=>{
+    if(!isFinite(v)||v<=0) return v;
+    const mag=Math.pow(10, Math.floor(Math.log10(v))-2);
+    return Math.round(v/mag)*mag;
+  };
+  $("xlmLo").value=round(spot*DEFAULT_RANGE[0]);
+  $("xlmHi").value=round(spot*DEFAULT_RANGE[1]);
+}
+
+/* Restore the stored band, or derive a sane one for the stored anchor. */
+function applyStoredRange(){
+  if(STORED_RANGE){
+    $("xlmLo").value=STORED_RANGE[0];
+    $("xlmHi").value=STORED_RANGE[1];
+  } else if(ANCHOR!==0){
+    rebaseRange();
+  }
+}
+const anchorTicker = () => ASSETS[ANCHOR].t;
+/* display group for a row: the anchor floats to its own group, everything else by asset class */
+const groupOf = i => i===ANCHOR ? "anchor" : ASSETS[i].g;
+/* anchor first, then asset classes in a fixed order */
+function displayOrder(){
+  const rest = ASSETS.map((a,i)=>i).filter(i=>i!==ANCHOR);
+  rest.sort((x,y)=>CLASS_ORDER.indexOf(ASSETS[x].g)-CLASS_ORDER.indexOf(ASSETS[y].g) || x-y);
+  return [ANCHOR].concat(rest);
+}
+
+/* Block correlation assumptions ------------------------------------------ */
+const INTRA = {major:0.82, meme:0.78, alt:0.70};
+const INTER = { "major|meme":0.66, "major|alt":0.64, "meme|alt":0.58 };
+function corrOf(a,b){
+  if(a===b) return 1;
+  const ga=ASSETS[a].g, gb=ASSETS[b].g;
+  if(ga===gb) return INTRA[ga];
+  const k1=ga+"|"+gb, k2=gb+"|"+ga;
+  return INTER[k1] !== undefined ? INTER[k1] : INTER[k2];
+}
+function buildCorr(){
+  const M=[];
+  for(let i=0;i<N;i++){ M.push(new Float64Array(N)); for(let j=0;j<N;j++) M[i][j]=corrOf(i,j); }
+  return M;
+}
+const SIGMA = buildCorr();
+
+/* ============================================================
+   2. MATH ENGINE
+   ============================================================ */
+
+/* Mulberry32 — deterministic uniform PRNG (seed 0 => Math.random) */
+function makeRng(seed){
+  if(!seed) return Math.random;
+  let s = seed >>> 0;
+  return function(){
+    s = (s + 0x6D2B79F5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* Box–Muller transform: standard normal N(0,1), second variate cached */
+function makeNormal(rng){
+  let spare=null;
+  return function(){
+    if(spare!==null){ const v=spare; spare=null; return v; }
+    let u=0,v=0;
+    do{ u=rng(); }while(u<=1e-12);
+    v=rng();
+    const r=Math.sqrt(-2*Math.log(u)), th=2*Math.PI*v;
+    spare = r*Math.sin(th);
+    return r*Math.cos(th);
+  };
+}
+
+/* Cholesky decomposition: returns lower-triangular L with L*Lᵀ = A.
+   Retries with increasing diagonal jitter if A is not positive-definite. */
+function cholesky(A){
+  const n=A.length;
+  for(let attempt=0, jitter=0; attempt<8; attempt++, jitter = jitter?jitter*10:1e-10){
+    const L=[]; for(let i=0;i<n;i++) L.push(new Float64Array(n));
+    let ok=true;
+    for(let i=0;i<n && ok;i++){
+      for(let j=0;j<=i;j++){
+        let sum = A[i][j] + (i===j ? jitter : 0);
+        for(let k=0;k<j;k++) sum -= L[i][k]*L[j][k];
+        if(i===j){
+          if(sum <= 1e-14){ ok=false; break; }
+          L[i][i]=Math.sqrt(sum);
+        } else {
+          L[i][j]=sum/L[j][j];
+        }
+      }
+    }
+    if(ok) return {L, jitter};
+  }
+  throw new Error("Correlation matrix could not be decomposed (not positive-definite).");
+}
+
+/* X = L * Z  — correlated normals from independent normals */
+function correlate(L, Z, out){
+  const n=L.length;
+  for(let i=0;i<n;i++){
+    const Li=L[i]; let s=0;
+    for(let j=0;j<=i;j++) s += Li[j]*Z[j];
+    out[i]=s;
+  }
+  return out;
+}
+
+/* Percentile on a pre-sorted Float64Array (linear interpolation) */
+function pct(sorted,p){
+  const n=sorted.length;
+  if(n===0) return NaN;
+  if(n===1) return sorted[0];
+  const idx=(n-1)*p, lo=Math.floor(idx), hi=Math.ceil(idx);
+  return lo===hi ? sorted[lo] : sorted[lo] + (sorted[hi]-sorted[lo])*(idx-lo);
+}
+
+/* Conditional VaR / expected shortfall: mean of the worst tail at level p */
+function cvar(sorted,p){
+  const n=sorted.length;
+  const cut=Math.max(1, Math.floor(n*p));
+  let s=0; for(let i=0;i<cut;i++) s+=sorted[i];
+  return s/cut;
+}
+
+/* ============================================================
+   3. SIMULATION
+   ============================================================ */
+const DOWN_SKEW = 1.35;   // fat left tail on idiosyncratic noise
+const RET_FLOOR = -0.995; // a token cannot lose more than ~100%
+
+function simulate(cfg){
+  const {lo, hi, runs, noiseFrac, seed, spots, betas} = cfg;
+  const rng    = makeRng(seed);
+  const normal = makeNormal(rng);
+  const {L, jitter} = cholesky(SIGMA);
+
+  const prices = [];                        // prices[i] = Float64Array(runs)
+  for(let i=0;i<N;i++) prices.push(new Float64Array(runs));
+  const anchorRet = new Float64Array(runs);
+  const floored   = new Int32Array(N);      // count of runs clipped at RET_FLOOR
+
+  const Z = new Float64Array(N), X = new Float64Array(N);
+  const anchor = cfg.anchor|0;
+  const spotA = spots[anchor];
+
+  for(let k=0;k<runs;k++){
+    // (a) anchor crash return from the uniform target-price prior
+    const land = lo + rng()*(hi-lo);
+    const Ra   = land/spotA - 1;
+    anchorRet[k] = Ra;
+
+    // (b) correlated idiosyncratic shocks: Z ~ N(0,1) i.i.d.  ->  X = L*Z
+    for(let i=0;i<N;i++) Z[i]=normal();
+    correlate(L, Z, X);
+    const sigma = noiseFrac * Math.abs(Ra);
+
+    // (c) per-asset return -> landing price
+    for(let i=0;i<N;i++){
+      let R;
+      if(i===anchor){
+        R = Ra;                             // anchor leg: lands in the target band by definition
+      } else {
+        let x = X[i];
+        if(x<0) x *= DOWN_SKEW;             // downside-skewed noise
+        R = betas[i]*Ra + sigma*x;
+      }
+      if(R < RET_FLOOR){ R = RET_FLOOR; floored[i]++; }
+      prices[i][k] = spots[i]*(1+R);
+    }
+  }
+
+  // (d) metrics on the full distribution
+  const rows = ASSETS.map((a,i)=>{
+    const arr = prices[i];
+    let sum=0, min=Infinity;
+    for(let k=0;k<runs;k++){ const v=arr[k]; sum+=v; if(v<min) min=v; }
+    const sorted = Float64Array.from(arr).sort();
+    const spot = spots[i];
+    const mean = sum/runs;
+    const p95  = pct(sorted,0.95);
+    const p05  = pct(sorted,0.05);
+    const p01  = pct(sorted,0.01);
+    const es99 = cvar(sorted,0.01);
+    return {
+      ticker:a.t, name:a.n, group:groupOf(i), beta:betas[i], spot, isAnchor:i===anchor,
+      mean, p95, p05, p01, es99, min,
+      flooredPct: floored[i]/runs,
+      meanPct:mean/spot-1, p95Pct:p95/spot-1, p05Pct:p05/spot-1,
+      p01Pct:p01/spot-1, es99Pct:es99/spot-1, mddPct:min/spot-1
+    };
+  });
+
+  let aSum=0, aMin=Infinity, aMax=-Infinity;
+  for(let k=0;k<runs;k++){ const v=anchorRet[k]; aSum+=v; if(v<aMin)aMin=v; if(v>aMax)aMax=v; }
+
+  return {rows, jitter, anchor:{mean:aSum/runs, min:aMin, max:aMax}};
+}
+
+/* ============================================================
+   4. FORMATTING
+   ============================================================ */
+function fmtPrice(v){
+  if(!isFinite(v)) return "—";
+  const a=Math.abs(v);
+  if(a>=1000)   return "$"+v.toLocaleString("en-US",{maximumFractionDigits:0});
+  if(a>=100)    return "$"+v.toFixed(2);
+  if(a>=1)      return "$"+v.toFixed(3);
+  if(a>=0.01)   return "$"+v.toFixed(4);
+  if(a>=0.0001) return "$"+v.toFixed(6);
+  if(a>0)       return "$"+v.toFixed(9);
+  return "$0";
+}
+function fmtPct(v,dp){
+  if(!isFinite(v)) return "—";
+  const p=v*100;
+  return (p>0?"+":"")+p.toFixed(dp===undefined?1:dp)+"%";
+}
+const cls = v => v<0 ? "neg" : (v>0 ? "pos" : "dim");
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ============================================================
+   5. UI — inputs
+   ============================================================ */
+const $ = id => document.getElementById(id);
+
+function renderInputs(){
+  let html="", lastGroup=null;
+  displayOrder().forEach(i=>{
+    const a=ASSETS[i], g=groupOf(i), isA=(i===ANCHOR);
+    if(g!==lastGroup){
+      lastGroup=g;
+      html += `<tr class="grp"><th colspan="4">${esc(GROUPS[g].label)}</th></tr>`;
+    }
+    // the anchor's move IS the reference, so its beta is fixed at 1.00
+    const beta = isA
+      ? `<input class="cell beta" id="beta_${i}" type="number" value="1" disabled
+           title="The anchor defines the crash, so its beta is 1.00 by definition">`
+      : `<input class="cell beta" id="beta_${i}" type="number" step="0.05" value="${a.beta}">`;
+    html += `<tr${isA?' class="anchor"':''}>
+      <td>
+        <div class="asset">
+          <span class="chip ${GROUPS[g].cls}">${esc(GROUPS[g].cls)}</span>
+          <span class="tick">${esc(a.t)}</span>
+          <span class="name">${esc(a.n)}</span>
+        </div>
+      </td>
+      <td><input class="cell spot" id="spot_${i}" type="number" step="any" min="0" value="${a.spot}"></td>
+      <td>${beta}</td>
+      <td class="dim" style="font-family:inherit;text-align:left;font-size:12px">${
+        esc(isA ? "Anchor leg — defines the crash" : a.note)}</td>
+    </tr>`;
+  });
+  $("inputBody").innerHTML=html;
+}
+
+/* the <select>, the inline "XLM" mentions, and the range hint all track the anchor */
+function renderAnchorUI(){
+  const sel=$("anchorSel");
+  sel.innerHTML=ASSETS.map((a,i)=>
+    `<option value="${i}"${i===ANCHOR?" selected":""}>${esc(a.t)} — ${esc(a.n)}</option>`).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".anchor-name"),el=>{
+    el.textContent=anchorTicker();
+  });
+}
+
+/* Switching anchor re-bases the target band: it is quoted in the anchor's own currency,
+   so a range meant for XLM is meaningless for BTC. */
+function onAnchorChange(){
+  const prev=ANCHOR;
+  ANCHOR=parseInt($("anchorSel").value,10)||0;
+  if(ANCHOR===prev) return;
+  rebaseRange();
+  saveAnchor();
+  renderAnchorUI();
+  renderInputs();
+  showMsg("<b>Anchor is now "+esc(anchorTicker())+".</b> The target range was re-based to "+
+          "roughly a 31–50% crash from its spot price — adjust it to the scenario you actually want.","warn");
+  run();
+}
+
+function renderCorr(){
+  let html='<table><thead><tr><th></th>';
+  ASSETS.forEach(a=>html+=`<th>${esc(a.t)}</th>`);
+  html+="</tr></thead><tbody>";
+  for(let i=0;i<N;i++){
+    html+=`<tr><th>${esc(ASSETS[i].t)}</th>`;
+    for(let j=0;j<N;j++){
+      const v=SIGMA[i][j];
+      // intensity only — the actual hue and ink come from the theme's CSS variables
+      const alpha=(0.05+0.72*Math.pow(v,2.6)).toFixed(3);
+      const tier = v>=0.9 ? "hi" : (v>=0.75 ? "mid" : "");
+      html+=`<td class="${tier}" style="--a:${alpha}">${v.toFixed(2)}</td>`;
+    }
+    html+="</tr>";
+  }
+  return html+"</tbody></table>";
+}
+
+function readInputs(){
+  const spots=[], betas=[];
+  for(let i=0;i<N;i++){
+    spots.push(parseFloat($("spot_"+i).value));
+    betas.push(i===ANCHOR ? 1 : parseFloat($("beta_"+i).value));
+  }
+  return {
+    anchor:ANCHOR,
+    lo:parseFloat($("xlmLo").value),
+    hi:parseFloat($("xlmHi").value),
+    runs:Math.round(parseFloat($("runs").value)),
+    noiseFrac:parseFloat($("noise").value)/100,
+    seed:Math.round(parseFloat($("seed").value))||0,
+    spots, betas
+  };
+}
+
+function showMsg(text,kind){
+  const el=$("msg");
+  if(!text){ el.className="msg"; el.innerHTML=""; return; }
+  el.className="msg show "+(kind||"err");
+  el.innerHTML=text;
+}
+
+function validate(cfg){
+  const errs=[];
+  if(!isFinite(cfg.lo)||!isFinite(cfg.hi)||cfg.lo<=0||cfg.hi<=0) errs.push(anchorTicker()+" target range must be two positive prices.");
+  else if(cfg.lo>=cfg.hi) errs.push(anchorTicker()+" target range low must be below the high.");
+  if(!isFinite(cfg.runs)||cfg.runs<100) errs.push("Simulation runs must be at least 100.");
+  if(cfg.runs>200000) errs.push("Simulation runs are capped at 200,000 for browser responsiveness.");
+  if(!isFinite(cfg.noiseFrac)||cfg.noiseFrac<0) errs.push("Noise percentage must be zero or positive.");
+  cfg.spots.forEach((s,i)=>{ if(!isFinite(s)||s<=0) errs.push(ASSETS[i].t+" spot price must be positive."); });
+  cfg.betas.forEach((b,i)=>{ if(!isFinite(b)) errs.push(ASSETS[i].t+" beta must be numeric."); });
+  return errs;
+}
+
+/* ============================================================
+   6. UI — results
+   ============================================================ */
+let LAST=null;
+
+function renderResults(res,cfg){
+  const a=res.anchor;
+  const worstES = res.rows.reduce((x,r)=>r.es99Pct<x.es99Pct?r:x);
+  const tiles=[
+    {k:anchorTicker()+" spot",         v:fmtPrice(cfg.spots[cfg.anchor]),            m:"anchor, pre-crash"},
+    {k:anchorTicker()+" target range", v:fmtPrice(cfg.lo)+" – "+fmtPrice(cfg.hi),    m:"uniform anchor prior"},
+    {k:"Implied anchor crash", v:fmtPct(a.mean,1),                           m:"worst "+fmtPct(a.min,1)+" · best "+fmtPct(a.max,1)},
+    {k:"Runs",                 v:cfg.runs.toLocaleString("en-US"),           m:"noise "+(cfg.noiseFrac*100).toFixed(1)+"% · seed "+(cfg.seed||"random")},
+    {k:"Book mean drawdown",   v:fmtPct(res.rows.reduce((s,r)=>s+r.meanPct,0)/res.rows.length,1), m:"equal-weight across "+N+" assets"},
+    {k:"Worst 99% CVaR",       v:worstES.ticker+" "+fmtPct(worstES.es99Pct,1),m:"deepest expected shortfall"}
+  ];
+  $("tiles").innerHTML = tiles.map(t=>`
+    <div class="tile">
+      <div class="k">${esc(t.k)}</div>
+      <div class="v">${esc(t.v)}</div>
+      <div class="m">${esc(t.m)}</div>
+    </div>`).join("");
+  $("scenarioMeta").textContent = res.jitter
+    ? "Σ regularised with "+res.jitter.toExponential(0)+" diagonal jitter"
+    : "Σ positive-definite — clean Cholesky";
+  $("summaryPanel").style.display="";
+
+  const worstMdd = Math.min.apply(null, res.rows.map(r=>r.mddPct));
+  let html="", lastGroup=null, anyFloored=false;
+  displayOrder().map(i=>res.rows[i]).forEach(r=>{
+    if(r.group!==lastGroup){
+      lastGroup=r.group;
+      html+=`<tr class="grp"><th colspan="8">${esc(GROUPS[r.group].label)}</th></tr>`;
+    }
+    const barW = worstMdd<0 ? Math.min(100,(r.mddPct/worstMdd)*100) : 0;
+    const flag = r.flooredPct>0.005 ? ' <span class="dim" title="share of runs clipped at the -99.5% return floor">†</span>' : "";
+    if(flag) anyFloored=true;
+    html+=`<tr${r.isAnchor?' class="anchor"':''}>
+      <td>
+        <div class="asset">
+          <span class="chip ${GROUPS[r.group].cls}">${esc(GROUPS[r.group].cls)}</span>
+          <span class="tick">${esc(r.ticker)}</span>
+          <span class="name">β ${r.beta.toFixed(2)}</span>
+        </div>
+      </td>
+      <td>${fmtPrice(r.spot)}</td>
+      <td>${fmtPrice(r.mean)}<span class="sub-val ${cls(r.meanPct)}">${fmtPct(r.meanPct)}</span></td>
+      <td class="mild">${fmtPrice(r.p95)}<span class="sub-val">${fmtPct(r.p95Pct)}</span></td>
+      <td>${fmtPrice(r.p05)}<span class="sub-val ${cls(r.p05Pct)}">${fmtPct(r.p05Pct)}</span></td>
+      <td>${fmtPrice(r.p01)}<span class="sub-val ${cls(r.p01Pct)}">${fmtPct(r.p01Pct)}</span></td>
+      <td class="neg">${fmtPrice(r.es99)}<span class="sub-val">${fmtPct(r.es99Pct)}</span></td>
+      <td class="neg">${fmtPct(r.mddPct)}${flag}
+        <div class="bar"><i style="width:${barW.toFixed(1)}%"></i></div>
+      </td>
+    </tr>`;
+  });
+  if(anyFloored){
+    html+=`<tr><td colspan="8" class="dim" style="font-family:inherit;text-align:left;font-size:11.5px">
+      † more than 0.5% of runs were clipped at the −99.5% return floor — the tail for that asset is truncated, not estimated.
+    </td></tr>`;
+  }
+  $("resultBody").innerHTML=html;
+  $("resultsEmpty").style.display="none";
+  $("resultsScroll").style.display="";
+  $("csvBtn").style.display="";
+
+  renderNarrative(res,cfg);
+}
+
+/* Plain-English reading of the scenario just run */
+function renderNarrative(res,cfg){
+  const rows   = res.rows;
+  const anchor = res.anchor;
+  const avg    = k => rows.reduce((s,r)=>s+r[k],0)/rows.length;
+  const meanBook = avg("meanPct"), varBook = avg("p05Pct"), esBook = avg("es99Pct"), mildBook = avg("p95Pct");
+
+  const nonAnchor  = rows.filter(r=>!r.isAnchor);
+  const defensive  = nonAnchor.reduce((x,r)=>r.meanPct>x.meanPct?r:x);
+  const exposed    = nonAnchor.reduce((x,r)=>r.es99Pct<x.es99Pct?r:x);
+  const halvedMean = rows.filter(r=>r.meanPct<=-0.50).length;
+  const halvedVar  = rows.filter(r=>r.p05Pct<=-0.50).length;
+  const wiped      = rows.filter(r=>r.es99Pct<=-0.90).length;
+  const flooredNames = rows.filter(r=>r.flooredPct>0.005).map(r=>r.ticker);
+  const spread = mildBook - esBook;
+
+  const li = (cssClass,text) => `<li class="${cssClass}">${text}</li>`;
+  const out = [];
+
+  out.push(li("", `<b>The scenario.</b> ${anchorTicker()} falls from ${fmtPrice(cfg.spots[cfg.anchor])} into the
+    ${fmtPrice(cfg.lo)}–${fmtPrice(cfg.hi)} band — an average anchor crash of <b>${fmtPct(anchor.mean,1)}</b>,
+    ranging from ${fmtPct(anchor.max,1)} to ${fmtPct(anchor.min,1)} across ${cfg.runs.toLocaleString("en-US")}
+    simulated runs.`));
+
+  out.push(li("", `<b>Central outcome.</b> Spread that shock across all ${N} assets and an equal-weight book
+    loses roughly <b>${fmtPct(meanBook,1)}</b> in the average run. Assets with beta below 1 cushion the fall;
+    everything above 1 amplifies it.`));
+
+  out.push(li("hot", `<b>The bad end.</b> At the 95% VaR line — the 1-in-20 bad day — the average asset is down
+    <b>${fmtPct(varBook,1)}</b>. If the 1-in-100 black swan lands instead, expected shortfall deepens that to
+    <b>${fmtPct(esBook,1)}</b>. That gap between the routine bad day and the genuine tail is the risk that a
+    single point estimate would have hidden from you.`));
+
+  out.push(li("ok", `<b>Most resilient.</b> ${defensive.ticker} holds up best, landing near
+    ${fmtPrice(defensive.mean)} on average (<b>${fmtPct(defensive.meanPct,1)}</b>) — its
+    beta of ${defensive.beta.toFixed(2)} absorbs only part of the anchor move, and its deeper liquidity means
+    less idiosyncratic damage.`));
+
+  out.push(li("hot", `<b>Most fragile.</b> ${exposed.ticker} carries the deepest expected shortfall: in the worst
+    1% of runs it averages ${fmtPrice(exposed.es99)}, a fall of <b>${fmtPct(exposed.es99Pct,1)}</b> from spot.
+    With a beta of ${exposed.beta.toFixed(2)} it does not just follow the crash, it multiplies it.`));
+
+  out.push(li("", `<b>How wide the outcomes are.</b> The mild tail averages ${fmtPct(mildBook,1)} while the
+    severe tail averages ${fmtPct(esBook,1)} — a <b>${(spread*100).toFixed(0)} percentage point</b> spread
+    between the good and bad ends of the same crash. Raising the noise setting widens this band; lowering it
+    collapses everything onto the beta line.`));
+
+  out.push(li(halvedMean ? "hot" : "ok", `<b>Damage count.</b> <b>${halvedMean}</b> of ${N}
+    ${halvedMean===1 ? "assets loses more than half its" : "assets lose more than half their"} value
+    in the average run, rising to
+    <b>${halvedVar}</b> at the 95% VaR line${
+    wiped ? `, and <b>${wiped}</b> ${wiped===1 ? "is" : "are"} effectively wiped out (down 90%+) in the
+    black-swan tail` : ""}.`));
+
+  if(flooredNames.length){
+    out.push(li("hot", `<b>Truncated tails.</b> ${flooredNames.join(", ")} hit the −99.5% return floor in more
+      than 0.5% of runs. Their tail figures are clipped rather than measured, which means the real risk is at
+      least this bad and possibly worse — lower the betas or the noise if you want a readable distribution
+      instead of a wall.`));
+  }
+
+  out.push(li("", `<b>The practical takeaway.</b> If your book has to survive this crash without forced selling,
+    size it against the 99% CVaR column, not the mean. The mean is what you would expect; the CVaR is what you
+    would actually have to live through when the tail arrives.`));
+
+  $("narrFindings").innerHTML = out.join("");
+}
+
+function toCSV(res,cfg){
+  const head=["Asset","Group","Beta","Starting Spot","Mean Landing","Mean %",
+    "95% Upper Floor","95% Floor %","95% VaR (5th pct)","95% VaR %",
+    "99% VaR (1st pct)","99% VaR %","99% CVaR","99% CVaR %","Max Drawdown %","Runs Floored %"];
+  const lines=[
+    "# Correlated Monte Carlo Flash Crash Stress Test",
+    "# anchor,"+anchorTicker()+",target range,"+cfg.lo+","+cfg.hi+",runs,"+cfg.runs+",noise%,"+(cfg.noiseFrac*100).toFixed(2)+",seed,"+(cfg.seed||"random"),
+    head.join(",")
+  ];
+  res.rows.forEach(r=>lines.push([
+    r.ticker,GROUPS[r.group].label,r.beta.toFixed(3),
+    r.spot,r.mean,(r.meanPct*100).toFixed(3),
+    r.p95,(r.p95Pct*100).toFixed(3),
+    r.p05,(r.p05Pct*100).toFixed(3),
+    r.p01,(r.p01Pct*100).toFixed(3),
+    r.es99,(r.es99Pct*100).toFixed(3),
+    (r.mddPct*100).toFixed(3),
+    (r.flooredPct*100).toFixed(2)
+  ].join(",")));
+  return lines.join("\n");
+}
+
+/* ============================================================
+   7. THEME
+   ============================================================ */
+const THEME_KEY="cyrus.theme";
+
+function applyTheme(mode,remember){
+  document.documentElement.setAttribute("data-theme",mode);
+  $("themeLight").setAttribute("aria-pressed", String(mode==="light"));
+  $("themeDark").setAttribute("aria-pressed",  String(mode==="dark"));
+  if(remember){ try{ localStorage.setItem(THEME_KEY,mode); }catch(e){} }
+  if(TOUR.open) tourFollow();     // re-measure: card metrics can shift with the palette
+}
+
+function initTheme(){
+  let saved=null;
+  try{ saved=localStorage.getItem(THEME_KEY); }catch(e){}
+  const sysDark = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (sysDark?"dark":"light"), false);
+
+  // follow the OS only while the visitor hasn't picked a side themselves
+  if(window.matchMedia){
+    const mq=matchMedia("(prefers-color-scheme: dark)");
+    const onChange=e=>{
+      let chosen=null;
+      try{ chosen=localStorage.getItem(THEME_KEY); }catch(err){}
+      if(!chosen) applyTheme(e.matches?"dark":"light",false);
+    };
+    if(mq.addEventListener) mq.addEventListener("change",onChange);
+    else if(mq.addListener) mq.addListener(onChange);
+  }
+}
+
+/* ============================================================
+   8. GUIDED WALKTHROUGH
+   ============================================================ */
+const TOUR_STEPS = [
+  {
+    sel:null, title:"What this page actually does",
+    body:`<p>You already know a crash never hits one coin in isolation. This page puts a number on that.
+      You define a crash for <b>one</b> asset — {{A}}, the “anchor” — and the model propagates it to twelve
+      other coins, thousands of times over, then reports where each one probably lands.</p>
+      <p>Every coin is connected to the anchor by a <b>beta</b>: how hard it amplifies or dampens the anchor's
+      move. On top of that, each coin gets its own random shock, and those shocks are <b>correlated</b> across
+      the book so majors move with majors and memes move with memes.</p>
+      <p>The payoff is not the average outcome. It's the <b>tail</b>: how bad things get in the worst 5% and
+      worst 1% of outcomes. That's where liquidations happen. Six screens and you'll know how to drive it.</p>`
+  },
+  {
+    sel:"#fieldAnchor", title:"1 · Choose which asset defines the crash",
+    body:`<p>Everything on this page hangs off one asset — the <b>anchor</b>. You declare where the anchor
+      lands, and the model works out where every other coin lands as a consequence.</p>
+      <p>XLM is the default, but pick whatever your scenario is really about. Anchoring on <b>BTC</b> asks
+      “what does a broad market crash do to my book?”, since almost everything is tied to it. Anchoring on a
+      small-cap asks the narrower question about one position dragging on the rest.</p>
+      <p>Switching the anchor re-bases the target range below — a band meant for a $0.16 coin is meaningless
+      for a $95,000 one — and it locks the anchor's own beta to 1.00, because the anchor's move is the
+      reference that every other beta is measured against. Your choice is remembered in this browser.</p>`
+  },
+  {
+    sel:"#fieldRange", title:"2 · Define the crash, not a forecast",
+    body:`<p>This is the only place the crash is specified. You are saying: <b>“assume {{A}} ends up somewhere
+      between these two prices.”</b> Every run draws one landing price uniformly from that band, so the width
+      of the band is your uncertainty about crash depth.</p>
+      <p>The percentage crash is implied by this band versus {{A}}'s spot price in the table below. Default is
+      <code>$0.08–$0.11</code> against a <code>$0.16</code> spot — roughly a 31% to 50% collapse.</p>
+      <p>Narrow the band for a specific scenario, widen it if you genuinely don't know how far it falls.</p>`
+  },
+  {
+    sel:"#fieldRuns", title:"3 · How many times to replay the crash",
+    body:`<p>One simulation tells you nothing, because one draw of randomness is just an anecdote. Each run is an
+      independent replay: a fresh anchor price and a fresh set of correlated shocks.</p>
+      <p>The number matters most for the extremes. At <b>10,000 runs</b> the 1% tail is estimated from about
+      100 observations — enough to be stable between runs. Drop to 500 and the 99% figures will visibly jump
+      around every time you press the button.</p>
+      <p>More runs cost nothing but a few milliseconds; the whole 13-asset sweep finishes faster than a frame.</p>`
+  },
+  {
+    sel:"#fieldNoise", title:"4 · How far coins drift off their beta",
+    body:`<p>Beta alone would be too clean — it would say every coin lands on an exact multiple of the anchor
+      move. Noise is the idiosyncratic part: the liquidity gap, the cascading liquidation, the coin-specific
+      story that makes it fall harder or softer than its beta implies.</p>
+      <p>It's scaled to crash severity, so <b>12%</b> means roughly 12% of the anchor's move is up for grabs
+      per coin. Set it to <code>0</code> and every asset collapses exactly onto its beta line — useful to see
+      the pure beta skeleton. Raise it and the distribution fans out.</p>
+      <p>Downside draws get a 1.35× kick, because flash crashes overshoot down far more readily than up.</p>`
+  },
+  {
+    sel:"#fieldSeed", title:"5 · Make a run reproducible",
+    body:`<p>The random numbers come from a seeded generator. Same seed plus same inputs equals byte-identical
+      output, so a scenario you screenshot or export can be regenerated exactly.</p>
+      <p>Set it to <code>0</code> for a fresh random stream each press — handy for checking whether a scary tail
+      figure is a real feature of your assumptions or just one unlucky draw.</p>`
+  },
+  {
+    sel:"#fieldRun", title:"6 · Recompute",
+    body:`<p>Nothing recalculates until you press this. Change a beta, a spot price, the range — then run.</p>
+      <p>Everything happens in this page: no server, no API, no network. Pressing <kbd>Enter</kbd> in any input
+      does the same thing.</p>`
+  },
+  {
+    sel:"#thSpot", column:true, title:"7 · Starting spot prices",
+    body:`<p>The baseline every loss is measured against. These are editable placeholders, not live prices —
+      there's no network call here, so <b>put in your real entry or the current market</b> before you read
+      anything into the results.</p>
+      <p>The {{A}} row is special: it's the anchor, so its spot is what turns your target band into a crash
+      percentage. Setting {{A}}'s spot too high produces a crash so deep that high-beta coins slam into the
+      −99.5% floor and their tail figures stop being meaningful.</p>`
+  },
+  {
+    sel:"#thBeta", column:true, title:"8 · Crash beta — the dial that matters",
+    body:`<p>This is the heart of the model. Beta answers: <b>when the anchor falls 1%, how much does this coin
+      fall?</b> BTC at <code>0.45</code> takes under half the hit — deep books, first thing bought in a panic.
+      LUNC at <code>1.60</code> takes 1.6× the hit, because there is barely a bid to absorb selling.</p>
+      <p>Below 1 is a cushion; above 1 is leverage on someone else's crash. When you set these, think about
+      order-book depth, how reflexive the holder base is, and whether the coin has a bid that shows up when
+      things break.</p>
+      <p>Nothing else on this page is as sensitive as these numbers, so it's worth running the same scenario
+      with an optimistic and a pessimistic set.</p>`
+  },
+  {
+    sel:"#summaryPanel", title:"9 · Sanity-check the scenario you asked for",
+    body:`<p>Before reading any result, confirm the model is testing what you meant. <b>Implied anchor crash</b>
+      is the average {{A}} decline your band actually produced, with the best and worst draws beside it.</p>
+      <p>If that number isn't the crash you had in mind, fix the band or {{A}}'s spot — everything downstream is
+      derived from it.</p>`
+  },
+  {
+    sel:"#thMean", column:true, title:"10 · The average outcome",
+    body:`<p>The mean landing price across all runs, with the percentage change underneath. This is the
+      reasonable central expectation.</p>
+      <p>It is also the least interesting column on the page. Averages hide tails, and tails are what force
+      selling. Use it as a reference point, then move right.</p>`
+  },
+  {
+    sel:"#thVar95", column:true, title:"11 · The 1-in-20 bad day",
+    body:`<p>Value at Risk at 95%: the 5th percentile of outcomes. 95% of runs finished at or above this price,
+      so <b>1 run in 20 was worse than this</b>.</p>
+      <p>This is the standard planning number — the bad-but-not-unthinkable case you should be able to absorb
+      without being forced to act. The 99% column beside it is the same idea at 1-in-100.</p>`
+  },
+  {
+    sel:"#thCvar", column:true, title:"12 · The honest worst case",
+    body:`<p>Conditional VaR, also called expected shortfall. VaR tells you the threshold of the worst 1%;
+      CVaR tells you the <b>average of everything beyond it</b>. It answers the question that actually matters:
+      “if the black swan does show up, how bad is it typically?”</p>
+      <p>It is always at or below the 99% VaR, and it's the number to size against — VaR marks where the bad
+      region starts, CVaR tells you what's inside it.</p>`
+  },
+  {
+    sel:"#thMdd", column:true, title:"13 · The worst single run",
+    body:`<p>The deepest drawdown any run produced, with a bar showing it relative to the worst asset in the
+      book — a quick read on which names are most fragile.</p>
+      <p>Treat it as a stress bound, not a forecast: it's one draw of noise out of thousands. If a row carries
+      a <b>†</b>, that asset hit the −99.5% return floor in enough runs that its tail is clipped rather than
+      measured — the real risk is at least that bad, and the fix is more realistic betas or less noise.</p>`
+  },
+  {
+    sel:"#secCorr", title:"14 · Why correlation is the whole trick",
+    body:`<p>This matrix says how much each pair of coins moves together beyond what beta already explains —
+      built in blocks, so majors are tightly linked, memes are tightly linked, and everything shares a floor
+      of co-movement.</p>
+      <p>It matters more than it looks. If each coin's shock were drawn independently, the good and bad
+      surprises would cancel out across the book and the aggregate tail would look far safer than reality.
+      Correlated shocks means everything gets hit at once — which is what a real crash is. The Cholesky
+      decomposition is the step that forces the random draws to respect this matrix.</p>`
+  },
+  {
+    sel:"#secSummary", title:"15 · Read it back in plain English",
+    body:`<p>This section regenerates on every run: which asset held up best, which carries the deepest
+      shortfall, how many names lose half their value, and how wide the gap is between the mild and severe
+      ends of the same crash.</p>
+      <p>It's the fastest way to check whether the numbers say what you think they say — and it's written to
+      be handed to someone who has never seen this page.</p>`
+  },
+  {
+    sel:"#fieldNoise", title:"Try these three things",
+    body:`<p><b>1.</b> Set noise to <code>0</code>, run, then set it to <code>30</code> and run again. Watch the
+      gap between the mild tail and the CVaR column open up — that's pure liquidity risk, with beta unchanged.</p>
+      <p><b>2.</b> Cut BTC's beta from <code>0.45</code> to <code>0.25</code>. See how much of the book's
+      average drawdown was really just one defensive assumption.</p>
+      <p><b>3.</b> Widen the {{A}} band to <code>$0.04–$0.14</code>. Same average crash, far more uncertainty
+      about depth — and notice the tails get worse while the mean barely moves. That asymmetry is the entire
+      reason to look at percentiles instead of averages.</p>
+      <p class="dim">Reopen this walkthrough any time from the compass icon at the top left.</p>`
+  }
+];
+
+const TOUR = {open:false, i:0, steps:[]};
+const gapPX = 13;      // breathing room between the highlight and the card
+const RING_MIN = 110;  // a trimmed highlight never gets shorter than this
+
+function tourEls(){
+  let scrim=$("tourScrim");
+  if(!scrim){
+    scrim=document.createElement("div");
+    scrim.className="tour-scrim"; scrim.id="tourScrim";
+    scrim.addEventListener("click",tourEnd);
+
+    const spot=document.createElement("div");
+    spot.className="tour-spot"; spot.id="tourSpot";
+
+    const card=document.createElement("div");
+    card.className="tour-card"; card.id="tourCard";
+    card.addEventListener("click",e=>e.stopPropagation());
+
+    document.body.appendChild(scrim);
+    document.body.appendChild(spot);
+    document.body.appendChild(card);
+  }
+  return {scrim:$("tourScrim"), spot:$("tourSpot"), card:$("tourCard")};
+}
+
+/* Union rect for a whole table column, so the highlight covers the data and not just the header */
+function tourRect(step){
+  const el=document.querySelector(step.sel);
+  if(!el) return null;
+  const r=el.getBoundingClientRect();
+  if(!step.column) return {top:r.top,left:r.left,width:r.width,height:r.height};
+  const table=el.closest("table"), body=table && table.tBodies[0];
+  if(!body) return {top:r.top,left:r.left,width:r.width,height:r.height};
+  const rows=Array.prototype.filter.call(body.rows,row=>row.cells.length>1);
+  const last=rows[rows.length-1];
+  const cell=last && last.cells[el.cellIndex];
+  if(!cell) return {top:r.top,left:r.left,width:r.width,height:r.height};
+  const c=cell.getBoundingClientRect();
+  const top=Math.min(r.top,c.top), bottom=Math.max(r.bottom,c.bottom);
+  const left=Math.min(r.left,c.left), right=Math.max(r.right,c.right);
+  return {top, left, width:right-left, height:bottom-top};
+}
+
+function tourOverlap(a,b){
+  const w=Math.min(a.right,b.right)-Math.max(a.left,b.left);
+  const h=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);
+  return (w>0 && h>0) ? w*h : 0;
+}
+
+function tourPlace(){
+  if(!TOUR.open) return;
+  const {spot,card}=tourEls();
+  const step=TOUR.steps[TOUR.i];
+  const vw=window.innerWidth, vh=window.innerHeight, pad=8, gap=13, edge=12, inset=6;
+  const raw=step.sel ? tourRect(step) : null;
+
+  /* Clamp the highlight to the viewport: a section taller than the screen still gets a
+     visible ring instead of one that runs off both ends. */
+  let box=null;
+  if(raw){
+    box={
+      top   : Math.max(inset,    raw.top - pad),
+      left  : Math.max(inset,    raw.left - pad),
+      bottom: Math.min(vh-inset, raw.top + raw.height + pad),
+      right : Math.min(vw-inset, raw.left + raw.width + pad)
+    };
+    if(box.bottom-box.top < 26) box.bottom = Math.min(vh-inset, box.top+26);
+    if(box.right-box.left < 26) box.right  = Math.min(vw-inset, box.left+26);
+  }
+
+  /* Cap the card's text height to whatever the screen can spare, so that on short windows it
+     can still sit clear of a trimmed ring instead of being docked on top of it. */
+  const inner=card.querySelector(".inner");
+  if(inner){
+    const chrome=card.offsetHeight-inner.clientHeight;                 // progress bar + footer
+    const room=vh-gap-edge-(box?box.top:edge)-RING_MIN-chrome;
+    inner.style.maxHeight=Math.max(110, Math.min(460, Math.round(vh*0.42), room))+"px";
+  }
+  const cw=card.offsetWidth, ch=card.offsetHeight;
+
+  /* Resolve the card position first — it can trim the ring, so the ring is painted after. */
+  let top, left;
+  if(!box){
+    top=Math.max(edge,(vh-ch)/2);
+    left=Math.max(edge,(vw-cw)/2);
+  } else {
+    const clampX=x=>Math.max(edge,Math.min(vw-cw-edge,x));
+    const clampY=y=>Math.max(edge,Math.min(vh-ch-edge,y));
+    const fits=b=>{
+      const c=[];
+      if(b.bottom+gap+ch+edge <= vh) c.push({top:b.bottom+gap,     left:clampX(b.left)});
+      if(b.top-gap-ch        >= edge) c.push({top:b.top-gap-ch,  left:clampX(b.left)});
+      if(b.right+gap+cw+edge <= vw) c.push({top:clampY(b.top),     left:b.right+gap});
+      if(b.left-gap-cw       >= edge) c.push({top:clampY(b.top),   left:b.left-gap-cw});
+      return c;
+    };
+    let cand=fits(box);
+    /* Nothing fits around a tall target: trim the bottom of the ring to open up room rather
+       than parking the card on top of the region it is describing. */
+    if(!cand.length && box.bottom-box.top > RING_MIN+60){
+      const trimmed=Math.max(box.top+RING_MIN, Math.min(box.bottom, vh-ch-gap-edge));
+      if(trimmed < box.bottom-8){ box.bottom=trimmed; cand=fits(box); }
+    }
+    if(cand.length){
+      top=cand[0].top; left=cand[0].left;
+    } else {
+      // target fills the screen: dock the card where it hides the least of the highlight
+      let best=null;
+      [edge, vh-ch-edge].forEach(t=>[edge, vw-cw-edge].forEach(l=>{
+        const a=tourOverlap({top:t,left:l,bottom:t+ch,right:l+cw}, box);
+        if(!best || a<best.a) best={a:a,top:t,left:l};
+      }));
+      top=best.top; left=best.left;
+    }
+  }
+
+  if(!box){
+    spot.style.transition="none";
+    spot.className="tour-spot center";
+    spot.style.top=(vh/2)+"px"; spot.style.left=(vw/2)+"px";
+    spot.style.width="0px";     spot.style.height="0px";
+  } else {
+    // no slide animation on long jumps — it would lag behind the scroll
+    const prevTop=parseFloat(spot.style.top);
+    spot.style.transition = (!isFinite(prevTop) || Math.abs(box.top-prevTop)>240) ? "none" : "";
+    spot.className="tour-spot";
+    spot.style.top=box.top+"px";
+    spot.style.left=box.left+"px";
+    spot.style.width=(box.right-box.left)+"px";
+    spot.style.height=(box.bottom-box.top)+"px";
+  }
+  card.style.top=top+"px"; card.style.left=left+"px";
+}
+
+/* Reposition every frame until the scroll has actually settled — a fixed timeout
+   leaves the highlight stranded whenever a smooth scroll runs long. */
+function tourFollow(){
+  let stable=0, lastKey="", deadline=performance.now()+2400;
+  (function loop(){
+    if(!TOUR.open) return;
+    tourPlace();
+    const step=TOUR.steps[TOUR.i];
+    const el=step.sel ? document.querySelector(step.sel) : null;
+    const r=el ? el.getBoundingClientRect() : null;
+    const key=(r ? Math.round(r.top)+","+Math.round(r.left) : "c")+"|"+
+              Math.round(window.pageYOffset)+","+Math.round(window.pageXOffset);
+    stable = (key===lastKey) ? stable+1 : 0;
+    lastKey=key;
+    if(stable<5 && performance.now()<deadline) requestAnimationFrame(loop);
+    else tourPlace();
+  })();
+}
+
+function tourRender(){
+  const {card}=tourEls();
+  const step=TOUR.steps[TOUR.i], n=TOUR.steps.length, last=TOUR.i===n-1;
+  const A=anchorTicker();
+  const fill=t=>String(t).split("{{A}}").join(A);
+  card.innerHTML=`
+    <div class="tour-prog"><i style="width:${(((TOUR.i+1)/n)*100).toFixed(1)}%"></i></div>
+    <div class="inner">
+      <div class="tour-step">Step ${TOUR.i+1} of ${n}</div>
+      <h4>${fill(step.title)}</h4>
+      ${fill(step.body)}
+    </div>
+    <div class="tour-foot">
+      <span class="keys"><kbd>←</kbd> <kbd>→</kbd> to move · <kbd>Esc</kbd> to close</span>
+      <span class="tour-nav">
+        ${TOUR.i>0 ? '<button class="btn-ghost" id="tourPrev">Back</button>' : '<button class="btn-ghost" id="tourSkip">Skip</button>'}
+        <button class="btn-primary" id="tourNext">${last?"Done":"Next"}</button>
+      </span>
+    </div>`;
+  const prev=$("tourPrev"), skip=$("tourSkip");
+  if(prev) prev.addEventListener("click",()=>tourGo(TOUR.i-1));
+  if(skip) skip.addEventListener("click",tourEnd);
+  $("tourNext").addEventListener("click",()=>last?tourEnd():tourGo(TOUR.i+1));
+
+  const el = step.sel ? document.querySelector(step.sel) : null;
+  if(el){
+    /* Only used to settle horizontal position inside a .scroll container. block:"nearest"
+       keeps it from fighting the vertical scroll we compute below — and scrollIntoView is a
+       no-op on the sticky table headers, so the vertical move has to be done by hand. */
+    try{ el.scrollIntoView({behavior:"instant", block:"nearest", inline:"center"}); }catch(e){}
+
+    const vh=window.innerHeight, ch=card.offsetHeight;
+    const r=tourRect(step);                        // full region, incl. a whole table column
+    const h=Math.min(r.height+16, vh-24);
+    const ctr=(vh-h)/2;
+    // park the region centred when the card has room beside it, otherwise high on the screen
+    const roomIfCentred = (ctr+h+gapPX+ch+12 <= vh) || (ctr-gapPX-ch >= 12);
+    const desiredTop = roomIfCentred ? ctr : Math.round(vh*0.12);
+    const delta = (r.top-8) - desiredTop;
+    const target = Math.max(0, window.pageYOffset + delta);
+    try{
+      // long jumps land instantly; a smooth scroll across the whole page takes too long to track
+      window.scrollTo({top:target, behavior: Math.abs(delta)>vh*1.2 ? "instant" : "smooth"});
+    }catch(e){ window.scrollTo(0,target); }
+  } else {
+    try{ window.scrollTo({top:0,behavior:"smooth"}); }catch(e){ window.scrollTo(0,0); }
+  }
+  tourPlace();
+  tourFollow();
+}
+
+function tourGo(i){
+  TOUR.i=Math.max(0,Math.min(TOUR.steps.length-1,i));
+  tourRender();
+}
+
+function tourStart(){
+  // drop any step whose target is missing or hidden
+  TOUR.steps=TOUR_STEPS.filter(s=>{
+    if(!s.sel) return true;
+    const el=document.querySelector(s.sel);
+    return el && el.offsetParent!==null;
+  });
+  if(!TOUR.steps.length) return;
+  TOUR.open=true; TOUR.i=0;
+  $("tourBtn").classList.remove("attn");
+  tourEls();
+  window.addEventListener("scroll",tourPlace,true);
+  window.addEventListener("resize",tourPlace);
+  tourGo(0);
+}
+
+function tourEnd(){
+  if(!TOUR.open) return;
+  TOUR.open=false;
+  window.removeEventListener("scroll",tourPlace,true);
+  window.removeEventListener("resize",tourPlace);
+  ["tourScrim","tourSpot","tourCard"].forEach(id=>{ const el=$(id); if(el) el.remove(); });
+  const btn=$("tourBtn"); if(btn) btn.focus();
+}
+
+/* ============================================================
+   9. WIRING
+   ============================================================ */
+function run(){
+  const cfg=readInputs();
+  const errs=validate(cfg);
+  if(errs.length){ showMsg("<b>Cannot run:</b> "+errs.map(esc).join(" "), "err"); return; }
+
+  const warns=[];
+  if(cfg.hi>=cfg.spots[cfg.anchor]) warns.push("The "+anchorTicker()+" target range is at or above its spot price — this is not a crash scenario, so betas will amplify a rally.");
+  if(cfg.noiseFrac>0.6) warns.push("Noise above 60% dominates the beta signal; tails will be driven mostly by idiosyncratic dispersion.");
+  showMsg(warns.length ? "<b>Heads up:</b> "+warns.map(esc).join(" ") : "", "warn");
+
+  const btn=$("runBtn");
+  btn.disabled=true; btn.textContent="Simulating…";
+
+  // yield a frame so the button state paints before the synchronous hot loop
+  requestAnimationFrame(()=>setTimeout(()=>{
+    const t0=performance.now();
+    try{
+      const res=simulate(cfg);
+      LAST={res,cfg};
+      renderResults(res,cfg);
+      const ms=Math.round(performance.now()-t0);
+      $("scenarioMeta").textContent += " · "+cfg.runs.toLocaleString("en-US")+" runs × "+N+" assets in "+ms+" ms";
+    }catch(e){
+      showMsg("<b>Simulation failed:</b> "+esc(e.message),"err");
+    }finally{
+      btn.textContent="Run Stress Test";
+      btn.disabled=false;
+    }
+  },0));
+}
+
+function resetAll(){
+  ANCHOR=0;
+  renderAnchorUI(); renderInputs();
+  ASSETS.forEach((a,i)=>{ $("spot_"+i).value=a.spot; if(i!==ANCHOR) $("beta_"+i).value=a.beta; });
+  $("xlmLo").value=0.08; $("xlmHi").value=0.11;
+  saveAnchor();                      // after the inputs are restored, not before
+  $("runs").value=10000; $("noise").value=12; $("seed").value=42;
+  showMsg("");
+}
+
+function exportCsv(){
+  if(!LAST) return;
+  const blob=new Blob([toCSV(LAST.res,LAST.cfg)],{type:"text/csv;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url; a.download="flash_crash_stress_test.csv";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+
+initTheme();
+loadAnchor();
+renderAnchorUI();
+renderInputs();
+applyStoredRange();
+$("corrWrap").innerHTML=renderCorr();
+$("runBtn").addEventListener("click",run);
+$("resetBtn").addEventListener("click",resetAll);
+$("anchorSel").addEventListener("change",onAnchorChange);
+["xlmLo","xlmHi"].forEach(id=>$(id).addEventListener("change",saveAnchor));
+$("csvBtn").addEventListener("click",exportCsv);
+$("tourBtn").addEventListener("click",tourStart);
+$("themeLight").addEventListener("click",()=>applyTheme("light",true));
+$("themeDark").addEventListener("click",()=>applyTheme("dark",true));
+document.addEventListener("keydown",e=>{
+  if(TOUR.open){
+    if(e.key==="Escape"){ e.preventDefault(); tourEnd(); }
+    else if(e.key==="ArrowRight"){ e.preventDefault(); TOUR.i===TOUR.steps.length-1 ? tourEnd() : tourGo(TOUR.i+1); }
+    else if(e.key==="ArrowLeft"){ e.preventDefault(); tourGo(TOUR.i-1); }
+    return;
+  }
+  if(e.key==="Enter" && e.target && e.target.tagName==="INPUT"){ e.preventDefault(); run(); }
+});
+
+// first paint: run the default scenario so the dashboard opens populated
+run();
+</script>
+</body>
+</html>
