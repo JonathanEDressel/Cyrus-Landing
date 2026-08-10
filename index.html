@@ -1976,7 +1976,7 @@
     <div class="feature-card">
       <span class="feature-icon">🗄</span>
       <div class="feature-title">Fully Local Storage</div>
-      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync, no account, no telemetry. Your API keys and balances never leave your machine — the only outbound request is to a public market-data API for coin fundamentals, and it sends nothing but the ticker.</p>
+      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync, no account, no telemetry. Your API keys never leave your machine. Only two things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key. Both are optional and neither is on by default.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⏱</span>
@@ -2012,6 +2012,11 @@
       <span class="feature-icon">🔁</span>
       <div class="feature-title">Transfer History</div>
       <p class="feature-desc">Every deposit and withdrawal across your exchanges, backfilled to the beginning and stored locally so the page opens instantly. Filter by exchange, type or coin. Exchanges only ever report their own side of a transfer, and Cyrus says so rather than guessing who owns the far end.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✨</span>
+      <div class="feature-title">AI Assistant</div>
+      <p class="feature-desc">Ask what you hold, or say what you want done — "cancel all my BTC sell limits", "send BTC to my Tangem wallet when the balance passes 3". It finds the real order ids and address keys and builds the request; nothing runs until you approve a card showing exactly what will happen. Optional, off until you add your own Anthropic API key.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📋</span>
@@ -2099,7 +2104,7 @@
           <span class="app-frame-dot app-frame-dot--g"></span>
           <span class="app-frame-label">Cyrus &mdash; Limit Orders</span>
         </div>
-        <img src="shot-limitorders.png" alt="Cyrus limit orders page: buy and sell tabs over a sortable table of 39 resting buy orders across four exchanges, each row showing the exchange, pair, limit price, volume, filled amount with partial fills flagged, estimated total, and a cancel button" loading="lazy">
+        <img src="shot-limitorders.png" alt="Cyrus limit orders page: buy and sell tabs over a sortable table of 39 resting buy orders across four exchanges, each row selectable and showing the exchange, pair, limit price, volume, filled amount with partial fills flagged, estimated total and a cancel button, above a histogram of where those orders sit relative to the market price" loading="lazy">
       </div>
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Limit Orders</div>
@@ -2116,12 +2121,29 @@
           <span class="app-frame-dot app-frame-dot--g"></span>
           <span class="app-frame-label">Cyrus — Profile</span>
         </div>
-        <img src="shot-profile.png" alt="Cyrus profile page: four validated exchange connections each badged with its exchange, and the add-connection form" loading="lazy">
+        <img src="shot-profile.png" alt="Cyrus profile page on its Exchanges tab: four validated exchange connections each badged with its exchange and last-checked time, above the add-connection form" loading="lazy">
       </div>
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Exchange Connections</div>
         <h3 class="gallery-title">Connect securely, stay in control.</h3>
         <p class="gallery-desc">Add an exchange in seconds and test the connection before you trade. Your API keys are encrypted at rest and stored locally on your device — never on a server. Toggle native desktop notifications so you know the moment a rule fires.</p>
+      </div>
+    </div>
+
+    <div class="gallery-row reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus &mdash; Assistant</span>
+        </div>
+        <img src="shot-assistant.png" alt="Cyrus assistant panel open over the overview page: a request to cancel every BTC sell limit order, the assistant's reply listing what it found, and a confirmation card itemising each order to be cancelled with approve and cancel buttons" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">AI Assistant</div>
+        <h3 class="gallery-title">Say what you want. Approve what it&rsquo;s about to do.</h3>
+        <p class="gallery-desc">Ask what you hold, or hand it the work &mdash; cancelling a batch of resting orders, placing a limit, writing an automation rule. It resolves the connection, the real order ids and your whitelisted addresses itself, then stops and shows you a card built from the exact values it is about to send. Approve it and each action reports back separately, with the exchange&rsquo;s own reason when one fails. Optional, and off until you add your own Anthropic API key.</p>
       </div>
     </div>
   </div>
@@ -2320,7 +2342,11 @@
     </div>
     <div class="security-card">
       <div class="security-title">Offline-First Architecture</div>
-      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend listens on localhost only and is never exposed to your network. The single outbound request is to a public market-data API for coin fundamentals on the Holdings page, and it sends nothing but a ticker symbol.</p>
+      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend listens on localhost only and is never exposed to your network. Out of the box the single outbound request is to a public market-data API for coin fundamentals on the Holdings page, and it sends nothing but a ticker symbol.</p>
+    </div>
+    <div class="security-card">
+      <div class="security-title">The AI Assistant Is Opt-In</div>
+      <p class="security-desc">Off until you add your own Anthropic API key, and it is the one feature that sends portfolio data off your machine — your holdings, rules and resting orders go straight to Anthropic under your key, with no Cyrus server in between. The key is encrypted at rest like your exchange credentials. It can never move funds on its own: reading is automatic, but every cancel, order and rule waits on a confirmation card built from the exact values about to be sent, and it can only reach addresses you have already whitelisted on the exchange.</p>
     </div>
   </div>
 </section>
