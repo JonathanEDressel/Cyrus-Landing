@@ -17,7 +17,8 @@ keeps development going.
 | `index.html` | The whole site — markup, styles and scripts |
 | `stress-test.html` | Standalone tool page linked from the **Other Tools** section — a correlated Monte Carlo flash-crash stress test |
 | `shot-*.png` | Product screenshots, captured from the app running in demo mode |
-| `cyrus-logo.png` | Logo used in the header, social previews, and the back-link on `stress-test.html` |
+| `cyrus-logo.svg` | Logo used in the header, hero, call-to-action and footer |
+| `cyrus-logo.png` | Raster copy of the logo, used by the back-link on `stress-test.html` |
 | `netlify/functions/download-count.js` | Serverless function returning download totals (Netlify Forms + GitHub release counts) |
 
 ## Colour theme
