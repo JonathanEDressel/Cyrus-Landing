@@ -1558,6 +1558,128 @@
   }
   .tool-card--soon .tool-title { color: var(--text-muted); }
 
+  /* ── TUTORIALS (video walkthroughs) ── */
+  .tut-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 28px;
+    align-items: start;
+  }
+  .tut-player .app-frame video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #05080d;
+  }
+  .tut-now { margin-top: 22px; }
+  .tut-now-title {
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.6vw, 26px);
+    font-weight: 700;
+    color: var(--text-strong);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .tut-now-desc { font-size: 15px; color: var(--text-muted); line-height: 1.65; max-width: 720px; }
+  .tut-chapters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 0;
+    list-style: none;
+  }
+  .tut-chapter {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-soft);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .tut-chapter time { color: var(--text-quiet); margin-right: 6px; }
+  .tut-chapter:hover, .tut-chapter:focus-visible { border-color: rgba(var(--cyan-rgb), .5); color: var(--text-strong); outline: none; }
+  .tut-chapter.is-current { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-glow); }
+  .tut-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    max-height: 760px;
+    overflow-y: auto;
+  }
+  .tut-list-head {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-quiet);
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+  }
+  .tut-item {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    transition: background .2s;
+  }
+  .tut-list li:last-child .tut-item { border-bottom: 0; }
+  .tut-item:hover, .tut-item:focus-visible { background: rgba(var(--onbg-rgb), .03); outline: none; }
+  .tut-item.is-active { background: var(--cyan-glow); box-shadow: inset 3px 0 0 var(--cyan); }
+  .tut-thumb {
+    position: relative;
+    display: block;
+    width: 112px;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #05080d;
+    border: 1px solid var(--border);
+  }
+  .tut-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tut-dur {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .78);
+    color: #fff;
+  }
+  .tut-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .tut-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--cyan); }
+  .tut-name { font-size: 14px; font-weight: 600; color: var(--text-strong); line-height: 1.3; }
+  .tut-sub { font-size: 12px; color: var(--text-muted); line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tut-seen { font-family: var(--font-mono); font-size: 10px; color: var(--text-quiet); }
+  .tut-note { margin-top: 18px; font-size: 13px; color: var(--text-quiet); }
+  @media (max-width: 960px) {
+    .tut-layout { grid-template-columns: 1fr; }
+    .tut-list { max-height: none; }
+  }
+  @media (max-width: 480px) {
+    .tut-item { grid-template-columns: 92px minmax(0, 1fr); }
+    .tut-thumb { width: 92px; }
+  }
+
   @media (max-width: 900px) {
     .features-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -1885,6 +2007,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
+    <li><a href="#tutorials">Tutorials</a></li>
     <li><a href="#exchanges">Exchanges</a></li>
     <li><a href="#install">Install</a></li>
     <li><a href="#security">Security</a></li>
@@ -2225,6 +2348,40 @@
         <h3 class="gallery-title">Gains worked out from what actually happened.</h3>
         <p class="gallery-desc">Sync your trade history and Cyrus matches every sale to the purchases behind it, by FIFO or HIFO, with short- and long-term gain for the year. Nothing is guessed: a coin that arrived from somewhere Cyrus can&rsquo;t see is flagged, and the Fix button lets you enter what you paid. Export a Form 8949 CSV, or your full history in Koinly&rsquo;s import format.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TUTORIALS -->
+<section id="tutorials">
+  <div class="section-label">Video Walkthroughs</div>
+  <h2 class="section-title">Learn every page, one video at a time.</h2>
+  <p class="section-desc">Narrated, step-by-step tours of each part of Cyrus: what every panel shows, how the features work underneath, and how to set things up. Pick a chapter to jump straight to it.</p>
+
+  <div class="tut-layout">
+    <div class="tut-player">
+      <div class="app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label" id="tut-frame-label">cyrus · tutorial</span>
+        </div>
+        <video id="tut-video" controls preload="none" playsinline></video>
+      </div>
+      <div class="tut-now">
+        <h3 class="tut-now-title" id="tut-now-title"></h3>
+        <p class="tut-now-desc" id="tut-now-desc"></p>
+        <ul class="tut-chapters" id="tut-chapters" aria-label="Chapters"></ul>
+      </div>
+    </div>
+    <div>
+      <ul class="tut-list" id="tut-list" aria-label="Tutorial videos">
+        <li class="tut-list-head"><span>Playlist</span><span id="tut-count"></span></li>
+      </ul>
+      <p class="tut-note">Recorded in Cyrus&rsquo;s demo mode, so every balance and order you see is sample data. Captions are available from the player&rsquo;s CC button.</p>
     </div>
   </div>
 </section>
@@ -2908,7 +3065,7 @@
     document.querySelectorAll(
       '.section-label, .section-title, .section-desc, .exchange-table-wrapper, ' +
       '.patreon-card, .crypto-divider, .giving-type-toggle, .stripe-note, ' +
-      '.tech-grid, .security-grid, .contact-form, .cta-content, .footer-inner'
+      '.tech-grid, .security-grid, .contact-form, .cta-content, .footer-inner, .tut-layout'
     ).forEach(el => el.classList.add('reveal'));
 
     const targets = document.querySelectorAll('.reveal, .reveal-stagger');
@@ -2928,6 +3085,515 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
     targets.forEach(el => observer.observe(el));
+  })();
+
+  // ── Tutorial videos ──
+  // The list below is written by Cyrus/tools/tutorials/publish.js from the
+  // recording manifest; edit the scenes there, not this block.
+  /* TUTORIALS:DATA */
+  const TUTORIALS = [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini and Robinhood with the right API permissions, and every setting on the Profile page.",
+      "seconds": 331,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Exchange connections",
+          "t": 39
+        },
+        {
+          "title": "Adding a connection",
+          "t": 79.2
+        },
+        {
+          "title": "Which permissions to grant",
+          "t": 108.1
+        },
+        {
+          "title": "The assistant key",
+          "t": 214.1
+        },
+        {
+          "title": "Notifications and email",
+          "t": 235.3
+        },
+        {
+          "title": "Account settings",
+          "t": 299.4
+        },
+        {
+          "title": "Wrapping up",
+          "t": 318.2
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "title": "The Overview",
+      "summary": "Headline numbers, the portfolio ring, live charts, every widget explained, and how to customise the layout.",
+      "seconds": 279,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "The top bar",
+          "t": 25.7
+        },
+        {
+          "title": "Headline numbers",
+          "t": 78
+        },
+        {
+          "title": "Portfolio and live prices",
+          "t": 100.5
+        },
+        {
+          "title": "Holdings, orders, caps and activity",
+          "t": 127.8
+        },
+        {
+          "title": "The flow chart",
+          "t": 181.7
+        },
+        {
+          "title": "Customising the layout",
+          "t": 201.5
+        },
+        {
+          "title": "Wrapping up",
+          "t": 264.6
+        }
+      ]
+    },
+    {
+      "id": "holdings",
+      "title": "Holdings",
+      "summary": "The summary cards, every column in the assets table, sorting, and the full breakdown behind each coin.",
+      "seconds": 335,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Choosing accounts",
+          "t": 12.3
+        },
+        {
+          "title": "The summary cards",
+          "t": 46.8
+        },
+        {
+          "title": "The assets table",
+          "t": 88.5
+        },
+        {
+          "title": "Sorting",
+          "t": 145.3
+        },
+        {
+          "title": "The full breakdown",
+          "t": 179.9
+        },
+        {
+          "title": "Where the numbers come from",
+          "t": 293.7
+        },
+        {
+          "title": "Wrapping up",
+          "t": 323.4
+        }
+      ]
+    },
+    {
+      "id": "openorders",
+      "title": "Open Orders",
+      "summary": "How orders are fetched and refreshed, reading the order flow chart, narrowing to one account, and every column in the orders table.",
+      "seconds": 206,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "The flow chart",
+          "t": 33.4
+        },
+        {
+          "title": "One account at a time",
+          "t": 96
+        },
+        {
+          "title": "The table",
+          "t": 122.2
+        },
+        {
+          "title": "Acting on your orders",
+          "t": 171.9
+        },
+        {
+          "title": "Wrapping up",
+          "t": 194.2
+        }
+      ]
+    },
+    {
+      "id": "limitorders",
+      "title": "Limit Orders",
+      "summary": "The order table, details and cancelling, the three-step ladder wizard with price bands, sizing and shaping, background placement, the order charts, bulk cancel and CSV export.",
+      "seconds": 449,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Sorting and filtering",
+          "t": 40.9
+        },
+        {
+          "title": "Details and cancelling",
+          "t": 64
+        },
+        {
+          "title": "Setting up a ladder",
+          "t": 89
+        },
+        {
+          "title": "Price and size",
+          "t": 143.9
+        },
+        {
+          "title": "Reviewing the ladder",
+          "t": 218.1
+        },
+        {
+          "title": "Placing in the background",
+          "t": 299.1
+        },
+        {
+          "title": "Seeing your orders",
+          "t": 349.7
+        },
+        {
+          "title": "Bulk cancel and export",
+          "t": 383
+        }
+      ]
+    },
+    {
+      "id": "transfers",
+      "title": "Transfers",
+      "summary": "Transfer history from every exchange, the roadmap, how Cyrus pairs moves between your own exchanges, reviewing suggested matches, and labelling your wallets.",
+      "seconds": 349,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "The roadmap",
+          "t": 38.2
+        },
+        {
+          "title": "Matching your own transfers",
+          "t": 62.6
+        },
+        {
+          "title": "Reviewing suggested matches",
+          "t": 122.1
+        },
+        {
+          "title": "Wallets and unknown ends",
+          "t": 167.5
+        },
+        {
+          "title": "Tracked wallets",
+          "t": 209.5
+        },
+        {
+          "title": "The table and filters",
+          "t": 284.1
+        },
+        {
+          "title": "Wrapping up",
+          "t": 335
+        }
+      ]
+    },
+    {
+      "id": "taxes",
+      "title": "Taxes",
+      "summary": "Syncing trade history, FIFO and HIFO, short and long term, how cost basis follows your coins between exchanges, filling in missing costs, and exporting for Form 8949 or Koinly.",
+      "seconds": 373,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Syncing trade history",
+          "t": 24.5
+        },
+        {
+          "title": "Realized gains",
+          "t": 84
+        },
+        {
+          "title": "Each sale and its cost basis",
+          "t": 152.8
+        },
+        {
+          "title": "Missing cost basis",
+          "t": 212.2
+        },
+        {
+          "title": "Entering costs by hand",
+          "t": 249.4
+        },
+        {
+          "title": "Exporting",
+          "t": 318.2
+        },
+        {
+          "title": "Wrapping up",
+          "t": 349.7
+        }
+      ]
+    },
+    {
+      "id": "automations",
+      "title": "Automations",
+      "summary": "Triggers and actions, cooldowns and execution limits, the rule builder, the execution log, the engine status and email alerts.",
+      "seconds": 426,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "What each exchange can do",
+          "t": 54.1
+        },
+        {
+          "title": "Your automations",
+          "t": 70.4
+        },
+        {
+          "title": "Building a rule",
+          "t": 131.7
+        },
+        {
+          "title": "Withdraw and convert actions",
+          "t": 265.2
+        },
+        {
+          "title": "Editing a rule",
+          "t": 312.9
+        },
+        {
+          "title": "The execution log",
+          "t": 334
+        },
+        {
+          "title": "Email alerts",
+          "t": 395.3
+        },
+        {
+          "title": "Wrapping up",
+          "t": 414.6
+        }
+      ]
+    },
+    {
+      "id": "balancer",
+      "title": "The Balancer",
+      "summary": "Allocation caps per coin and per account, how a trim is worked out, the chart and table, the safety settings, and saving.",
+      "seconds": 300,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "One account at a time",
+          "t": 23
+        },
+        {
+          "title": "Reading the chart",
+          "t": 44.2
+        },
+        {
+          "title": "How a trim works",
+          "t": 82.2
+        },
+        {
+          "title": "Setting caps",
+          "t": 122
+        },
+        {
+          "title": "Safety settings",
+          "t": 195.2
+        },
+        {
+          "title": "Saving",
+          "t": 236.9
+        },
+        {
+          "title": "Where trims show up",
+          "t": 269.4
+        },
+        {
+          "title": "Wrapping up",
+          "t": 288.4
+        }
+      ]
+    },
+    {
+      "id": "assistant",
+      "title": "The AI Assistant",
+      "summary": "Switching it on with your own Anthropic key, what it sees and sends, asking questions, approving cancels, orders and rules on a confirmation card, and conversation history.",
+      "seconds": 249,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Switching it on",
+          "t": 13.5
+        },
+        {
+          "title": "Opening the assistant",
+          "t": 63.7
+        },
+        {
+          "title": "Asking questions",
+          "t": 84.6
+        },
+        {
+          "title": "Asking it to act",
+          "t": 135.3
+        },
+        {
+          "title": "History",
+          "t": 215.4
+        },
+        {
+          "title": "Wrapping up",
+          "t": 237.6
+        }
+      ]
+    }
+  ];
+  /* /TUTORIALS:DATA */
+  (function () {
+    const section = document.getElementById('tutorials');
+    const video = document.getElementById('tut-video');
+    const list = document.getElementById('tut-list');
+    if (!section || !video || !list) return;
+    if (!TUTORIALS.length) { section.style.display = 'none'; return; }
+    const titleEl = document.getElementById('tut-now-title');
+    const descEl = document.getElementById('tut-now-desc');
+    const chaptersEl = document.getElementById('tut-chapters');
+    const labelEl = document.getElementById('tut-frame-label');
+    const SEEN_KEY = 'cyrus.tutorials.seen';
+    const fmt = s => { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+    const readSeen = () => { try { return JSON.parse(localStorage.getItem(SEEN_KEY) || '{}') || {}; } catch (e) { return {}; } };
+    const markSeen = id => { try { const s = readSeen(); s[id] = 1; localStorage.setItem(SEEN_KEY, JSON.stringify(s)); } catch (e) {} };
+    let current = null;
+    let pendingSeek = null;
+
+    document.getElementById('tut-count').textContent = TUTORIALS.length + ' videos';
+    const seen = readSeen();
+    TUTORIALS.forEach((t, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tut-item';
+      btn.dataset.id = t.id;
+      btn.innerHTML = '<span class="tut-thumb"><img loading="lazy" alt=""><span class="tut-dur"></span></span>' +
+        '<span class="tut-meta"><span class="tut-num"></span><span class="tut-name"></span><span class="tut-sub"></span><span class="tut-seen"></span></span>';
+      btn.querySelector('img').src = 'tutorials/' + t.id + '.jpg';
+      btn.querySelector('.tut-dur').textContent = fmt(t.seconds);
+      btn.querySelector('.tut-num').textContent = String(i + 1).padStart(2, '0');
+      btn.querySelector('.tut-name').textContent = t.title;
+      btn.querySelector('.tut-sub').textContent = t.summary;
+      btn.querySelector('.tut-seen').textContent = seen[t.id] ? 'Watched' : '';
+      btn.addEventListener('click', () => select(t.id, true));
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+
+    function select(id, play) {
+      const t = TUTORIALS.find(x => x.id === id) || TUTORIALS[0];
+      if (current !== t.id) {
+        current = t.id;
+        pendingSeek = null;
+        video.innerHTML = '';
+        video.poster = 'tutorials/' + t.id + '.jpg';
+        const src = document.createElement('source');
+        src.src = 'tutorials/' + t.id + '.mp4';
+        src.type = 'video/mp4';
+        const track = document.createElement('track');
+        track.kind = 'captions'; track.srclang = 'en'; track.label = 'English';
+        track.src = 'tutorials/' + t.id + '.vtt';
+        video.append(src, track);
+        video.load();
+        titleEl.textContent = t.title;
+        descEl.textContent = t.summary;
+        labelEl.textContent = 'cyrus · ' + t.id + '.mp4';
+        chaptersEl.innerHTML = '';
+        (t.chapters || []).forEach(c => {
+          const li = document.createElement('li');
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'tut-chapter'; b.dataset.t = c.t;
+          b.innerHTML = '<time></time><span></span>';
+          b.querySelector('time').textContent = fmt(c.t);
+          b.querySelector('span').textContent = c.title;
+          b.addEventListener('click', () => seek(c.t));
+          li.appendChild(b);
+          chaptersEl.appendChild(li);
+        });
+        list.querySelectorAll('.tut-item').forEach(b => b.classList.toggle('is-active', b.dataset.id === t.id));
+        if (play && history.replaceState) history.replaceState(null, '', '#tutorial-' + t.id);
+      }
+      if (play) {
+        video.play().catch(() => {});
+        if (typeof gtag === 'function') gtag('event', 'tutorial_play', { event_category: 'tutorials', event_label: t.id });
+      }
+    }
+
+    function seek(t) {
+      if (video.readyState >= 1) { video.currentTime = t + 0.05; }
+      else { pendingSeek = t; }
+      video.play().catch(() => {});
+    }
+    video.addEventListener('loadedmetadata', () => {
+      if (pendingSeek != null) { video.currentTime = pendingSeek + 0.05; pendingSeek = null; }
+    });
+    video.addEventListener('timeupdate', () => {
+      const chips = chaptersEl.querySelectorAll('.tut-chapter');
+      let active = null;
+      chips.forEach(c => { if (video.currentTime + 0.3 >= parseFloat(c.dataset.t)) active = c; });
+      chips.forEach(c => c.classList.toggle('is-current', c === active));
+    });
+    video.addEventListener('ended', () => {
+      markSeen(current);
+      const tag = list.querySelector('.tut-item[data-id="' + current + '"] .tut-seen');
+      if (tag) tag.textContent = 'Watched';
+    });
+
+    const fromHash = (location.hash.match(/^#tutorial-([a-z0-9-]+)$/) || [])[1];
+    select(fromHash || TUTORIALS[0].id, false);
+    if (fromHash) section.scrollIntoView();
   })();
 
   // ── Email modal functionality ──

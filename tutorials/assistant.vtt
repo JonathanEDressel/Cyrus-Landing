@@ -1,0 +1,262 @@
+WEBVTT
+
+1
+00:00:00.364 --> 00:00:02.615
+This video is about the assistant.
+
+2
+00:00:02.615 --> 00:00:06.252
+It's a chat panel that answers questions about your portfolio,
+
+3
+00:00:06.252 --> 00:00:09.596
+and can carry out tasks for you, like cancelling orders.
+
+4
+00:00:09.596 --> 00:00:12.907
+It runs on Claude, Anthropic's AI model.
+
+5
+00:00:13.577 --> 00:00:17.929
+The assistant is off until you give it your own Anthropic API key.
+
+6
+00:00:17.929 --> 00:00:21.133
+You add that on your profile, under the Assistant tab.
+
+7
+00:00:21.793 --> 00:00:27.062
+Create a key in the Anthropic console, paste it here, and click Verify and Save.
+
+8
+00:00:27.062 --> 00:00:31.650
+Cyrus checks it with Anthropic, then encrypts it like your exchange keys.
+
+9
+00:00:31.650 --> 00:00:37.182
+Use is billed to your own Anthropic account, typically a fraction of a cent per question.
+
+10
+00:00:37.871 --> 00:00:41.111
+One thing to know first: this is the one feature in
+
+11
+00:00:41.111 --> 00:00:44.350
+Cyrus that sends portfolio data off your computer.
+
+12
+00:00:44.350 --> 00:00:49.771
+When you ask a question, your holdings, rules, recent activity and resting orders
+
+13
+00:00:49.771 --> 00:00:54.723
+go straight to Anthropic under your key, with no Cyrus server in between.
+
+14
+00:00:55.400 --> 00:00:57.797
+Your exchange keys are never part of that.
+
+15
+00:00:57.797 --> 00:01:03.023
+This card sums up what to expect, and Remove key switches the assistant off again.
+
+16
+00:01:03.705 --> 00:01:05.902
+Let's go to Limit Orders and open it.
+
+17
+00:01:05.902 --> 00:01:10.809
+Click Ask in the top bar, or press Control and K on any page.
+
+18
+00:01:11.485 --> 00:01:14.387
+The panel slides in over whatever page you're on.
+
+19
+00:01:14.387 --> 00:01:17.259
+Under its title is the Claude model it uses.
+
+20
+00:01:17.940 --> 00:01:21.002
+An empty conversation offers a few ideas.
+
+21
+00:01:21.002 --> 00:01:23.941
+Click one, or type your own question at the bottom.
+
+22
+00:01:24.626 --> 00:01:26.916
+Let's ask what the biggest positions are.
+
+23
+00:01:27.891 --> 00:01:31.865
+It leads with the answer, then the detail: Bitcoin is about
+
+24
+00:01:31.865 --> 00:01:35.368
+a third of the portfolio, then Ethereum and Solana.
+
+25
+00:01:35.368 --> 00:01:37.868
+Demo replies are prepared in advance.
+
+26
+00:01:37.868 --> 00:01:41.126
+With your key, Claude answers from your real accounts.
+
+27
+00:01:41.807 --> 00:01:46.841
+It knows what you hold on every exchange and what it's worth, this month's change,
+
+28
+00:01:46.841 --> 00:01:51.385
+your automation rules and their recent activity, and your resting orders.
+
+29
+00:01:51.385 --> 00:01:55.720
+So you can ask how the month has gone, or have it explain your automations.
+
+30
+00:01:56.396 --> 00:02:00.761
+The first question after opening the panel fetches fresh balances.
+
+31
+00:02:00.761 --> 00:02:04.391
+Follow-ups within a minute reuse them, so they're quicker.
+
+32
+00:02:05.061 --> 00:02:09.532
+It won't tell you what to buy or sell; it lays out the facts instead.
+
+33
+00:02:09.532 --> 00:02:14.705
+And like any AI, it can be wrong, so double-check anything that matters.
+
+34
+00:02:15.355 --> 00:02:17.114
+It can also do things for you.
+
+35
+00:02:17.114 --> 00:02:21.302
+Let's ask it to cancel the Bitcoin sell orders priced in dollars.
+
+36
+00:02:21.966 --> 00:02:26.437
+Before acting, it looks up your orders and picks the ones that match.
+
+37
+00:02:26.437 --> 00:02:30.640
+Here it found two, on Kraken and Robinhood, and left a Bitcoin
+
+38
+00:02:30.640 --> 00:02:34.775
+to Tether order alone, because that isn't priced in dollars.
+
+39
+00:02:35.453 --> 00:02:36.600
+Then it stops.
+
+40
+00:02:36.600 --> 00:02:38.049
+Nothing has happened yet.
+
+41
+00:02:38.049 --> 00:02:42.261
+This card lists exactly what it's about to do, built from the real
+
+42
+00:02:42.261 --> 00:02:46.281
+values Cyrus will send, not from the AI's description of them.
+
+43
+00:02:46.960 --> 00:02:49.663
+Cancel turns it down, and nothing runs.
+
+44
+00:02:49.663 --> 00:02:52.375
+Do it carries out every action on the card.
+
+45
+00:02:52.375 --> 00:02:55.793
+If you ask something else instead, the card is dropped.
+
+46
+00:02:56.480 --> 00:02:59.927
+Limit orders and automation rules work the same way, and
+
+47
+00:02:59.927 --> 00:03:03.252
+limit orders and withdraw rules are flagged in amber.
+
+48
+00:03:03.252 --> 00:03:09.342
+Read rules twice: a rule fires later, on its own, perhaps while you're asleep.
+
+49
+00:03:10.035 --> 00:03:13.722
+Everything goes through the same checks as the buttons in Cyrus.
+
+50
+00:03:13.722 --> 00:03:16.968
+So it can't place a market order, and can only withdraw
+
+51
+00:03:16.968 --> 00:03:20.038
+to an address you've already whitelisted on Kraken.
+
+52
+00:03:20.704 --> 00:03:22.010
+Let's approve this one.
+
+53
+00:03:23.985 --> 00:03:26.342
+Each action reports back on its own.
+
+54
+00:03:26.342 --> 00:03:28.430
+The Kraken order was cancelled.
+
+55
+00:03:28.430 --> 00:03:31.547
+The Robinhood one had already filled, so the reason
+
+56
+00:03:31.547 --> 00:03:34.786
+is shown right there, and the assistant explains it.
+
+57
+00:03:35.479 --> 00:03:37.783
+Conversations are saved as you go.
+
+58
+00:03:37.783 --> 00:03:39.924
+The clock button shows your history.
+
+59
+00:03:40.608 --> 00:03:44.280
+History stays on this computer, separately for each account,
+
+60
+00:03:44.280 --> 00:03:47.034
+and is never written to your Cyrus database.
+
+61
+00:03:47.034 --> 00:03:51.143
+Click one to pick it up again, or delete one, or clear them all.
+
+62
+00:03:51.829 --> 00:03:54.811
+The pencil button starts a new conversation.
+
+63
+00:03:54.811 --> 00:03:56.965
+The old one stays in your history.
+
+64
+00:03:57.657 --> 00:04:01.104
+Press Escape, or the cross, to close the panel.
+
+65
+00:04:01.104 --> 00:04:07.035
+That's the assistant: ask in plain English, read the card, and approve only what you mean.
+

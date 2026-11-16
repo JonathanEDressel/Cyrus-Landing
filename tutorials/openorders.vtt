@@ -1,0 +1,206 @@
+WEBVTT
+
+1
+00:00:00.362 --> 00:00:01.801
+This is Open Orders.
+
+2
+00:00:01.801 --> 00:00:06.442
+It shows every order you have resting on your exchanges, waiting to fill.
+
+3
+00:00:06.442 --> 00:00:10.033
+Cyrus reads them straight from each exchange you've connected.
+
+4
+00:00:10.724 --> 00:00:13.959
+Under the title is the time the list was last updated.
+
+5
+00:00:13.959 --> 00:00:17.740
+Cyrus checks your exchanges for orders every four minutes in the
+
+6
+00:00:17.740 --> 00:00:21.286
+background, and straight away whenever you switch accounts.
+
+7
+00:00:21.957 --> 00:00:25.843
+The heading counts how many orders are open on the accounts you're looking at.
+
+8
+00:00:25.843 --> 00:00:29.393
+On the right, you can switch between two views: a flow
+
+9
+00:00:29.393 --> 00:00:32.745
+chart, which is where the page opens, and a table.
+
+10
+00:00:33.419 --> 00:00:37.159
+The flow chart shows where your money would move if your orders filled.
+
+11
+00:00:37.159 --> 00:00:42.345
+A sell order moves money out of the coin you're selling and into the one you'd be paid in.
+
+12
+00:00:42.345 --> 00:00:44.366
+A buy order does the opposite.
+
+13
+00:00:45.048 --> 00:00:49.918
+On All Exchanges, each account gets its own panel, with its name at the top.
+
+14
+00:00:50.613 --> 00:00:56.188
+Each circle is a coin, and each line is one or more orders between two coins.
+
+15
+00:00:56.188 --> 00:00:59.566
+The coins at the top are the ones your orders only spend.
+
+16
+00:01:00.236 --> 00:01:03.258
+Hover over a coin to see the orders behind it.
+
+17
+00:01:03.258 --> 00:01:07.928
+Its lines light up and the others fade back, and a tooltip lists
+
+18
+00:01:07.928 --> 00:01:12.380
+each order: buy or sell, the pair, the amount and the price.
+
+19
+00:01:13.053 --> 00:01:16.819
+Further down, the lines arrive at the coins you'd receive.
+
+20
+00:01:16.819 --> 00:01:20.397
+A green outline marks a coin your orders only receive.
+
+21
+00:01:20.397 --> 00:01:24.865
+Hover over one, and the tooltip tells you which coins it would come from.
+
+22
+00:01:25.537 --> 00:01:28.844
+The figure under a coin is how much of it you'd receive
+
+23
+00:01:28.844 --> 00:01:31.671
+if every order flowing into it filled in full.
+
+24
+00:01:31.671 --> 00:01:35.341
+For dollars and stablecoins, it's shown as a dollar amount.
+
+25
+00:01:36.008 --> 00:01:39.243
+With four accounts connected, that's a lot of orders.
+
+26
+00:01:39.243 --> 00:01:42.966
+To focus on one, use the exchange selector at the top.
+
+27
+00:01:42.966 --> 00:01:45.812
+Let's pick the Robinhood account called Crypto.
+
+28
+00:01:46.513 --> 00:01:49.335
+Now the chart shows only that account's orders.
+
+29
+00:01:49.335 --> 00:01:53.458
+The subtitle names the account, and the count drops to match.
+
+30
+00:01:54.145 --> 00:01:56.209
+Here it's easier to follow the story.
+
+31
+00:01:56.209 --> 00:02:01.542
+The coins being sold feed into dollars, and dollars feed the coins being bought.
+
+32
+00:02:02.232 --> 00:02:03.911
+Now let's switch to the table.
+
+33
+00:02:03.911 --> 00:02:07.129
+It lists the same orders, one row each.
+
+34
+00:02:07.817 --> 00:02:13.645
+Order ID is the exchange's own reference for the order, and Pair is the market it's on.
+
+35
+00:02:13.645 --> 00:02:20.466
+Side is buy or sell, in green or red, and Type is the kind of order, such as a limit order.
+
+36
+00:02:21.164 --> 00:02:23.907
+Price is the price the order is waiting for.
+
+37
+00:02:23.907 --> 00:02:29.345
+Volume is the full size of the order, and Filled is how much of it has already traded.
+
+38
+00:02:30.039 --> 00:02:31.891
+Like this Dogecoin buy order.
+
+39
+00:02:31.891 --> 00:02:36.651
+Part of it has already filled, and the rest is still waiting on the exchange.
+
+40
+00:02:37.320 --> 00:02:42.363
+Status is what the exchange reports for the order, and Opened is when it was placed.
+
+41
+00:02:43.060 --> 00:02:47.256
+Switch back to All Exchanges, and the table gains an Exchange column at
+
+42
+00:02:47.256 --> 00:02:51.334
+the front, so you can always tell which account an order belongs to.
+
+43
+00:02:51.999 --> 00:02:56.311
+Open Orders is for keeping an eye on things, so there's nothing to change here.
+
+44
+00:02:56.311 --> 00:03:00.088
+To place new limit orders or cancel existing ones, use
+
+45
+00:03:00.088 --> 00:03:03.585
+the Limit Orders page, just below in the sidebar.
+
+46
+00:03:04.284 --> 00:03:06.973
+Your automations can also watch these orders.
+
+47
+00:03:06.973 --> 00:03:10.227
+A rule can wait for one of them to fill, and then run
+
+48
+00:03:10.227 --> 00:03:13.543
+an action for you, like a conversion or a withdrawal.
+
+49
+00:03:14.237 --> 00:03:18.048
+That's Open Orders: every resting order in one place, as a
+
+50
+00:03:18.048 --> 00:03:21.860
+map of where your money is headed or as a detailed table.
+
+51
+00:03:21.860 --> 00:03:24.214
+Next, we'll look at limit orders.
+

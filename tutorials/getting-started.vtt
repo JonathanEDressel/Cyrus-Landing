@@ -1,0 +1,334 @@
+WEBVTT
+
+1
+00:00:00.358 --> 00:00:01.757
+Welcome to Cyrus.
+
+2
+00:00:01.757 --> 00:00:05.159
+In this first video, we'll find our way around, connect
+
+3
+00:00:05.159 --> 00:00:08.313
+an exchange, and go through your profile settings.
+
+4
+00:00:08.313 --> 00:00:11.624
+Everything here is demo data, not a real account.
+
+5
+00:00:12.299 --> 00:00:16.882
+Down the left side is the page rail: your portfolio pages at the top,
+
+6
+00:00:16.882 --> 00:00:21.331
+then Automations and the Balancer, and your Profile at the bottom.
+
+7
+00:00:22.003 --> 00:00:25.610
+Across the top, the search box jumps to any page.
+
+8
+00:00:25.610 --> 00:00:30.490
+The exchange selector chooses between all your accounts combined, or just one.
+
+9
+00:00:31.172 --> 00:00:34.687
+The worker pill shows the automation engine is running,
+
+10
+00:00:34.687 --> 00:00:38.329
+and Ask opens the AI assistant, which has its own video.
+
+11
+00:00:39.007 --> 00:00:42.468
+Setting up starts on your profile, at the bottom of the rail.
+
+12
+00:00:43.150 --> 00:00:46.784
+At the top, a chip shows how many exchanges are connected,
+
+13
+00:00:46.784 --> 00:00:49.603
+and warns you if any haven't been validated.
+
+14
+00:00:50.267 --> 00:00:52.770
+Settings are split into four tabs.
+
+15
+00:00:52.770 --> 00:00:56.294
+Let's start with the one that matters most, Exchanges.
+
+16
+00:00:56.985 --> 00:01:00.576
+Each card is one connection: the exchange, your label
+
+17
+00:01:00.576 --> 00:01:03.557
+for it, and whether its keys are validated.
+
+18
+00:01:04.222 --> 00:01:08.028
+Test checks the keys by asking the exchange for your balance.
+
+19
+00:01:08.028 --> 00:01:11.379
+If that works, the connection is marked validated.
+
+20
+00:01:11.379 --> 00:01:14.810
+If the keys are rejected, it's marked not validated.
+
+21
+00:01:15.502 --> 00:01:18.590
+The bin removes a connection and its stored keys.
+
+22
+00:01:19.248 --> 00:01:24.065
+To connect an account, scroll down to Add a connection and choose the exchange.
+
+23
+00:01:24.065 --> 00:01:29.464
+A question mark appears, linking to that exchange's guide to creating API keys.
+
+24
+00:01:30.126 --> 00:01:35.621
+The label tells your accounts apart, because you can connect the same exchange more than once.
+
+25
+00:01:35.621 --> 00:01:37.403
+Let's call this one Long term.
+
+26
+00:01:38.072 --> 00:01:40.668
+Just make sure each one is a different account.
+
+27
+00:01:40.668 --> 00:01:44.294
+Connections are added together, so the same account twice
+
+28
+00:01:44.294 --> 00:01:47.410
+would count double, and reusing keys is blocked.
+
+29
+00:01:48.108 --> 00:01:53.457
+Next, create an API key on the exchange, with only what Cyrus needs.
+
+30
+00:01:53.457 --> 00:01:57.775
+On Kraken: query funds, query open and closed orders
+
+31
+00:01:57.775 --> 00:02:01.928
+and trades, and create, modify and cancel orders.
+
+32
+00:02:02.589 --> 00:02:06.103
+Only add withdraw funds if you plan to use withdraw rules.
+
+33
+00:02:06.103 --> 00:02:09.353
+Kraken is the only exchange Cyrus can withdraw from,
+
+34
+00:02:09.353 --> 00:02:12.353
+and only to addresses you've whitelisted there.
+
+35
+00:02:13.043 --> 00:02:16.731
+For Coinbase, create the key in Coinbase Advanced, not
+
+36
+00:02:16.731 --> 00:02:20.214
+the standard app, with view and trade permissions.
+
+37
+00:02:20.878 --> 00:02:25.828
+On Binance, enable reading and spot trading, and leave withdrawals off.
+
+38
+00:02:26.516 --> 00:02:30.389
+On Gemini, use the Trader role, Gemini's default.
+
+39
+00:02:30.389 --> 00:02:37.131
+Gemini also has a sandbox, a practice exchange with fake funds, so a sandbox option appears.
+
+40
+00:02:37.810 --> 00:02:41.337
+Tick it only if your key came from Gemini's sandbox site.
+
+41
+00:02:41.337 --> 00:02:45.553
+Cyrus then connects to the test exchange instead of the real one.
+
+42
+00:02:46.245 --> 00:02:48.469
+Robinhood doesn't give you a secret.
+
+43
+00:02:48.469 --> 00:02:51.870
+Instead, you create a pair of keys, give Robinhood
+
+44
+00:02:51.870 --> 00:02:54.998
+the public half, and it gives you an API key.
+
+45
+00:02:55.671 --> 00:02:58.719
+Cyrus offers a small key generator for that.
+
+46
+00:02:58.719 --> 00:03:03.254
+It needs Python 3, works offline, and prints both keys.
+
+47
+00:03:03.254 --> 00:03:05.860
+The private one goes in the field below.
+
+48
+00:03:06.534 --> 00:03:10.886
+Whichever exchange it is, paste the API key and secret here.
+
+49
+00:03:10.886 --> 00:03:12.761
+Both stay hidden as you type.
+
+50
+00:03:13.436 --> 00:03:18.359
+When you click Add Connection, the keys are encrypted and saved on your own computer.
+
+51
+00:03:18.359 --> 00:03:23.891
+They're only decrypted when Cyrus talks to that exchange, and never sent anywhere else.
+
+52
+00:03:24.556 --> 00:03:27.558
+Cyrus tests the new connection straight away, and
+
+53
+00:03:27.558 --> 00:03:30.437
+once it's validated it appears across the app.
+
+54
+00:03:30.437 --> 00:03:33.442
+This is a demo, so we'll clear the form instead.
+
+55
+00:03:34.117 --> 00:03:37.179
+The Assistant tab switches on the AI assistant.
+
+56
+00:03:37.179 --> 00:03:41.139
+It's off until you add your own Anthropic API key, which Cyrus
+
+57
+00:03:41.139 --> 00:03:44.971
+checks with Anthropic and encrypts like your exchange keys.
+
+58
+00:03:45.645 --> 00:03:49.020
+It's the one feature that sends portfolio data off your
+
+59
+00:03:49.020 --> 00:03:51.965
+computer, straight to Anthropic under your key.
+
+60
+00:03:51.965 --> 00:03:54.691
+The assistant video covers it in detail.
+
+61
+00:03:55.372 --> 00:04:00.920
+On Notifications, desktop notifications tell you when an automation rule runs.
+
+62
+00:04:00.920 --> 00:04:04.165
+The second switch hides the support button in the corner.
+
+63
+00:04:04.837 --> 00:04:10.080
+Cyrus can also email you when a rule executes, sent from your own email account.
+
+64
+00:04:10.080 --> 00:04:13.776
+Turn on Email Me on Execution and enter your address.
+
+65
+00:04:14.451 --> 00:04:17.624
+For the password, use an app password from your email
+
+66
+00:04:17.624 --> 00:04:20.678
+provider's security settings, not your normal one.
+
+67
+00:04:20.678 --> 00:04:22.499
+The link underneath shows how.
+
+68
+00:04:23.193 --> 00:04:26.862
+For Gmail, Outlook, Yahoo, iCloud and other common
+
+69
+00:04:26.862 --> 00:04:30.457
+providers, the mail server is filled in for you.
+
+70
+00:04:30.457 --> 00:04:32.252
+Otherwise, enter it here.
+
+71
+00:04:32.926 --> 00:04:35.589
+Send Test checks the form before you save.
+
+72
+00:04:35.589 --> 00:04:38.341
+Emails only go out while Cyrus is running.
+
+73
+00:04:39.040 --> 00:04:43.749
+Once email is on and saved, you also get a monthly report: your holdings,
+
+74
+00:04:43.749 --> 00:04:48.458
+that month's automation log, and where your rules and orders move money.
+
+75
+00:04:48.458 --> 00:04:52.580
+If Cyrus was closed at month end, it goes out next time it runs.
+
+76
+00:04:53.268 --> 00:04:58.750
+Send Test Report emails you one right away, without counting as that month's report.
+
+77
+00:04:59.430 --> 00:05:03.529
+Finally, the Account tab, for your username and password.
+
+78
+00:05:04.850 --> 00:05:08.364
+Dark Mode switches between the dark and light themes.
+
+79
+00:05:09.974 --> 00:05:12.451
+Account Active is a master switch.
+
+80
+00:05:12.451 --> 00:05:17.623
+Turn it off, and automations and exchange features stop until you turn it back on.
+
+81
+00:05:18.281 --> 00:05:23.045
+That's it: connect an exchange, test it, and set up the extras you want.
+
+82
+00:05:23.045 --> 00:05:27.047
+Everything is stored in one database file on your own computer.
+
+83
+00:05:27.047 --> 00:05:29.215
+Next, a tour of the Overview.
+
