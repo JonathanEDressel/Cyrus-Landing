@@ -1,6 +1,6 @@
 # Cyrus — Landing Page
 
-Marketing site for [Cyrus](https://github.com/JonathanEDressel/Cyrus), a Windows desktop app
+Marketing site for [Cyrus](https://github.com/JonathanEDressel/Cyrus), a desktop app for Windows and macOS
 for automating and monitoring cryptocurrency trading across multiple exchanges.
 
 A single static `index.html` (styles and scripts inline), deployed on Netlify.

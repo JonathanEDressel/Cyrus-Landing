@@ -412,6 +412,32 @@
     color: var(--cyan-dim);
   }
 
+  /* Every platform's download, under the OS-matched primary button. */
+  .download-alts {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+  .download-alts a {
+    color: var(--cyan-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+  }
+  .download-alts a:hover,
+  .download-alts a:focus-visible { color: var(--cyan); }
+
+  /* Per-platform install notes in Getting Started. */
+  .step-desc + .step-desc { margin-top: 10px; }
+  .step-os {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+    margin-right: 6px;
+  }
+
   /* ── SECTION COMMONS ── */
   section {
     padding: 96px 24px;
@@ -1888,16 +1914,17 @@
       A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, and Robinhood.
     </p>
     <div class="hero-actions">
-      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.7/Cyrus.Setup.1.2.7.exe" class="btn-primary" data-download="hero" onclick="gtag('event','click',{event_category:'hero',event_label:'download_windows'})">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus.Setup.1.2.8.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
         <span class="btn-icon">⬇</span>
-        Download for Windows
+        <span data-os-label>Download for Windows</span>
       </a>
       <a href="https://github.com/JonathanEDressel/Cyrus" target="_blank" class="btn-secondary" onclick="gtag('event','click',{event_category:'hero',event_label:'view_source'})">
         <span class="btn-icon">⌥</span>
         View Source
       </a>
     </div>
-    <p class="hero-version">Latest release: <code>v1.2.7</code> · Windows x64 · No Python or Node required</p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus.Setup.1.2.8.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="hero-version">Latest release: <code>v1.2.8</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
   </div>
 </section>
 
@@ -1985,7 +2012,7 @@
     <div class="feature-card">
       <span class="feature-icon">🔔</span>
       <div class="feature-title">Desktop Notifications</div>
-      <p class="feature-desc">Get native Windows notifications the moment an automation rule executes. Toggle per-account from your profile settings.</p>
+      <p class="feature-desc">Get native desktop notifications the moment an automation rule executes. Toggle per-account from your profile settings.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🗄</span>
@@ -2338,14 +2365,15 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab <code class="ref">Cyrus.Setup.1.2.7.exe</code> from the latest release. The installer is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus.Setup.1.2.8.exe</code> for Windows, <code class="ref">Cyrus-1.2.8-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.2.8-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
       <span class="step-num">02</span>
       <div>
         <div class="step-title">Install and launch</div>
-        <p class="step-desc">Run the installer and follow the setup wizard. Cyrus installs to <code class="ref">C:\Program Files\Cyrus</code> by default and creates Start Menu and Desktop shortcuts. First-time users will see a Windows SmartScreen prompt — click "More info" → "Run anyway."</p>
+        <p class="step-desc"><span class="step-os">Windows</span>Run the installer and follow the setup wizard. Cyrus installs to <code class="ref">C:\Program Files\Cyrus</code> by default and creates Start Menu and Desktop shortcuts. First-time users will see a Windows SmartScreen prompt — click "More info" → "Run anyway."</p>
+        <p class="step-desc"><span class="step-os">macOS 13+</span>Open the <code class="ref">.dmg</code> and drag Cyrus into Applications. The first time you open it, macOS blocks it because it isn't signed with an Apple Developer ID yet — click "Done", then go to System Settings → Privacy &amp; Security, scroll down and click "Open Anyway". You only do this once. (Terminal alternative: <code class="ref">xattr -dr com.apple.quarantine /Applications/Cyrus.app</code>.) Closing the window keeps automations running from the menu bar; quit from its <code class="ref">C_</code> icon or with ⌘Q.</p>
       </div>
     </div>
     <div class="step-item">
@@ -2410,7 +2438,7 @@
 <section>
   <div class="section-label">Tech Stack</div>
   <h2 class="section-title">Built on solid foundations.</h2>
-  <p class="section-desc" style="margin-bottom:36px">A modern Electron + Python architecture, packaged into a single Windows installer.</p>
+  <p class="section-desc" style="margin-bottom:36px">A modern Electron + Python architecture, packaged into self-contained Windows and macOS installers.</p>
   <div class="tech-grid">
     <div class="tech-tag"><span class="tech-dot" style="background:#3178C6"></span>TypeScript</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#47848F"></span>Electron</div>
@@ -2623,7 +2651,7 @@
           var total = 0;
           releases.forEach(function (rel) {
             (rel.assets || []).forEach(function (a) {
-              if (a.name && a.name.indexOf('.exe') === a.name.length - 4) total += a.download_count || 0;
+              if (a.name && /\.(exe|dmg)$/.test(a.name)) total += a.download_count || 0;
             });
           });
           return total;
@@ -2711,11 +2739,12 @@
     <img src="cyrus-logo.svg" alt="Cyrus" style="width:72px;height:72px;object-fit:contain;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
     <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
     <p class="cta-desc">Free for personal use, source-available, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
-    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.7/Cyrus.Setup.1.2.7.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta" onclick="gtag('event','click',{event_category:'cta',event_label:'download_cta'})">
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus.Setup.1.2.8.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
       <span class="btn-icon">⬇</span>
-      Download Cyrus v1.2.7
+      <span data-os-label>Download Cyrus v1.2.8 for Windows</span>
     </a>
-    <p class="cta-note">Windows x64 · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus.Setup.1.2.8.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="cta-note">Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
 </section>
 
@@ -3038,7 +3067,8 @@
     if (modal.classList.contains('active')) closeEmailModal();
   });
 
-  // Intercept all download links
+  // Intercept all download links (hrefs are read at click time, so the
+  // OS-matching script below can retarget the primary buttons first)
   document.querySelectorAll('[data-download]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -3087,6 +3117,42 @@
   window.addEventListener("storage",function(e){
     if(e.key===KEY && e.newValue) apply(e.newValue,false);
   });
+})();
+</script>
+
+<script>
+/* ── Download buttons follow the visitor's OS ──────────────────────────────
+   The primary buttons default to Windows. Mac visitors get the Apple Silicon
+   build, or the Intel one when the browser reports an x86 CPU (Chromium's
+   client hints; Safari can't tell, and almost every Mac sold since 2021 is
+   Apple Silicon — the Intel link sits right underneath either way). */
+(function () {
+  var LINKS = {
+    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus.Setup.1.2.8.exe', label: 'Download for Windows', ga: 'download_windows' },
+    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
+    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.2.8/Cyrus-1.2.8-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
+  };
+  function apply(key) {
+    var target = LINKS[key];
+    document.querySelectorAll('[data-os-primary]').forEach(function (a) {
+      a.href = target.href;
+      a.dataset.ga = target.ga;
+      a.setAttribute('data-download', a.getAttribute('data-os-primary') + '-' + key);
+      var label = a.querySelector('[data-os-label]');
+      if (label) label.textContent = a.hasAttribute('data-os-versioned')
+        ? target.label.replace('Download', 'Download Cyrus v1.2.8') : target.label;
+    });
+  }
+  var uad = navigator.userAgentData;
+  var platform = (uad && uad.platform) || navigator.platform || '';
+  var isMac = /mac/i.test(platform) && !/iphone|ipad/i.test(navigator.userAgent);
+  if (!isMac) return;
+  apply('mac-arm64');
+  if (uad && uad.getHighEntropyValues) {
+    uad.getHighEntropyValues(['architecture']).then(function (v) {
+      if (v && v.architecture === 'x86') apply('mac-x64');
+    }).catch(function () {});
+  }
 })();
 </script>
 </body>

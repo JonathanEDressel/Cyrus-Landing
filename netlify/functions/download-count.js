@@ -32,7 +32,7 @@ exports.handler = async function () {
         (sum, rel) =>
           sum +
           (rel.assets || []).reduce(
-            (s, a) => s + (a.name && a.name.endsWith('.exe') ? a.download_count || 0 : 0),
+            (s, a) => s + (a.name && /\.(exe|dmg)$/.test(a.name) ? a.download_count || 0 : 0),
             0
           ),
         0
