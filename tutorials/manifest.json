@@ -1,0 +1,402 @@
+[
+ {
+  "id": "getting-started",
+  "title": "Getting Started",
+  "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini and Robinhood with the right API permissions, and every setting on the Profile page.",
+  "seconds": 331,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Exchange connections",
+    "t": 39
+   },
+   {
+    "title": "Adding a connection",
+    "t": 79.2
+   },
+   {
+    "title": "Which permissions to grant",
+    "t": 108.1
+   },
+   {
+    "title": "The assistant key",
+    "t": 214.1
+   },
+   {
+    "title": "Notifications and email",
+    "t": 235.3
+   },
+   {
+    "title": "Account settings",
+    "t": 299.4
+   },
+   {
+    "title": "Wrapping up",
+    "t": 318.2
+   }
+  ]
+ },
+ {
+  "id": "overview",
+  "title": "The Overview",
+  "summary": "Headline numbers, the portfolio ring, live charts, every widget explained, and how to customise the layout.",
+  "seconds": 279,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "The top bar",
+    "t": 25.7
+   },
+   {
+    "title": "Headline numbers",
+    "t": 78
+   },
+   {
+    "title": "Portfolio and live prices",
+    "t": 100.5
+   },
+   {
+    "title": "Holdings, orders, caps and activity",
+    "t": 127.8
+   },
+   {
+    "title": "The flow chart",
+    "t": 181.7
+   },
+   {
+    "title": "Customising the layout",
+    "t": 201.5
+   },
+   {
+    "title": "Wrapping up",
+    "t": 264.6
+   }
+  ]
+ },
+ {
+  "id": "holdings",
+  "title": "Holdings",
+  "summary": "The summary cards, every column in the assets table, sorting, and the full breakdown behind each coin.",
+  "seconds": 335,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Choosing accounts",
+    "t": 12.3
+   },
+   {
+    "title": "The summary cards",
+    "t": 46.8
+   },
+   {
+    "title": "The assets table",
+    "t": 88.5
+   },
+   {
+    "title": "Sorting",
+    "t": 145.3
+   },
+   {
+    "title": "The full breakdown",
+    "t": 179.9
+   },
+   {
+    "title": "Where the numbers come from",
+    "t": 293.7
+   },
+   {
+    "title": "Wrapping up",
+    "t": 323.4
+   }
+  ]
+ },
+ {
+  "id": "openorders",
+  "title": "Open Orders",
+  "summary": "How orders are fetched and refreshed, reading the order flow chart, narrowing to one account, and every column in the orders table.",
+  "seconds": 206,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "The flow chart",
+    "t": 33.4
+   },
+   {
+    "title": "One account at a time",
+    "t": 96
+   },
+   {
+    "title": "The table",
+    "t": 122.2
+   },
+   {
+    "title": "Acting on your orders",
+    "t": 171.9
+   },
+   {
+    "title": "Wrapping up",
+    "t": 194.2
+   }
+  ]
+ },
+ {
+  "id": "limitorders",
+  "title": "Limit Orders",
+  "summary": "The order table, details and cancelling, the three-step ladder wizard with price bands, sizing and shaping, background placement, the order charts, bulk cancel and CSV export.",
+  "seconds": 449,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Sorting and filtering",
+    "t": 40.9
+   },
+   {
+    "title": "Details and cancelling",
+    "t": 64
+   },
+   {
+    "title": "Setting up a ladder",
+    "t": 89
+   },
+   {
+    "title": "Price and size",
+    "t": 143.9
+   },
+   {
+    "title": "Reviewing the ladder",
+    "t": 218.1
+   },
+   {
+    "title": "Placing in the background",
+    "t": 299.1
+   },
+   {
+    "title": "Seeing your orders",
+    "t": 349.7
+   },
+   {
+    "title": "Bulk cancel and export",
+    "t": 383
+   }
+  ]
+ },
+ {
+  "id": "transfers",
+  "title": "Transfers",
+  "summary": "Transfer history from every exchange, the roadmap, how Cyrus pairs moves between your own exchanges, reviewing suggested matches, and labelling your wallets.",
+  "seconds": 349,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "The roadmap",
+    "t": 38.2
+   },
+   {
+    "title": "Matching your own transfers",
+    "t": 62.6
+   },
+   {
+    "title": "Reviewing suggested matches",
+    "t": 122.1
+   },
+   {
+    "title": "Wallets and unknown ends",
+    "t": 167.5
+   },
+   {
+    "title": "Tracked wallets",
+    "t": 209.5
+   },
+   {
+    "title": "The table and filters",
+    "t": 284.1
+   },
+   {
+    "title": "Wrapping up",
+    "t": 335
+   }
+  ]
+ },
+ {
+  "id": "taxes",
+  "title": "Taxes",
+  "summary": "Syncing trade history, FIFO and HIFO, short and long term, how cost basis follows your coins between exchanges, filling in missing costs, and exporting for Form 8949 or Koinly.",
+  "seconds": 373,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Syncing trade history",
+    "t": 24.5
+   },
+   {
+    "title": "Realized gains",
+    "t": 84
+   },
+   {
+    "title": "Each sale and its cost basis",
+    "t": 152.8
+   },
+   {
+    "title": "Missing cost basis",
+    "t": 212.2
+   },
+   {
+    "title": "Entering costs by hand",
+    "t": 249.4
+   },
+   {
+    "title": "Exporting",
+    "t": 318.2
+   },
+   {
+    "title": "Wrapping up",
+    "t": 349.7
+   }
+  ]
+ },
+ {
+  "id": "automations",
+  "title": "Automations",
+  "summary": "Triggers and actions, cooldowns and execution limits, the rule builder, the execution log, the engine status and email alerts.",
+  "seconds": 426,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "What each exchange can do",
+    "t": 54.1
+   },
+   {
+    "title": "Your automations",
+    "t": 70.4
+   },
+   {
+    "title": "Building a rule",
+    "t": 131.7
+   },
+   {
+    "title": "Withdraw and convert actions",
+    "t": 265.2
+   },
+   {
+    "title": "Editing a rule",
+    "t": 312.9
+   },
+   {
+    "title": "The execution log",
+    "t": 334
+   },
+   {
+    "title": "Email alerts",
+    "t": 395.3
+   },
+   {
+    "title": "Wrapping up",
+    "t": 414.6
+   }
+  ]
+ },
+ {
+  "id": "balancer",
+  "title": "The Balancer",
+  "summary": "Allocation caps per coin and per account, how a trim is worked out, the chart and table, the safety settings, and saving.",
+  "seconds": 300,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "One account at a time",
+    "t": 23
+   },
+   {
+    "title": "Reading the chart",
+    "t": 44.2
+   },
+   {
+    "title": "How a trim works",
+    "t": 82.2
+   },
+   {
+    "title": "Setting caps",
+    "t": 122
+   },
+   {
+    "title": "Safety settings",
+    "t": 195.2
+   },
+   {
+    "title": "Saving",
+    "t": 236.9
+   },
+   {
+    "title": "Where trims show up",
+    "t": 269.4
+   },
+   {
+    "title": "Wrapping up",
+    "t": 288.4
+   }
+  ]
+ },
+ {
+  "id": "assistant",
+  "title": "The AI Assistant",
+  "summary": "Switching it on with your own Anthropic key, what it sees and sends, asking questions, approving cancels, orders and rules on a confirmation card, and conversation history.",
+  "seconds": 249,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Switching it on",
+    "t": 13.5
+   },
+   {
+    "title": "Opening the assistant",
+    "t": 63.7
+   },
+   {
+    "title": "Asking questions",
+    "t": 84.6
+   },
+   {
+    "title": "Asking it to act",
+    "t": 135.3
+   },
+   {
+    "title": "History",
+    "t": 215.4
+   },
+   {
+    "title": "Wrapping up",
+    "t": 237.6
+   }
+  ]
+ }
+]
