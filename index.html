@@ -2037,7 +2037,7 @@
       A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, Gemini, and Robinhood.
     </p>
     <div class="hero-actions">
-      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-Setup-1.3.1.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
         <span class="btn-icon">⬇</span>
         <span data-os-label>Download for Windows</span>
       </a>
@@ -2046,8 +2046,8 @@
         View Source
       </a>
     </div>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-Setup-1.3.1.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
-    <p class="hero-version">Latest release: <code>v1.3.1</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="hero-version">Latest release: <code>v1.4.0</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
   </div>
 </section>
 
@@ -2140,7 +2140,7 @@
     <div class="feature-card">
       <span class="feature-icon">🗄</span>
       <div class="feature-title">Fully Local Storage</div>
-      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync, no account, no telemetry. Your API keys never leave your machine. Only two things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key. Both are optional and neither is on by default.</p>
+      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync and no account. Your API keys never leave your machine. Only a few things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key; and, if you opt in, an anonymous usage count (a random install ID, the app version, OS and country, nothing about you or your money). The assistant and the usage count are both off by default.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⏱</span>
@@ -2224,7 +2224,7 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Automation Rules</div>
         <h3 class="gallery-title">Set your rules once. Cyrus does the rest.</h3>
-        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. Click any circle to edit the rule behind it, and see every rule's status and last run in one place, with cooldowns to keep automation in check.</p>
+        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. A flow map shows where your money goes, from the coins being sent through each rule to where they end up; click a rule to light up its path and edit or pause it. Every rule's status and last run sit in one place, with cooldowns to keep automation in check.</p>
       </div>
     </div>
 
@@ -2552,7 +2552,7 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.3.1.exe</code> for Windows, <code class="ref">Cyrus-1.3.1-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.3.1-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.4.0.exe</code> for Windows, <code class="ref">Cyrus-1.4.0-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.4.0-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
@@ -2610,7 +2610,7 @@
     </div>
     <div class="security-card">
       <div class="security-title">Offline-First Architecture</div>
-      <p class="security-desc">No cloud accounts, no remote telemetry, no analytics. The backend listens on localhost only and is never exposed to your network. Out of the box the single outbound request is to a public market-data API for coin fundamentals on the Holdings page, and it sends nothing but a ticker symbol.</p>
+      <p class="security-desc">No cloud accounts and no tracking: the only usage data is an anonymous, opt-in count you can switch off any time. The backend listens on localhost only and is never exposed to your network. Out of the box the single outbound request is to a public market-data API for coin fundamentals on the Holdings page, and it sends nothing but a ticker symbol.</p>
     </div>
     <div class="security-card">
       <div class="security-title">The AI Assistant Is Opt-In</div>
@@ -2926,11 +2926,11 @@
     <img src="cyrus-logo.svg" alt="Cyrus" style="width:72px;height:72px;object-fit:contain;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
     <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
     <p class="cta-desc">Free for personal use, source-available, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
-    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-Setup-1.3.1.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
       <span class="btn-icon">⬇</span>
-      <span data-os-label>Download Cyrus v1.3.1 for Windows</span>
+      <span data-os-label>Download Cyrus v1.4.0 for Windows</span>
     </a>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-Setup-1.3.1.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
     <p class="cta-note">Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
 </section>
@@ -3824,9 +3824,9 @@
    Apple Silicon — the Intel link sits right underneath either way). */
 (function () {
   var LINKS = {
-    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-Setup-1.3.1.exe', label: 'Download for Windows', ga: 'download_windows' },
-    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
-    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.3.1/Cyrus-1.3.1-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
+    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe', label: 'Download for Windows', ga: 'download_windows' },
+    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
+    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
   };
   function apply(key) {
     var target = LINKS[key];
@@ -3836,7 +3836,7 @@
       a.setAttribute('data-download', a.getAttribute('data-os-primary') + '-' + key);
       var label = a.querySelector('[data-os-label]');
       if (label) label.textContent = a.hasAttribute('data-os-versioned')
-        ? target.label.replace('Download', 'Download Cyrus v1.3.1') : target.label;
+        ? target.label.replace('Download', 'Download Cyrus v1.4.0') : target.label;
     });
   }
   var uad = navigator.userAgentData;
