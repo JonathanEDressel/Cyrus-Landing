@@ -2034,10 +2034,10 @@
       — AUTOMATE <span>CRYPTO</span> TRANSACTIONS —
     </div>
     <p class="hero-desc">
-      A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, Gemini, and Robinhood.
+      A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io.
     </p>
     <div class="hero-actions">
-      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
         <span class="btn-icon">⬇</span>
         <span data-os-label>Download for Windows</span>
       </a>
@@ -2046,8 +2046,8 @@
         View Source
       </a>
     </div>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
-    <p class="hero-version">Latest release: <code>v1.4.0</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="hero-version">Latest release: <code>v1.5.0</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
   </div>
 </section>
 
@@ -2063,8 +2063,8 @@
       <span class="stat-label">Automation Rules</span>
     </div>
     <div class="stat-item">
-      <span class="stat-value">AES</span>
-      <span class="stat-label">API Key Encryption</span>
+      <span class="stat-value">AES-256</span>
+      <span class="stat-label">Encrypted Database</span>
     </div>
     <div class="stat-item">
       <span class="stat-value">0</span>
@@ -2130,7 +2130,7 @@
     <div class="feature-card">
       <span class="feature-icon">🔗</span>
       <div class="feature-title">Multi-Exchange Support</div>
-      <p class="feature-desc">Connect Kraken, Coinbase Advanced, Binance, Gemini, and Robinhood simultaneously. Manage all your exchange accounts from a single application window.</p>
+      <p class="feature-desc">Connect Kraken, Coinbase Advanced, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com Exchange and Gate.io simultaneously. Manage all your exchange accounts from a single application window.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🔔</span>
@@ -2276,7 +2276,7 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Live Monitoring</div>
         <h3 class="gallery-title">Every open order, every exchange — live.</h3>
-        <p class="gallery-desc">Watch all your open orders refresh automatically in the background, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, Gemini, and Robinhood.</p>
+        <p class="gallery-desc">Watch all your open orders refresh automatically in the background, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io.</p>
       </div>
     </div>
 
@@ -2415,15 +2415,23 @@
         <tr>
           <th>Feature</th>
           <th>Kraken</th>
-          <th>Coinbase Advanced <span class="exchange-badge">BETA</span></th>
-          <th>Binance <span class="exchange-badge">BETA</span></th>
+          <th>Coinbase Advanced</th>
+          <th>Binance</th>
           <th>Gemini <span class="exchange-badge">BETA</span></th>
-          <th>Robinhood <span class="exchange-badge">BETA</span></th>
+          <th>Robinhood</th>
+          <th>OKX <span class="exchange-badge">BETA</span></th>
+          <th>KuCoin <span class="exchange-badge">BETA</span></th>
+          <th>Crypto.com Exchange <span class="exchange-badge">BETA</span></th>
+          <th>Gate.io <span class="exchange-badge">BETA</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="td-feature">View open orders</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -2437,6 +2445,10 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Post-only (maker) limit orders</td>
@@ -2445,9 +2457,17 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="cross">—</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Cancel an open order</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -2461,9 +2481,17 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Trigger: Order filled</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -2477,9 +2505,17 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Trigger: Price target</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -2493,6 +2529,10 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Catches price spikes between checks</td>
@@ -2501,9 +2541,17 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="cross">—</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Holdings fundamentals (market cap, supply, ATH)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
@@ -2517,6 +2565,10 @@
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
           <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
         </tr>
         <tr>
           <td class="td-feature">Action: Withdraw to address</td>
@@ -2525,10 +2577,18 @@
           <td><span class="cross">—</span></td>
           <td><span class="cross">—</span></td>
           <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
         </tr>
         <tr>
           <td class="td-feature">Whitelisted withdrawal addresses</td>
           <td><span class="check">✓</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
+          <td><span class="cross">—</span></td>
           <td><span class="cross">—</span></td>
           <td><span class="cross">—</span></td>
           <td><span class="cross">—</span></td>
@@ -2552,7 +2612,7 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.4.0.exe</code> for Windows, <code class="ref">Cyrus-1.4.0-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.4.0-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.5.0.exe</code> for Windows, <code class="ref">Cyrus-1.5.0-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.5.0-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
@@ -2574,7 +2634,7 @@
       <span class="step-num">04</span>
       <div>
         <div class="step-title">Connect your exchange</div>
-        <p class="step-desc">Go to Profile → Exchange Connections. Enter your exchange API key and secret (read + trade permissions recommended), then click Test to validate. Your keys are encrypted at rest using AES-128. Robinhood is the exception — it issues no secret at all, so Cyrus explains what it needs and offers a small key generator you can download and run offline to create the keypair yourself.</p>
+        <p class="step-desc">Go to Profile → Exchange Connections. Enter your exchange API key and secret (read + trade permissions recommended), then click Test to validate. Your keys are encrypted twice: on their own, and inside the AES-256 encrypted database. OKX and KuCoin keys also need the passphrase you chose when creating them. Robinhood is the exception — it issues no secret at all, so Cyrus explains what it needs and offers a small key generator you can download and run offline to create the keypair yourself.</p>
       </div>
     </div>
     <div class="step-item">
@@ -2597,8 +2657,8 @@
 
   <div class="security-grid">
     <div class="security-card">
-      <div class="security-title">AES-128 Encryption</div>
-      <p class="security-desc">Exchange API keys are encrypted with Fernet symmetric encryption before being stored. The key is derived from your Flask SECRET_KEY via SHA-256.</p>
+      <div class="security-title">Encrypted Database</div>
+      <p class="security-desc">The whole database is encrypted with AES-256 (SQLCipher), and your exchange API keys are encrypted again inside it. The key is unique to your install and locked by Windows or macOS to your user account, so a copied file is unreadable anywhere else.</p>
     </div>
     <div class="security-card">
       <div class="security-title">Bcrypt Password Hashing</div>
@@ -2926,11 +2986,11 @@
     <img src="cyrus-logo.svg" alt="Cyrus" style="width:72px;height:72px;object-fit:contain;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
     <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
     <p class="cta-desc">Free for personal use, source-available, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
-    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
       <span class="btn-icon">⬇</span>
-      <span data-os-label>Download Cyrus v1.4.0 for Windows</span>
+      <span data-os-label>Download Cyrus v1.5.0 for Windows</span>
     </a>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
     <p class="cta-note">Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
 </section>
@@ -3110,7 +3170,7 @@
     {
       "id": "getting-started",
       "title": "Getting Started",
-      "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini and Robinhood with the right API permissions, and every setting on the Profile page.",
+      "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io with the right API permissions, and every setting on the Profile page.",
       "seconds": 331,
       "chapters": [
         {
@@ -3824,9 +3884,9 @@
    Apple Silicon — the Intel link sits right underneath either way). */
 (function () {
   var LINKS = {
-    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-Setup-1.4.0.exe', label: 'Download for Windows', ga: 'download_windows' },
-    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
-    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.4.0/Cyrus-1.4.0-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
+    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe', label: 'Download for Windows', ga: 'download_windows' },
+    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
+    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
   };
   function apply(key) {
     var target = LINKS[key];
@@ -3836,7 +3896,7 @@
       a.setAttribute('data-download', a.getAttribute('data-os-primary') + '-' + key);
       var label = a.querySelector('[data-os-label]');
       if (label) label.textContent = a.hasAttribute('data-os-versioned')
-        ? target.label.replace('Download', 'Download Cyrus v1.4.0') : target.label;
+        ? target.label.replace('Download', 'Download Cyrus v1.5.0') : target.label;
     });
   }
   var uad = navigator.userAgentData;
