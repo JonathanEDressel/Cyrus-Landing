@@ -2055,7 +2055,7 @@
 <div class="stats-bar">
   <div class="stats-bar-inner">
     <div class="stat-item">
-      <span class="stat-value">5</span>
+      <span class="stat-value">9</span>
       <span class="stat-label">Exchanges</span>
     </div>
     <div class="stat-item">
@@ -2094,7 +2094,7 @@
   <div class="showcase-heading">
     <div class="section-label reveal">A Look Inside</div>
     <h2 class="section-title reveal">Your whole portfolio, at a glance.</h2>
-    <p class="section-desc reveal">One unified dashboard for balances, open orders, live prices, and the automations running quietly in the background — across every connected exchange. Resting limit orders get their own card, split buy against sell, so you can see what you have working before you drill in.</p>
+    <p class="section-desc reveal">One unified dashboard for balances, open orders, live prices, and the automations running quietly in the background — across every connected exchange. Chart any Kraken pair, from BTC/USD to XRP/CAD, with the range's high and low, 24-hour volume and market cap right underneath. A ticker along the top scrolls through every coin you hold, and resting limit orders get their own card, split buy against sell.</p>
   </div>
 
   <div class="app-frame reveal">
@@ -2104,7 +2104,7 @@
       <span class="app-frame-dot app-frame-dot--g"></span>
       <span class="app-frame-label">Cyrus — Overview</span>
     </div>
-    <img src="shot-overview.png" alt="Cyrus overview dashboard: tiles for portfolio value, 24h change, open orders, limit orders, automations and allocation caps, above a portfolio doughnut, a live BTC/USD chart, biggest holdings with seven-day trend lines, and a resting limit orders card split into buys and sells" loading="lazy">
+    <img src="shot-overview.png" alt="Cyrus overview dashboard: tiles for portfolio value, 24h change, open orders, limit orders, automations and allocation caps, above a portfolio doughnut, and a live BTC/USD chart with the day's high, low, 24-hour volume and market cap underneath, above the biggest holdings and resting limit orders cards; a ticker of every holding scrolls along the top" loading="lazy">
   </div>
 </section>
 
@@ -2125,7 +2125,7 @@
     <div class="feature-card">
       <span class="feature-icon">📊</span>
       <div class="feature-title">Real-Time Order Monitoring</div>
-      <p class="feature-desc">Watch your open orders across all connected exchanges with automatic refresh in the background. No browser tabs required.</p>
+      <p class="feature-desc">Watch your open orders across all connected exchanges with automatic refresh in the background, as a flow map of what each order spends and brings in, or as a table. Zoom and drag around the map; it remembers your zoom.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🔗</span>
@@ -2139,18 +2139,18 @@
     </div>
     <div class="feature-card">
       <span class="feature-icon">🗄</span>
-      <div class="feature-title">Fully Local Storage</div>
-      <p class="feature-desc">All data lives in a local SQLite database under your AppData folder. No cloud sync and no account. Your API keys never leave your machine. Only a few things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key; and, if you opt in, an anonymous usage count (a random install ID, the app version, OS and country, nothing about you or your money). The assistant and the usage count are both off by default.</p>
+      <div class="feature-title">Local &amp; Encrypted</div>
+      <p class="feature-desc">All data lives in a database on your own computer, encrypted with AES-256 under a key unique to your install and locked to your Windows or macOS user account. No cloud sync and no account. Your API keys never leave your machine. Only a few things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key; and, if you opt in, an anonymous usage count (a random install ID, the app version, OS and country, nothing about you or your money). The assistant and the usage count are both off by default.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📈</span>
+      <div class="feature-title">Live Market Charts</div>
+      <p class="feature-desc">Chart any Kraken pair, priced in its own currency: BTC/USD, ETH/EUR, XRP/CAD, SOL/BTC. Under each chart sit the range's high and low, 24-hour volume and market cap, and a ticker along the top scrolls through every coin you hold.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⏱</span>
       <div class="feature-title">Cooldown Controls</div>
       <p class="feature-desc">Prevent runaway automation with configurable cooldown periods on every rule. Set the minimum time between executions and trade with confidence.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🟢</span>
-      <div class="feature-title">Live Engine Status</div>
-      <p class="feature-desc">A heartbeat on the Automations page shows exactly when your rules were last checked — so you never have to wonder whether automation is actually running.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🖥</span>
@@ -2190,7 +2190,7 @@
     <div class="feature-card">
       <span class="feature-icon">📋</span>
       <div class="feature-title">Explainable Execution Log</div>
-      <p class="feature-desc">Every run is recorded — and so is every skip, with the reason. Below threshold, under an exchange minimum, cooling down: nothing happens without an explanation.</p>
+      <p class="feature-desc">Every run is recorded — and so is every skip, with the reason. Below threshold, under an exchange minimum, cooling down: nothing happens without an explanation. A heartbeat on the Automations page shows when your rules were last checked.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🎬</span>
@@ -2224,7 +2224,7 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Automation Rules</div>
         <h3 class="gallery-title">Set your rules once. Cyrus does the rest.</h3>
-        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. A flow map shows where your money goes, from the coins being sent through each rule to where they end up; click a rule to light up its path and edit or pause it. Every rule's status and last run sit in one place, with cooldowns to keep automation in check.</p>
+        <p class="gallery-desc">Each rule pairs a trigger — an order filling, a balance crossing a threshold, a price target, or a coin outgrowing its share of your portfolio — with an action like converting an asset or withdrawing to a saved address. A flow map shows where your money goes, from the coins being sent through each rule to where they end up; click a rule to light up its path and edit or pause it, and zoom or drag to move around a big one. Every rule's status and last run sit in one place, with cooldowns to keep automation in check.</p>
       </div>
     </div>
 
@@ -2271,12 +2271,12 @@
           <span class="app-frame-dot app-frame-dot--g"></span>
           <span class="app-frame-label">Cyrus — Open Orders</span>
         </div>
-        <img src="shot-orders.png" alt="Cyrus open orders table: 72 orders across four exchanges with pair, side, type, price, volume, filled amount and status" loading="lazy">
+        <img src="shot-orders.png" alt="Cyrus open orders flow map at 80% zoom: coins on the left feed sell orders into USD, which feeds buy orders for SOL, BTC, ETH and others, colour-coded buy and sell, with zoom controls and a Flow / Table switch" loading="lazy">
       </div>
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Live Monitoring</div>
         <h3 class="gallery-title">Every open order, every exchange — live.</h3>
-        <p class="gallery-desc">Watch all your open orders refresh automatically in the background, visualized as a clean graph or a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io.</p>
+        <p class="gallery-desc">Watch all your open orders refresh automatically in the background. The flow map reads left to right: the coin each order spends, the order itself, and the coin it brings in, with what you'd receive at your prices. Click an order to read it in plain English, zoom or drag to move around, or switch to a sortable table. No browser tabs, no manual refreshing — just a real-time view of what's working across Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io.</p>
       </div>
     </div>
 
@@ -2310,7 +2310,7 @@
       <div class="gallery-copy">
         <div class="gallery-eyebrow">Exchange Connections</div>
         <h3 class="gallery-title">Connect securely, stay in control.</h3>
-        <p class="gallery-desc">Add an exchange in seconds and test the connection before you trade. Your API keys are encrypted at rest and stored locally on your device — never on a server. Toggle native desktop notifications so you know the moment a rule fires.</p>
+        <p class="gallery-desc">Add an exchange in seconds and test the connection before you trade. Your API keys are encrypted twice, on their own and inside the encrypted database, and stored only on your device — never on a server. Toggle native desktop notifications so you know the moment a rule fires.</p>
       </div>
     </div>
 
@@ -2691,7 +2691,7 @@
     <div class="tech-tag"><span class="tech-dot" style="background:#47848F"></span>Electron</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#3776AB"></span>Python 3.11+</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#000000; border:1px solid #555"></span>Flask</div>
-    <div class="tech-tag"><span class="tech-dot" style="background:#003B57"></span>SQLite</div>
+    <div class="tech-tag"><span class="tech-dot" style="background:#003B57"></span>SQLite + SQLCipher</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#00D084"></span>CCXT</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#FF6B35"></span>PyInstaller</div>
     <div class="tech-tag"><span class="tech-dot" style="background:#8DD6F9"></span>electron-builder</div>
