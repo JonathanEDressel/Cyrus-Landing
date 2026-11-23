@@ -3,7 +3,7 @@
   "id": "getting-started",
   "title": "Getting Started",
   "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini and Robinhood with the right API permissions, and every setting on the Profile page.",
-  "seconds": 331,
+  "seconds": 343,
   "chapters": [
    {
     "title": "Introduction",
@@ -11,31 +11,35 @@
    },
    {
     "title": "Exchange connections",
-    "t": 39
+    "t": 38.9
    },
    {
     "title": "Adding a connection",
-    "t": 79.2
+    "t": 79.1
    },
    {
     "title": "Which permissions to grant",
-    "t": 108.1
+    "t": 108
+   },
+   {
+    "title": "Stock charts",
+    "t": 213.9
    },
    {
     "title": "The assistant key",
-    "t": 214.1
+    "t": 226.3
    },
    {
     "title": "Notifications and email",
-    "t": 235.3
+    "t": 247.6
    },
    {
     "title": "Account settings",
-    "t": 299.4
+    "t": 311.6
    },
    {
     "title": "Wrapping up",
-    "t": 318.2
+    "t": 330.5
    }
   ]
  },
@@ -63,7 +67,7 @@
    },
    {
     "title": "Holdings, orders, caps and activity",
-    "t": 127.8
+    "t": 127.7
    },
    {
     "title": "The flow chart",
@@ -71,7 +75,7 @@
    },
    {
     "title": "Customising the layout",
-    "t": 201.5
+    "t": 201.4
    },
    {
     "title": "Wrapping up",
@@ -83,7 +87,7 @@
   "id": "holdings",
   "title": "Holdings",
   "summary": "The summary cards, every column in the assets table, sorting, and the full breakdown behind each coin.",
-  "seconds": 335,
+  "seconds": 334,
   "chapters": [
    {
     "title": "Introduction",
@@ -99,23 +103,23 @@
    },
    {
     "title": "The assets table",
-    "t": 88.5
+    "t": 88.4
    },
    {
     "title": "Sorting",
-    "t": 145.3
+    "t": 145.2
    },
    {
     "title": "The full breakdown",
-    "t": 179.9
+    "t": 179.8
    },
    {
     "title": "Where the numbers come from",
-    "t": 293.7
+    "t": 293.6
    },
    {
     "title": "Wrapping up",
-    "t": 323.4
+    "t": 323.2
    }
   ]
  },
@@ -123,7 +127,7 @@
   "id": "openorders",
   "title": "Open Orders",
   "summary": "How orders are fetched and refreshed, reading the order flow chart, narrowing to one account, and every column in the orders table.",
-  "seconds": 206,
+  "seconds": 217,
   "chapters": [
    {
     "title": "Introduction",
@@ -131,23 +135,23 @@
    },
    {
     "title": "The flow chart",
-    "t": 33.4
+    "t": 33.3
    },
    {
     "title": "One account at a time",
-    "t": 96
+    "t": 107.2
    },
    {
     "title": "The table",
-    "t": 122.2
+    "t": 133.4
    },
    {
     "title": "Acting on your orders",
-    "t": 171.9
+    "t": 183.2
    },
    {
     "title": "Wrapping up",
-    "t": 194.2
+    "t": 205.4
    }
   ]
  },
@@ -167,11 +171,11 @@
    },
    {
     "title": "Details and cancelling",
-    "t": 64
+    "t": 63.9
    },
    {
     "title": "Setting up a ladder",
-    "t": 89
+    "t": 88.9
    },
    {
     "title": "Price and size",
@@ -179,11 +183,11 @@
    },
    {
     "title": "Reviewing the ladder",
-    "t": 218.1
+    "t": 217.9
    },
    {
     "title": "Placing in the background",
-    "t": 299.1
+    "t": 299.2
    },
    {
     "title": "Seeing your orders",
@@ -191,7 +195,7 @@
    },
    {
     "title": "Bulk cancel and export",
-    "t": 383
+    "t": 383.1
    }
   ]
  },
@@ -199,7 +203,7 @@
   "id": "transfers",
   "title": "Transfers",
   "summary": "Transfer history from every exchange, the roadmap, how Cyrus pairs moves between your own exchanges, reviewing suggested matches, and labelling your wallets.",
-  "seconds": 349,
+  "seconds": 350,
   "chapters": [
    {
     "title": "Introduction",
@@ -211,27 +215,27 @@
    },
    {
     "title": "Matching your own transfers",
-    "t": 62.6
+    "t": 62.5
    },
    {
     "title": "Reviewing suggested matches",
-    "t": 122.1
+    "t": 122
    },
    {
     "title": "Wallets and unknown ends",
-    "t": 167.5
+    "t": 167.3
    },
    {
     "title": "Tracked wallets",
-    "t": 209.5
+    "t": 209.4
    },
    {
     "title": "The table and filters",
-    "t": 284.1
+    "t": 283.9
    },
    {
     "title": "Wrapping up",
-    "t": 335
+    "t": 335.3
    }
   ]
  },
@@ -251,27 +255,27 @@
    },
    {
     "title": "Realized gains",
-    "t": 84
+    "t": 83.9
    },
    {
     "title": "Each sale and its cost basis",
-    "t": 152.8
+    "t": 152.7
    },
    {
     "title": "Missing cost basis",
-    "t": 212.2
+    "t": 212.1
    },
    {
     "title": "Entering costs by hand",
-    "t": 249.4
+    "t": 249.3
    },
    {
     "title": "Exporting",
-    "t": 318.2
+    "t": 318.1
    },
    {
     "title": "Wrapping up",
-    "t": 349.7
+    "t": 349.6
    }
   ]
  },
@@ -279,7 +283,7 @@
   "id": "automations",
   "title": "Automations",
   "summary": "Triggers and actions, cooldowns and execution limits, the rule builder, the execution log, the engine status and email alerts.",
-  "seconds": 426,
+  "seconds": 430,
   "chapters": [
    {
     "title": "Introduction",
@@ -295,27 +299,27 @@
    },
    {
     "title": "Building a rule",
-    "t": 131.7
+    "t": 135.7
    },
    {
     "title": "Withdraw and convert actions",
-    "t": 265.2
+    "t": 269.2
    },
    {
     "title": "Editing a rule",
-    "t": 312.9
+    "t": 316.9
    },
    {
     "title": "The execution log",
-    "t": 334
+    "t": 338
    },
    {
     "title": "Email alerts",
-    "t": 395.3
+    "t": 399.3
    },
    {
     "title": "Wrapping up",
-    "t": 414.6
+    "t": 418.6
    }
   ]
  },
@@ -335,7 +339,7 @@
    },
    {
     "title": "Reading the chart",
-    "t": 44.2
+    "t": 44.1
    },
    {
     "title": "How a trim works",
@@ -343,23 +347,23 @@
    },
    {
     "title": "Setting caps",
-    "t": 122
+    "t": 121.9
    },
    {
     "title": "Safety settings",
-    "t": 195.2
+    "t": 195.1
    },
    {
     "title": "Saving",
-    "t": 236.9
+    "t": 236.8
    },
    {
     "title": "Where trims show up",
-    "t": 269.4
+    "t": 269.2
    },
    {
     "title": "Wrapping up",
-    "t": 288.4
+    "t": 288.2
    }
   ]
  },
@@ -379,23 +383,75 @@
    },
    {
     "title": "Opening the assistant",
-    "t": 63.7
+    "t": 63.6
    },
    {
     "title": "Asking questions",
-    "t": 84.6
+    "t": 84.5
    },
    {
     "title": "Asking it to act",
-    "t": 135.3
+    "t": 135.2
    },
    {
     "title": "History",
-    "t": 215.4
+    "t": 215.2
    },
    {
     "title": "Wrapping up",
-    "t": 237.6
+    "t": 237.4
+   }
+  ]
+ },
+ {
+  "id": "charts",
+  "title": "Charts",
+  "summary": "Symbols and timeframes for crypto and stocks, chart types, drawing tools, price alerts from a line, indicators, Compare, the Pine Editor, saving charts, and your own trades on the chart.",
+  "seconds": 335,
+  "chapters": [
+   {
+    "title": "Introduction",
+    "t": 0.3
+   },
+   {
+    "title": "Symbols and timeframes",
+    "t": 23.6
+   },
+   {
+    "title": "Chart types",
+    "t": 77
+   },
+   {
+    "title": "Drawing tools",
+    "t": 84.4
+   },
+   {
+    "title": "Price alerts",
+    "t": 133.4
+   },
+   {
+    "title": "Indicators",
+    "t": 174.2
+   },
+   {
+    "title": "Comparing symbols",
+    "t": 196.2
+   },
+   {
+    "title": "Pine Editor",
+    "t": 228.7
+   },
+   {
+    "title": "Saving charts",
+    "t": 263.8
+   },
+   {
+    "title": "My trades",
+    "t": 296
+   },
+   {
+    "title": "Wrapping up",
+    "t": 319.2
    }
   ]
  }

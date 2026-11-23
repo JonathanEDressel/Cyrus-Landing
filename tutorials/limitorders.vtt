@@ -1,446 +1,446 @@
 WEBVTT
 
 1
-00:00:00.352 --> 00:00:01.791
+00:00:00.356 --> 00:00:01.795
 This is Limit Orders.
 
 2
-00:00:01.791 --> 00:00:07.045
+00:00:01.795 --> 00:00:07.049
 It lists every limit order resting on your exchanges, and it's where you place new
 
 3
-00:00:07.045 --> 00:00:11.978
+00:00:07.049 --> 00:00:11.982
 ones, from a single order to a staggered ladder spread across a price range.
 
 4
-00:00:12.667 --> 00:00:16.088
+00:00:12.645 --> 00:00:16.066
 A limit order waits until the market reaches your price.
 
 5
-00:00:16.088 --> 00:00:20.077
+00:00:16.066 --> 00:00:20.055
 Buys rest below the current price, and sells rest above it.
 
 6
-00:00:20.733 --> 00:00:25.324
+00:00:20.717 --> 00:00:25.308
 The table is split into buys and sells, with a count on each tab.
 
 7
-00:00:25.324 --> 00:00:27.890
+00:00:25.308 --> 00:00:27.874
 The New order button follows the tab you're on.
 
 8
-00:00:28.579 --> 00:00:32.600
+00:00:28.547 --> 00:00:32.568
 Each row shows the account, pair, limit price, volume, and
 
 9
-00:00:32.600 --> 00:00:36.760
+00:00:32.568 --> 00:00:36.728
 how much has filled, with a partial tag if some has traded.
 
 10
-00:00:36.760 --> 00:00:40.271
+00:00:36.728 --> 00:00:40.239
 Estimated total is the limit price times the volume.
 
 11
-00:00:40.961 --> 00:00:45.286
+00:00:40.922 --> 00:00:45.247
 Click a column heading to sort by it, and click again to flip the order.
 
 12
-00:00:45.286 --> 00:00:48.544
+00:00:45.247 --> 00:00:48.505
 By default, the newest orders sit at the top.
 
 13
-00:00:49.239 --> 00:00:55.532
+00:00:49.190 --> 00:00:55.483
 The filter box narrows the table by pair or order ID, and the counts on the tabs follow it.
 
 14
-00:00:56.219 --> 00:01:00.690
+00:00:56.150 --> 00:01:00.621
 With All Exchanges selected, a second menu shows a single account.
 
 15
-00:01:00.690 --> 00:01:03.390
+00:01:00.621 --> 00:01:03.321
 Clear them both, and everything comes back.
 
 16
-00:01:04.053 --> 00:01:07.845
+00:01:03.984 --> 00:01:07.776
 Click a row for the full details: what has filled, what's
 
 17
-00:01:07.845 --> 00:01:10.971
+00:01:07.776 --> 00:01:10.902
 left, when it was opened, and its complete ID.
 
 18
-00:01:10.971 --> 00:01:15.333
+00:01:10.902 --> 00:01:15.264
 This view is read only, so just looking can never cancel anything.
 
 19
-00:01:16.009 --> 00:01:19.470
+00:01:15.939 --> 00:01:19.400
 To cancel an order, use the Cancel button on its row.
 
 20
-00:01:19.470 --> 00:01:23.339
+00:01:19.400 --> 00:01:23.269
 Cyrus asks you to confirm, because it can't be undone.
 
 21
-00:01:23.339 --> 00:01:27.196
+00:01:23.269 --> 00:01:27.126
 On a partly filled order, only the remainder is cancelled.
 
 22
-00:01:27.196 --> 00:01:28.339
+00:01:27.126 --> 00:01:28.269
 We'll keep this one.
 
 23
-00:01:29.028 --> 00:01:30.521
+00:01:28.956 --> 00:01:30.449
 Now let's build a ladder.
 
 24
-00:01:30.521 --> 00:01:34.457
+00:01:30.449 --> 00:01:34.385
 On the Sell tab, the button becomes New sell limit order.
 
 25
-00:01:34.457 --> 00:01:37.409
+00:01:34.385 --> 00:01:37.337
 Click it, and a three-step wizard opens.
 
 26
-00:01:38.081 --> 00:01:40.159
+00:01:38.010 --> 00:01:40.088
 Step one is what and where.
 
 27
-00:01:40.159 --> 00:01:45.584
+00:01:40.088 --> 00:01:45.513
 The side comes from the tab you were on, and Exchange picks which account places the orders.
 
 28
-00:01:45.584 --> 00:01:48.111
+00:01:45.513 --> 00:01:48.040
 Here, that's Main, on Kraken.
 
 29
-00:01:48.803 --> 00:01:52.543
+00:01:48.723 --> 00:01:52.463
 When you're selling, the coin list only offers coins you hold.
 
 30
-00:01:52.543 --> 00:01:57.556
+00:01:52.463 --> 00:01:57.476
 When you're buying, it also lists coins the exchange trades that you don't hold yet.
 
 31
-00:01:57.556 --> 00:01:58.992
+00:01:57.476 --> 00:01:58.912
 We'll sell some SOL.
 
 32
-00:01:59.670 --> 00:02:01.934
+00:01:59.573 --> 00:02:01.837
 Order style is Single or Staggered.
 
 33
-00:02:01.934 --> 00:02:05.617
+00:02:01.837 --> 00:02:05.520
 Single places one order at a price and amount you choose.
 
 34
-00:02:05.617 --> 00:02:10.232
+00:02:05.520 --> 00:02:10.135
 Staggered spreads one total across several orders at different prices.
 
 35
-00:02:10.910 --> 00:02:15.222
+00:02:10.814 --> 00:02:15.126
 Then pick one or more trading pairs, each showing your balance.
 
 36
-00:02:15.222 --> 00:02:23.333
+00:02:15.126 --> 00:02:23.237
 With more than one, the steps take turns: the first on USD, the next on USDC, then back to USD.
 
 37
-00:02:23.992 --> 00:02:25.032
+00:02:23.908 --> 00:02:24.948
 Click Next.
 
 38
-00:02:25.032 --> 00:02:28.051
+00:02:24.948 --> 00:02:27.967
 Step two shows the market price for each pair.
 
 39
-00:02:28.051 --> 00:02:32.463
+00:02:27.967 --> 00:02:32.379
 Number of steps is how many orders to make, up to fifty per selected
 
 40
-00:02:32.463 --> 00:02:36.096
+00:02:32.379 --> 00:02:36.012
 pair, and the hint says how long they'll take to place.
 
 41
-00:02:36.778 --> 00:02:39.970
+00:02:36.676 --> 00:02:39.868
 The price band sets how far from the market the ladder
 
 42
-00:02:39.970 --> 00:02:42.513
+00:02:39.868 --> 00:02:42.411
 sits, here two to twelve percent above it.
 
 43
-00:02:42.513 --> 00:02:47.969
+00:02:42.411 --> 00:02:47.867
 Cyrus splits the band into equal slices, one per step, and picks a random price
 
 44
-00:02:47.969 --> 00:02:53.217
+00:02:47.867 --> 00:02:53.115
 inside each, so the ladder stays in order and no step can cross the market.
 
 45
-00:02:53.892 --> 00:02:58.603
+00:02:53.796 --> 00:02:58.507
 Exact prices lets you type the range yourself, starting from the band you set.
 
 46
-00:02:58.603 --> 00:03:02.552
+00:02:58.507 --> 00:03:02.456
 For a sell, the second price must be higher than the first.
 
 47
-00:03:02.552 --> 00:03:04.241
+00:03:02.456 --> 00:03:04.145
 We'll stay with percentages.
 
 48
-00:03:04.922 --> 00:03:09.114
+00:03:04.817 --> 00:03:09.009
 Total to use is the share of your free balance the ladder can commit.
 
 49
-00:03:09.114 --> 00:03:12.266
+00:03:09.009 --> 00:03:12.161
 Coins already tied up in other orders don't count.
 
 50
-00:03:12.266 --> 00:03:14.965
+00:03:12.161 --> 00:03:14.860
 The line underneath shows what that works out to.
 
 51
-00:03:15.639 --> 00:03:21.799
+00:03:15.528 --> 00:03:21.688
 Cyrus also checks that every step clears the exchange's minimum order size and value.
 
 52
-00:03:21.799 --> 00:03:26.533
+00:03:21.688 --> 00:03:26.422
 If your balance can't stretch that far, it tells you how many steps it can cover.
 
 53
-00:03:27.215 --> 00:03:29.333
+00:03:27.119 --> 00:03:29.237
 Post-only is on by default.
 
 54
-00:03:29.333 --> 00:03:33.632
+00:03:29.237 --> 00:03:33.536
 If the market has already reached your price, the order is rejected
 
 55
-00:03:33.632 --> 00:03:37.418
+00:03:33.536 --> 00:03:37.322
 rather than filled, so you pay maker fees, not taker fees.
 
 56
-00:03:38.105 --> 00:03:43.380
+00:03:37.992 --> 00:03:43.267
 Click Next, and step three lists every order before anything is sent: the
 
 57
-00:03:43.380 --> 00:03:48.294
+00:03:43.267 --> 00:03:48.181
 pair, price, amount, estimated total, and distance from the market.
 
 58
-00:03:48.294 --> 00:03:53.374
+00:03:48.181 --> 00:03:53.261
 Amounts are rounded down, so the ladder never adds up to more than you set aside.
 
 59
-00:03:54.062 --> 00:03:58.507
+00:03:53.932 --> 00:03:58.377
 Every price and amount can be edited, and the cross removes a step.
 
 60
-00:03:58.507 --> 00:04:02.244
+00:03:58.377 --> 00:04:02.114
 A step that can't be placed, say it's under the exchange's
 
 61
-00:04:02.244 --> 00:04:06.047
+00:04:02.114 --> 00:04:05.917
 minimum, is outlined in red, with the reason listed below.
 
 62
-00:04:06.047 --> 00:04:09.238
+00:04:05.917 --> 00:04:09.108
 Nothing is sent until every step is valid.
 
 63
-00:04:09.904 --> 00:04:13.204
+00:04:09.779 --> 00:04:13.079
 Regenerate prices draws a new random price inside
 
 64
-00:04:13.204 --> 00:04:16.370
+00:04:13.079 --> 00:04:16.245
 each slice, and keeps any amounts you changed.
 
 65
-00:04:16.370 --> 00:04:19.149
+00:04:16.245 --> 00:04:19.024
 Reset rebuilds the ladder from step two.
 
 66
-00:04:19.822 --> 00:04:24.120
+00:04:19.707 --> 00:04:24.005
 Open Advanced to shape how the total is spread, one bar per step.
 
 67
-00:04:24.120 --> 00:04:26.315
+00:04:24.005 --> 00:04:26.200
 Presets cover the common shapes.
 
 68
-00:04:26.315 --> 00:04:29.380
+00:04:26.200 --> 00:04:29.265
 Far out puts more on the steps furthest from the
 
 69
-00:04:29.380 --> 00:04:32.445
+00:04:29.265 --> 00:04:32.330
 market: better prices, but less likely to fill.
 
 70
-00:04:33.135 --> 00:04:37.437
+00:04:33.006 --> 00:04:37.308
 Drag the bright line to move the price level that half the volume sits
 
 71
-00:04:37.437 --> 00:04:41.862
+00:04:37.308 --> 00:04:41.733
 within, or use the slider to bunch it together or push it to both ends.
 
 72
-00:04:41.862 --> 00:04:45.080
+00:04:41.733 --> 00:04:44.951
 Reshaping only moves volume between steps.
 
 73
-00:04:45.080 --> 00:04:46.463
+00:04:44.951 --> 00:04:46.334
 It never adds any.
 
 74
-00:04:47.151 --> 00:04:51.157
+00:04:47.026 --> 00:04:51.032
 Orders go out one at a time, paced to suit the exchange.
 
 75
-00:04:51.157 --> 00:04:56.436
+00:04:51.032 --> 00:04:56.311
 You can leave this page meanwhile, but closing Cyrus stops the rest from being sent.
 
 76
-00:04:56.436 --> 00:04:58.471
+00:04:56.311 --> 00:04:58.346
 When you're happy, click Place.
 
 77
-00:04:59.160 --> 00:05:01.863
+00:04:59.220 --> 00:05:01.923
 A progress panel appears above the table.
 
 78
-00:05:01.863 --> 00:05:08.046
+00:05:01.923 --> 00:05:08.106
 Each order moves from queued, to placing, to placed, with its order ID alongside.
 
 79
-00:05:08.711 --> 00:05:13.249
+00:05:08.785 --> 00:05:13.323
 While it runs, new batches have to wait, and Stop halts the rest.
 
 80
-00:05:13.249 --> 00:05:18.142
+00:05:13.323 --> 00:05:18.216
 Anything already placed stays on the exchange, and you'd cancel it from the table.
 
 81
-00:05:18.826 --> 00:05:20.319
+00:05:18.888 --> 00:05:20.381
 You don't have to wait here.
 
 82
-00:05:20.319 --> 00:05:24.827
+00:05:20.381 --> 00:05:24.889
 On any other page, the pill in the top bar keeps track of the batch.
 
 83
-00:05:24.827 --> 00:05:26.515
+00:05:24.889 --> 00:05:26.577
 Click it to come straight back.
 
 84
-00:05:27.195 --> 00:05:30.709
+00:05:27.262 --> 00:05:30.776
 Here, the demo rejects two orders on purpose.
 
 85
-00:05:30.709 --> 00:05:36.570
+00:05:30.776 --> 00:05:36.637
 A rejected order shows the exchange's reason, and the rest carry on, unless the problem
 
 86
-00:05:36.570 --> 00:05:41.892
+00:05:36.637 --> 00:05:41.959
 would sink them all, like invalid keys, a rate limit, or running out of funds.
 
 87
-00:05:42.561 --> 00:05:45.224
+00:05:42.625 --> 00:05:45.288
 Dismiss clears the panel and the pill.
 
 88
-00:05:45.224 --> 00:05:49.040
+00:05:45.288 --> 00:05:49.104
 Back on the Sell tab, the new orders are at the top of the table.
 
 89
-00:05:49.732 --> 00:05:54.084
+00:05:49.779 --> 00:05:54.131
 Further down, a chart shows what each coin is being sold into.
 
 90
-00:05:54.084 --> 00:05:58.162
+00:05:54.131 --> 00:05:58.209
 Each bar is one pair on one account, sized by what it would pay
 
 91
-00:05:58.162 --> 00:06:01.916
+00:05:58.209 --> 00:06:01.963
 out, in that pair's currency, if every order on it fills.
 
 92
-00:06:02.592 --> 00:06:06.132
+00:06:02.635 --> 00:06:06.175
 Below that, a histogram shows where one pair's orders
 
 93
-00:06:06.132 --> 00:06:09.071
+00:06:06.175 --> 00:06:09.114
 sit by price, with the market price marked.
 
 94
-00:06:09.071 --> 00:06:14.204
+00:06:09.114 --> 00:06:14.247
 Here's SOL to USD, with the new ladder stepping up above the market.
 
 95
-00:06:14.879 --> 00:06:19.763
+00:06:14.929 --> 00:06:19.813
 The line underneath says how far the price has to move before half of it fills.
 
 96
-00:06:19.763 --> 00:06:22.395
+00:06:19.813 --> 00:06:22.445
 Hover a bar to see the orders inside it.
 
 97
-00:06:23.083 --> 00:06:24.722
+00:06:23.119 --> 00:06:24.758
 Now let's cancel the ladder.
 
 98
-00:06:24.722 --> 00:06:29.283
+00:06:24.758 --> 00:06:29.319
 Back at the top, tick each new order, and a bar appears with a count.
 
 99
-00:06:29.283 --> 00:06:32.528
+00:06:29.319 --> 00:06:32.564
 The header box ticks every row the filter is showing.
 
 100
-00:06:33.207 --> 00:06:39.620
+00:06:33.242 --> 00:06:39.655
 A selection only covers rows you can see, so a bulk cancel never reaches anything off screen.
 
 101
-00:06:39.620 --> 00:06:44.088
+00:06:39.655 --> 00:06:44.123
 Click Cancel, and every order is listed in full before you confirm.
 
 102
-00:06:44.764 --> 00:06:48.177
+00:06:44.797 --> 00:06:48.210
 Confirm, and they're cancelled one at a time, about
 
 103
-00:06:48.177 --> 00:06:51.323
+00:06:48.210 --> 00:06:51.356
 a second apart, each row reporting its result.
 
 104
-00:06:51.323 --> 00:06:54.062
+00:06:51.356 --> 00:06:54.095
 Any that fail stay ticked so you can try again.
 
 105
-00:06:54.062 --> 00:06:57.786
+00:06:54.095 --> 00:06:57.819
 These all went through, so the dialog closes on its own.
 
 106
-00:06:58.464 --> 00:07:04.717
+00:06:58.476 --> 00:07:04.729
 Export CSV saves every buy and sell order matching your filters as a spreadsheet.
 
 107
-00:07:04.717 --> 00:07:08.909
+00:07:04.729 --> 00:07:08.921
 Sells priced in dollars also get a cost basis and an estimated
 
 108
-00:07:08.909 --> 00:07:12.762
+00:07:08.921 --> 00:07:12.774
 gain, using the lot matching method from the Taxes page.
 
 109
-00:07:13.461 --> 00:07:18.770
+00:07:13.467 --> 00:07:18.776
 The table refreshes every four minutes, and after anything you place or cancel.
 
 110
-00:07:18.770 --> 00:07:22.819
+00:07:18.776 --> 00:07:22.825
 That's Limit Orders: watch what's resting, build ladders with
 
 111
-00:07:22.819 --> 00:07:26.735
+00:07:22.825 --> 00:07:26.741
 a full review first, and cancel in bulk when plans change.
 

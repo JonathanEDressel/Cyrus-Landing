@@ -1,0 +1,330 @@
+WEBVTT
+
+1
+00:00:00.405 --> 00:00:01.881
+This is Charts.
+
+2
+00:00:01.831 --> 00:00:06.474
+You can chart any coin or US stock, draw on it, add indicators, stack
+
+3
+00:00:06.474 --> 00:00:10.714
+symbols to compare them, and save your charts to come back to.
+
+4
+00:00:11.375 --> 00:00:13.955
+Cyrus opens the chart you had last.
+
+5
+00:00:13.905 --> 00:00:18.479
+This demo starts on a saved chart: Bitcoin over Ethereum, on four
+
+6
+00:00:18.479 --> 00:00:23.054
+hour candles, with a few lines already drawn and two indicators.
+
+7
+00:00:23.718 --> 00:00:25.261
+Let's start a fresh one.
+
+8
+00:00:25.211 --> 00:00:28.123
+Open the chart menu, and click New chart.
+
+9
+00:00:28.792 --> 00:00:31.691
+A new chart starts on the symbol you were looking at.
+
+10
+00:00:31.641 --> 00:00:35.245
+To change it, click the symbol's name at the top of the chart.
+
+11
+00:00:35.919 --> 00:00:38.273
+First pick where the prices come from.
+
+12
+00:00:38.223 --> 00:00:42.545
+Crypto works out of the box, from Coinbase, Kraken or KuCoin.
+
+13
+00:00:42.545 --> 00:00:46.946
+Coinbase is the default, and it loads older candles as you scroll back.
+
+14
+00:00:47.612 --> 00:00:50.538
+Stocks covers US stocks and ETFs.
+
+15
+00:00:50.488 --> 00:00:54.102
+It uses your own free market data key from Alpaca, which
+
+16
+00:00:54.102 --> 00:00:57.136
+you add once on your Profile, under Exchanges.
+
+17
+00:00:57.136 --> 00:01:02.336
+Prices are real time, and volume counts trades on one exchange, called IEX.
+
+18
+00:01:03.022 --> 00:01:05.987
+You can search by ticker or by company name.
+
+19
+00:01:05.937 --> 00:01:08.065
+Type apple, and pick Apple.
+
+20
+00:01:08.742 --> 00:01:13.529
+The buttons along the top set the timeframe, from one minute candles up to one week.
+
+21
+00:01:13.479 --> 00:01:16.405
+Here's the daily chart, and then back to hourly.
+
+22
+00:01:17.077 --> 00:01:23.380
+The chart type menu draws the price as candles, bars, a line, or a filled area.
+
+23
+00:01:24.492 --> 00:01:31.340
+The drawing tools run down the left side: lines and rays, channels, a fib retracement,
+
+24
+00:01:31.340 --> 00:01:37.790
+volume profiles, anchored VWAP, rectangles, a price range ruler, and text notes.
+
+25
+00:01:37.740 --> 00:01:42.394
+The buttons at the bottom hide, lock, or clear every drawing at once.
+
+26
+00:01:43.083 --> 00:01:46.740
+Pick the trend line, then press and drag across the chart.
+
+27
+00:01:46.690 --> 00:01:53.512
+Turn on the magnet first, and each end snaps to a nearby candle's open, high, low or close.
+
+28
+00:01:54.180 --> 00:02:01.028
+A new drawing stays selected, and a style bar appears for it: its color, thickness, and dashes.
+
+29
+00:02:00.978 --> 00:02:04.263
+You can also lock it, copy it, or delete it.
+
+30
+00:02:04.953 --> 00:02:06.216
+Made a mistake?
+
+31
+00:02:06.166 --> 00:02:11.166
+Undo and redo, at the top right, step back and forward through your changes.
+
+32
+00:02:11.166 --> 00:02:12.882
+Control Z works too.
+
+33
+00:02:13.546 --> 00:02:15.355
+Now a horizontal line.
+
+34
+00:02:15.305 --> 00:02:19.839
+Turn the magnet off, pick the tool, and click once at the price you care about.
+
+35
+00:02:20.504 --> 00:02:23.762
+Horizontal lines and trend lines can carry an alert.
+
+36
+00:02:23.712 --> 00:02:27.542
+Click the bell, and Cyrus tells you when the price reaches the line.
+
+37
+00:02:27.542 --> 00:02:30.600
+On a trend line, the alert follows the slope.
+
+38
+00:02:31.261 --> 00:02:34.067
+Alerts work on stocks and crypto alike.
+
+39
+00:02:34.017 --> 00:02:39.141
+Cyrus checks them about once a minute while it's running, and shows a desktop notification
+
+40
+00:02:39.141 --> 00:02:43.126
+when one fires, plus an email if you've set email up on your Profile.
+
+41
+00:02:43.813 --> 00:02:45.887
+The Alerts button lists them all.
+
+42
+00:02:45.837 --> 00:02:49.744
+A fired alert switches off until you move its line or re-arm it,
+
+43
+00:02:49.744 --> 00:02:53.590
+and moving or deleting the line takes the alert along with it.
+
+44
+00:02:54.261 --> 00:02:58.258
+Indicators adds moving averages, Bollinger Bands,
+
+45
+00:02:58.258 --> 00:03:02.173
+R S I, MACD, and a long list of volume studies.
+
+46
+00:03:02.123 --> 00:03:05.793
+Each one is marked as drawing on the price, or in its own pane.
+
+47
+00:03:06.454 --> 00:03:08.302
+Let's add Bollinger Bands.
+
+48
+00:03:08.252 --> 00:03:10.699
+Its label appears at the top of the chart.
+
+49
+00:03:10.699 --> 00:03:15.646
+Click the name or the gear to change its settings and color, or the cross to remove it.
+
+50
+00:03:16.317 --> 00:03:20.745
+Compare adds another symbol to the same chart, up to four symbols in all.
+
+51
+00:03:20.695 --> 00:03:22.889
+Let's put Microsoft under Apple.
+
+52
+00:03:23.985 --> 00:03:29.730
+Each symbol gets its own pane, and they share one time axis, so you can line moves up.
+
+53
+00:03:29.680 --> 00:03:34.174
+Any pane can come from a different source, and the cross in its header removes it.
+
+54
+00:03:34.847 --> 00:03:38.358
+With two or more symbols, a new menu appears.
+
+55
+00:03:38.308 --> 00:03:41.598
+Overlay in percent puts them on one chart, each measured
+
+56
+00:03:41.598 --> 00:03:44.770
+as a percent change, so you can see which did better.
+
+57
+00:03:44.770 --> 00:03:48.082
+Price overlays like the bands step aside in this mode.
+
+58
+00:03:48.754 --> 00:03:52.025
+For your own indicators, open the Pine Editor.
+
+59
+00:03:51.975 --> 00:03:55.111
+It's docked under the chart, and takes scripts written
+
+60
+00:03:55.111 --> 00:03:57.840
+in Pine Script, the language TradingView uses.
+
+61
+00:03:57.840 --> 00:04:00.552
+A new script starts from a simple example.
+
+62
+00:04:01.210 --> 00:04:03.590
+Errors show up underneath as you type.
+
+63
+00:04:03.540 --> 00:04:07.304
+Add to chart saves the script to your indicators, and draws it.
+
+64
+00:04:07.991 --> 00:04:11.134
+If a script has alert conditions, its label gets a bell
+
+65
+00:04:11.134 --> 00:04:14.334
+too, so you can be alerted when a condition comes true.
+
+66
+00:04:14.284 --> 00:04:16.372
+Close the editor with the cross.
+
+67
+00:04:23.921 --> 00:04:27.538
+The dot next to the chart's name means it has unsaved changes.
+
+68
+00:04:27.488 --> 00:04:32.900
+Cyrus keeps them even if you switch to another chart, until you save or discard them.
+
+69
+00:04:33.588 --> 00:04:36.248
+Click Save, or press Control S.
+
+70
+00:04:36.198 --> 00:04:40.865
+A new chart asks for a name, and suggests one from its symbols and timeframe.
+
+71
+00:04:41.540 --> 00:04:46.460
+A saved chart keeps its symbols, drawings, indicators and timeframe.
+
+72
+00:04:46.410 --> 00:04:53.325
+The chart menu lists them all, and also starts a new chart, saves a copy, renames, or deletes.
+
+73
+00:04:53.325 --> 00:04:55.386
+Let's go back to the Bitcoin chart.
+
+74
+00:04:56.067 --> 00:04:59.724
+On a crypto chart, My trades shows your own activity.
+
+75
+00:04:59.674 --> 00:05:04.953
+Dashed lines mark your open orders, with the side, the amount left, and the account.
+
+76
+00:05:04.953 --> 00:05:07.360
+Arrows mark past buys and sells.
+
+77
+00:05:08.018 --> 00:05:11.874
+If your average cost is in view, a solid line marks it too.
+
+78
+00:05:11.824 --> 00:05:14.218
+The button turns it all off and on.
+
+79
+00:05:14.218 --> 00:05:18.673
+Stock charts don't show any of this, because Cyrus doesn't trade stocks.
+
+80
+00:05:19.346 --> 00:05:24.918
+The camera button saves a picture of the chart, with its name and symbols across the top.
+
+81
+00:05:25.563 --> 00:05:29.423
+That's Charts: pick a coin or stock, mark it up, set alerts
+
+82
+00:05:29.423 --> 00:05:32.890
+on the lines that matter, and save it for next time.
+

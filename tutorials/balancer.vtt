@@ -1,294 +1,294 @@
 WEBVTT
 
 1
-00:00:00.351 --> 00:00:01.750
+00:00:00.350 --> 00:00:01.749
 This is the Balancer.
 
 2
-00:00:01.750 --> 00:00:06.564
+00:00:01.749 --> 00:00:06.563
 It caps how much of an exchange account any one coin is allowed to become.
 
 3
-00:00:06.564 --> 00:00:12.149
+00:00:06.563 --> 00:00:12.148
 When a coin grows past its cap, Cyrus sells the excess and brings it back down.
 
 4
-00:00:12.827 --> 00:00:13.814
+00:00:12.814 --> 00:00:13.801
 Why bother?
 
 5
-00:00:13.814 --> 00:00:18.415
+00:00:13.801 --> 00:00:18.402
 When one coin rallies, it can quietly grow into most of your account.
 
 6
-00:00:18.415 --> 00:00:22.378
+00:00:18.402 --> 00:00:22.365
 A cap takes some profit along the way and keeps your risk spread out.
 
 7
-00:00:23.070 --> 00:00:26.477
+00:00:23.038 --> 00:00:26.445
 Caps are set per account, and this menu picks which one.
 
 8
-00:00:26.477 --> 00:00:29.190
+00:00:26.445 --> 00:00:29.158
 Everything on the page is that account alone.
 
 9
-00:00:29.190 --> 00:00:31.637
+00:00:29.158 --> 00:00:31.605
 Here it's the Kraken account called Main.
 
 10
-00:00:31.637 --> 00:00:35.161
+00:00:31.605 --> 00:00:35.129
 The Balancer works with every exchange Cyrus supports.
 
 11
-00:00:35.847 --> 00:00:39.458
+00:00:35.811 --> 00:00:39.422
 Switch accounts, and you see that account's own holdings
 
 12
-00:00:39.458 --> 00:00:42.167
+00:00:39.422 --> 00:00:42.131
 and caps, measured against its own total.
 
 13
-00:00:42.167 --> 00:00:43.536
+00:00:42.131 --> 00:00:43.500
 Let's go back to Main.
 
 14
-00:00:44.216 --> 00:00:48.834
+00:00:44.170 --> 00:00:48.788
 Each bar is one holding's share of the account, by its value in dollars.
 
 15
-00:00:48.834 --> 00:00:51.054
+00:00:48.788 --> 00:00:51.008
 The account total is underneath.
 
 16
-00:00:51.729 --> 00:00:56.546
+00:00:51.687 --> 00:00:56.504
 A capped coin has a handle at its maximum share, labelled with the percent.
 
 17
-00:00:56.546 --> 00:01:00.216
+00:00:56.504 --> 00:01:00.174
 The dashed line is the down to level, where a trim stops.
 
 18
-00:01:00.216 --> 00:01:03.993
+00:01:00.174 --> 00:01:03.951
 Below the bar is its share now, and the coin it sells into.
 
 19
-00:01:04.671 --> 00:01:08.717
+00:01:04.624 --> 00:01:08.670
 When a coin is at or over its cap, the bar turns amber.
 
 20
-00:01:08.717 --> 00:01:14.169
+00:01:08.670 --> 00:01:14.122
 Bitcoin here is almost forty two percent of the account, against a cap of thirty.
 
 21
-00:01:14.832 --> 00:01:18.638
+00:01:14.784 --> 00:01:18.590
 Fit zooms the scale in, which helps when your caps are small.
 
 22
-00:01:18.638 --> 00:01:21.591
+00:01:18.590 --> 00:01:21.543
 Zero to a hundred shows the whole range again.
 
 23
-00:01:22.263 --> 00:01:24.128
+00:01:22.200 --> 00:01:24.065
 Here's exactly what happens.
 
 24
-00:01:24.128 --> 00:01:27.658
+00:01:24.065 --> 00:01:27.595
 On each check, about once a minute, Cyrus prices the
 
 25
-00:01:27.658 --> 00:01:31.189
+00:01:27.595 --> 00:01:31.126
 account in dollars and works out each coin's share.
 
 26
-00:01:31.189 --> 00:01:36.149
+00:01:31.126 --> 00:01:36.086
 If a coin has reached its cap, it sells enough to bring it down to the down to level.
 
 27
-00:01:36.835 --> 00:01:42.628
+00:01:36.780 --> 00:01:42.573
 For bitcoin, that's from about forty two percent down to twenty five: roughly seventeen
 
 28
-00:01:42.628 --> 00:01:48.421
+00:01:42.573 --> 00:01:48.366
 thousand dollars, or about a quarter of a bitcoin, sold into USDC with a market order.
 
 29
-00:01:49.103 --> 00:01:50.675
+00:01:49.055 --> 00:01:50.627
 Why stop below the cap?
 
 30
-00:01:50.675 --> 00:01:55.542
+00:01:50.627 --> 00:01:55.494
 Trimming only to the cap would let the next small rise set off another sale.
 
 31
-00:01:55.542 --> 00:02:01.340
+00:01:55.494 --> 00:02:01.292
 The gap stops it trading back and forth, so the down to level must be lower than the maximum.
 
 32
-00:02:02.034 --> 00:02:06.933
+00:02:01.971 --> 00:02:06.870
 The Positions table holds the same caps as numbers, alongside your holdings,
 
 33
-00:02:06.933 --> 00:02:11.253
+00:02:06.870 --> 00:02:11.190
 their value, their share now, and what Cyrus would trim right now.
 
 34
-00:02:11.933 --> 00:02:17.880
+00:02:11.870 --> 00:02:17.817
 Would Trim Now uses the same sums as the engine, so it's an honest preview of the next check.
 
 35
-00:02:17.880 --> 00:02:21.205
+00:02:17.817 --> 00:02:21.142
 Ether is under its cap, so nothing would be sold.
 
 36
-00:02:21.879 --> 00:02:24.156
+00:02:21.823 --> 00:02:24.100
 You can drag a cap's handle on the chart.
 
 37
-00:02:24.156 --> 00:02:28.318
+00:02:24.100 --> 00:02:28.262
 Pull ether's cap below its current share, and it's over straight away.
 
 38
-00:02:28.318 --> 00:02:33.638
+00:02:28.262 --> 00:02:33.582
 If the down to level would no longer sit below the cap, Cyrus moves it down for you.
 
 39
-00:02:34.332 --> 00:02:38.005
+00:02:34.255 --> 00:02:37.928
 The table follows along, with a trim that would now happen.
 
 40
-00:02:38.005 --> 00:02:40.918
+00:02:37.928 --> 00:02:40.841
 You can also type the numbers into the table instead.
 
 41
-00:02:41.594 --> 00:02:44.762
+00:02:41.522 --> 00:02:44.690
 To cap a coin that has none, tick its box.
 
 42
-00:02:44.762 --> 00:02:49.785
+00:02:44.690 --> 00:02:49.713
 Cyrus suggests a cap about five points above where it sits today, a down
 
 43
-00:02:49.785 --> 00:02:54.948
+00:02:49.713 --> 00:02:54.876
 to level five points lower, and, where it can, a stablecoin to sell into.
 
 44
-00:02:55.612 --> 00:03:00.297
+00:02:55.538 --> 00:03:00.223
 Convert Into offers dollars, the main stablecoins, bitcoin and ether,
 
 45
-00:03:00.297 --> 00:03:04.711
+00:03:00.223 --> 00:03:04.637
 but only the ones this exchange can actually trade the coin for.
 
 46
-00:03:05.395 --> 00:03:07.406
+00:03:05.310 --> 00:03:07.321
 Untick a box to pause a cap.
 
 47
-00:03:07.406 --> 00:03:11.342
+00:03:07.321 --> 00:03:11.257
 Its numbers are kept, but it won't trade until you tick it again.
 
 48
-00:03:11.342 --> 00:03:14.587
+00:03:11.257 --> 00:03:14.502
 To remove a cap completely, clear its maximum.
 
 49
-00:03:15.280 --> 00:03:19.791
+00:03:15.175 --> 00:03:19.686
 Below are three safety settings, shared by every cap on this account.
 
 50
-00:03:19.791 --> 00:03:24.033
+00:03:19.686 --> 00:03:23.928
 Cooldown is the shortest time between two trims of the same coin.
 
 51
-00:03:24.033 --> 00:03:27.611
+00:03:23.928 --> 00:03:27.506
 It starts at one day, fourteen hundred and forty minutes,
 
 52
-00:03:27.611 --> 00:03:31.001
+00:03:27.506 --> 00:03:30.896
 so a choppy market can't make it trade over and over.
 
 53
-00:03:31.687 --> 00:03:36.823
+00:03:31.576 --> 00:03:36.712
 Minimum trade skips a trim worth less than this, twenty five dollars to start with.
 
 54
-00:03:36.823 --> 00:03:40.180
+00:03:36.712 --> 00:03:40.069
 Raise it to five thousand, and the solana trim, worth
 
 55
-00:03:40.180 --> 00:03:43.219
+00:03:40.069 --> 00:03:43.108
 about three thousand, is now under the minimum.
 
 56
-00:03:43.904 --> 00:03:47.325
+00:03:43.774 --> 00:03:47.195
 With Simulate Only, Cyrus places no orders.
 
 57
-00:03:47.325 --> 00:03:51.194
+00:03:47.195 --> 00:03:51.064
 It writes what it would have traded into the Automations log instead.
 
 58
-00:03:51.194 --> 00:03:56.301
+00:03:51.064 --> 00:03:56.171
 It's a sensible way to watch the Balancer for a while before trusting it with real money.
 
 59
-00:03:56.983 --> 00:03:59.765
+00:03:56.839 --> 00:03:59.621
 Nothing changes until you click Save Balancer.
 
 60
-00:03:59.765 --> 00:04:04.223
+00:03:59.621 --> 00:04:04.079
 Saving replaces this account's whole set of caps: caps on the page
 
 61
-00:04:04.223 --> 00:04:08.276
+00:04:04.079 --> 00:04:08.132
 are created or updated, and any cap you cleared is removed.
 
 62
-00:04:08.948 --> 00:04:13.182
+00:04:08.802 --> 00:04:13.036
 Cyrus checks every cap first: the down to level must be below
 
 63
-00:04:13.182 --> 00:04:17.555
+00:04:13.036 --> 00:04:17.409
 the maximum, and the exchange must have a market to sell into.
 
 64
-00:04:17.555 --> 00:04:20.800
+00:04:17.409 --> 00:04:20.654
 If not, it names the coin and saves nothing.
 
 65
-00:04:21.476 --> 00:04:25.881
+00:04:21.323 --> 00:04:25.728
 Discard Changes throws your edits away and reloads what's saved.
 
 66
-00:04:25.881 --> 00:04:28.740
+00:04:25.728 --> 00:04:28.587
 We'll do that now, since this is only a demo.
 
 67
-00:04:29.445 --> 00:04:33.305
+00:04:29.279 --> 00:04:33.139
 Once saved, each cap is an automation like any other.
 
 68
-00:04:33.305 --> 00:04:38.506
+00:04:33.139 --> 00:04:38.340
 It's checked on the engine's regular cycle, listed on the Automations page, every
 
 69
-00:04:38.506 --> 00:04:43.451
+00:04:38.340 --> 00:04:43.285
 trim or skip goes in the log, and trims are emailed to you if alerts are on.
 
 70
-00:04:44.144 --> 00:04:47.804
+00:04:43.967 --> 00:04:47.627
 The refresh button reloads your holdings from the exchange.
 
 71
-00:04:48.474 --> 00:04:49.767
+00:04:48.288 --> 00:04:49.581
 That's the Balancer.
 
 72
-00:04:49.767 --> 00:04:54.056
+00:04:49.581 --> 00:04:53.870
 For each coin, choose a maximum, a level to come back down to,
 
 73
-00:04:54.056 --> 00:04:58.344
+00:04:53.870 --> 00:04:58.158
 and what to sell into, and Cyrus keeps each account in shape.
 

@@ -1,334 +1,334 @@
 WEBVTT
 
 1
-00:00:00.352 --> 00:00:02.071
+00:00:00.357 --> 00:00:02.076
 This is the Holdings page.
 
 2
-00:00:02.071 --> 00:00:04.384
+00:00:02.076 --> 00:00:04.389
 The Overview gives you the headlines.
 
 3
-00:00:04.384 --> 00:00:08.172
+00:00:04.389 --> 00:00:08.177
 Here, you go coin by coin: what you hold, what it's worth,
 
 4
-00:00:08.172 --> 00:00:11.698
+00:00:08.177 --> 00:00:11.703
 and what the wider market looks like behind each one.
 
 5
-00:00:12.363 --> 00:00:15.744
+00:00:12.360 --> 00:00:15.741
 Holdings has its own account picker, up here on the right.
 
 6
-00:00:15.744 --> 00:00:19.214
+00:00:15.741 --> 00:00:19.211
 It starts on whatever you chose in the exchange selector,
 
 7
-00:00:19.214 --> 00:00:21.954
+00:00:19.211 --> 00:00:21.951
 and changing it here only changes this page.
 
 8
-00:00:22.638 --> 00:00:25.115
+00:00:22.633 --> 00:00:25.110
 Let's pick the Kraken account called Main.
 
 9
-00:00:25.115 --> 00:00:28.758
+00:00:25.110 --> 00:00:28.753
 The cards and the table now cover just that one account.
 
 10
-00:00:29.455 --> 00:00:32.827
+00:00:29.433 --> 00:00:32.805
 On All exchanges, a coin you hold in several places
 
 11
-00:00:32.827 --> 00:00:36.001
+00:00:32.805 --> 00:00:35.979
 shows up once, with the amounts added together.
 
 12
-00:00:36.001 --> 00:00:37.769
+00:00:35.979 --> 00:00:37.747
 Let's switch back to everything.
 
 13
-00:00:38.447 --> 00:00:40.737
+00:00:38.410 --> 00:00:40.700
 The page doesn't reload on its own.
 
 14
-00:00:40.737 --> 00:00:46.216
+00:00:40.700 --> 00:00:46.179
 If you've had it open for a while, the refresh button fetches your balances and prices again.
 
 15
-00:00:46.885 --> 00:00:49.601
+00:00:46.839 --> 00:00:49.555
 Across the top are five summary cards.
 
 16
-00:00:49.601 --> 00:00:54.056
+00:00:49.555 --> 00:00:54.010
 Total value is everything on the selected accounts, in dollars.
 
 17
-00:00:54.056 --> 00:00:58.976
+00:00:54.010 --> 00:00:58.930
 Underneath, you can see how many coins that covers, and how much of it is cash.
 
 18
-00:00:59.663 --> 00:01:03.214
+00:00:59.624 --> 00:01:03.175
 The twenty-four hour change adds up how much each position
 
 19
-00:01:03.214 --> 00:01:05.969
+00:01:03.175 --> 00:01:05.930
 gained or lost in dollars over the last day.
 
 20
-00:01:05.969 --> 00:01:11.222
+00:01:05.930 --> 00:01:11.183
 Below it, that move is shown as a percentage of what the portfolio was worth a day ago.
 
 21
-00:01:11.905 --> 00:01:16.702
+00:01:11.849 --> 00:01:16.646
 Best today and worst today are the coins whose price rose the most and fell
 
 22
-00:01:16.702 --> 00:01:21.243
+00:01:16.646 --> 00:01:21.187
 the most over the last day, with how much you hold of each in dollars.
 
 23
-00:01:21.927 --> 00:01:27.861
+00:01:21.874 --> 00:01:27.808
 And Largest position is your biggest holding by value, with its share of the whole portfolio.
 
 24
-00:01:28.553 --> 00:01:32.812
+00:01:28.481 --> 00:01:32.740
 Below the cards is every asset you hold, one row each.
 
 25
-00:01:32.812 --> 00:01:36.668
+00:01:32.740 --> 00:01:36.596
 Price is the current price, followed by how much it has moved
 
 26
-00:01:36.668 --> 00:01:40.272
+00:01:36.596 --> 00:01:40.200
 over the last twenty-four hours and the last seven days.
 
 27
-00:01:40.948 --> 00:01:44.081
+00:01:40.875 --> 00:01:44.008
 The seven-day trend is a small chart of the week, so you
 
 28
-00:01:44.081 --> 00:01:47.214
+00:01:44.008 --> 00:01:47.141
 can see the shape of the move, not just where it ended.
 
 29
-00:01:47.214 --> 00:01:52.148
+00:01:47.141 --> 00:01:52.075
 It's green when the week finished level or higher, and red when it finished lower.
 
 30
-00:01:52.807 --> 00:01:54.818
+00:01:52.740 --> 00:01:54.751
 Amount is how many coins you hold.
 
 31
-00:01:54.818 --> 00:01:58.187
+00:01:54.751 --> 00:01:58.120
 Value is what they're worth in dollars, and the next column
 
 32
-00:01:58.187 --> 00:02:01.042
+00:01:58.120 --> 00:02:00.975
 is that value as a share of your whole portfolio.
 
 33
-00:02:01.733 --> 00:02:05.332
+00:02:01.646 --> 00:02:05.245
 Market cap is the value of every coin of that kind in
 
 34
-00:02:05.332 --> 00:02:08.864
+00:02:05.245 --> 00:02:08.777
 existence, across the whole market, not just yours.
 
 35
-00:02:08.864 --> 00:02:13.984
+00:02:08.777 --> 00:02:13.897
 The last column shows how far today's price sits below the coin's all-time high.
 
 36
-00:02:14.648 --> 00:02:18.082
+00:02:14.562 --> 00:02:17.996
 Cash balances, like dollars, are listed too.
 
 37
-00:02:18.082 --> 00:02:21.579
+00:02:17.996 --> 00:02:21.493
 They count toward your total and your percentages, but there's
 
 38
-00:02:21.579 --> 00:02:24.625
+00:02:21.493 --> 00:02:24.539
 no market data for them, so those columns stay empty.
 
 39
-00:02:25.312 --> 00:02:29.012
+00:02:25.221 --> 00:02:28.921
 The table starts out sorted by value, biggest first.
 
 40
-00:02:29.012 --> 00:02:31.858
+00:02:28.921 --> 00:02:31.767
 Click any column heading to sort by it instead.
 
 41
-00:02:31.858 --> 00:02:34.863
+00:02:31.767 --> 00:02:34.772
 The arrow shows which column is doing the sorting.
 
 42
-00:02:35.537 --> 00:02:40.234
+00:02:35.451 --> 00:02:40.148
 Sorting by the twenty-four hour column puts today's strongest coins at the top.
 
 43
-00:02:40.234 --> 00:02:44.756
+00:02:40.148 --> 00:02:44.670
 Click the same heading again to flip the order, and the weakest come first.
 
 44
-00:02:45.454 --> 00:02:48.556
+00:02:45.346 --> 00:02:48.448
 Sorting by the asset name runs from A to Z.
 
 45
-00:02:48.556 --> 00:02:52.013
+00:02:48.448 --> 00:02:51.905
 Every other column starts with the largest number first.
 
 46
-00:02:52.013 --> 00:02:55.875
+00:02:51.905 --> 00:02:55.767
 Anything without a figure in that column, like a cash balance,
 
 47
-00:02:55.875 --> 00:02:59.300
+00:02:55.767 --> 00:02:59.192
 sinks to the bottom rather than being counted as zero.
 
 48
-00:02:59.984 --> 00:03:03.405
+00:02:59.876 --> 00:03:03.297
 Select any row for the full breakdown of that coin.
 
 49
-00:03:03.405 --> 00:03:04.748
+00:03:03.297 --> 00:03:04.640
 Let's open Bitcoin.
 
 50
-00:03:04.748 --> 00:03:09.243
+00:03:04.640 --> 00:03:09.135
 Rows work from the keyboard too: tab to one and press Enter.
 
 51
-00:03:09.900 --> 00:03:14.610
+00:03:09.813 --> 00:03:14.523
 Your position comes first: how much you hold, what it's worth, its share of
 
 52
-00:03:14.610 --> 00:03:19.132
+00:03:14.523 --> 00:03:19.045
 your portfolio, and how many dollars it gained or lost in the last day.
 
 53
-00:03:19.132 --> 00:03:23.866
+00:03:19.045 --> 00:03:23.779
 Held on lists each account the coin sits on, and how much is in each one.
 
 54
-00:03:24.540 --> 00:03:29.854
+00:03:24.454 --> 00:03:29.768
 Market size shows the coin's market cap and its rank, and its fully diluted valuation,
 
 55
-00:03:29.854 --> 00:03:34.982
+00:03:29.768 --> 00:03:34.896
 which is what it would be worth if its maximum supply were already in circulation.
 
 56
-00:03:34.982 --> 00:03:36.897
+00:03:34.896 --> 00:03:36.811
 Then the day's trading volume.
 
 57
-00:03:37.555 --> 00:03:42.675
+00:03:37.474 --> 00:03:42.594
 Volume divided by market cap shows how much of the coin changes hands in a day,
 
 58
-00:03:42.675 --> 00:03:47.665
+00:03:42.594 --> 00:03:47.584
 with a plain-English reading, from thinly traded up to very actively traded.
 
 59
-00:03:48.344 --> 00:03:52.126
+00:03:48.249 --> 00:03:52.031
 Supply shows how many coins are circulating, how many have been
 
 60
-00:03:52.126 --> 00:03:55.847
+00:03:52.031 --> 00:03:55.752
 issued, and the maximum that can ever exist, if there is one.
 
 61
-00:03:55.847 --> 00:03:59.186
+00:03:55.752 --> 00:03:59.091
 The bar shows how much of that eventual supply is already
 
 62
-00:03:59.186 --> 00:04:02.350
+00:03:59.091 --> 00:04:02.255
 out there, and the last line is your own share of it.
 
 63
-00:04:03.010 --> 00:04:07.839
+00:04:02.924 --> 00:04:07.753
 Price history gives you the day's range, the all-time high and when it happened, how
 
 64
-00:04:07.839 --> 00:04:12.667
+00:04:07.753 --> 00:04:12.581
 far the price is from it now, and how much it would need to rise to get back there.
 
 65
-00:04:12.667 --> 00:04:15.886
+00:04:12.581 --> 00:04:15.800
 The all-time low is at the bottom, with its date.
 
 66
-00:04:16.554 --> 00:04:21.703
+00:04:16.463 --> 00:04:21.612
 Momentum shows the price change over the last hour, day, week and month.
 
 67
-00:04:21.703 --> 00:04:26.012
+00:04:21.612 --> 00:04:25.921
 The last line works out what your current holding would have been worth thirty days ago.
 
 68
-00:04:26.688 --> 00:04:31.984
+00:04:26.597 --> 00:04:31.893
 The last block comes from Kraken's public market data, whichever exchanges you use.
 
 69
-00:04:31.984 --> 00:04:38.599
+00:04:31.893 --> 00:04:38.508
 It's the trading pair's own record on Kraken: its highest and lowest prices since Kraken has data for
 
 70
-00:04:38.599 --> 00:04:45.149
+00:04:38.508 --> 00:04:45.058
 it, the fifty-two week range, the smallest order Kraken accepts, and Kraken's maker and taker fees.
 
 71
-00:04:45.844 --> 00:04:50.701
+00:04:45.727 --> 00:04:50.584
 To look at another coin, just select its row, and the breakdown switches over.
 
 72
-00:04:50.701 --> 00:04:53.095
+00:04:50.584 --> 00:04:52.978
 When you're done, the cross closes it.
 
 73
-00:04:53.798 --> 00:04:56.873
+00:04:53.648 --> 00:04:56.723
 Your balances and prices come from your exchanges.
 
 74
-00:04:56.873 --> 00:05:00.596
+00:04:56.723 --> 00:05:00.446
 The market figures, like market cap, supply and all-time
 
 75
-00:05:00.596 --> 00:05:03.389
+00:05:00.446 --> 00:05:03.239
 highs, come from CoinGecko's public data.
 
 76
-00:05:03.389 --> 00:05:07.042
+00:05:03.239 --> 00:05:06.892
 Only the coin's ticker is sent, never your balances, and the
 
 77
-00:05:07.042 --> 00:05:10.756
+00:05:06.892 --> 00:05:10.606
 figures are kept for ten minutes before being fetched again.
 
 78
-00:05:11.443 --> 00:05:15.145
+00:05:11.268 --> 00:05:14.970
 If CoinGecko can't be reached, a notice at the top of the page
 
 79
-00:05:15.145 --> 00:05:18.667
+00:05:14.970 --> 00:05:18.492
 tells you that you're seeing the last figures Cyrus saved.
 
 80
-00:05:18.667 --> 00:05:22.749
+00:05:18.492 --> 00:05:22.574
 Your balances and prices still come live from the exchange.
 
 81
-00:05:23.441 --> 00:05:26.926
+00:05:23.243 --> 00:05:26.728
 That's Holdings: the headline numbers, every coin side
 
 82
-00:05:26.926 --> 00:05:30.346
+00:05:26.728 --> 00:05:30.148
 by side, and a full breakdown whenever you need one.
 
 83
-00:05:30.346 --> 00:05:32.793
+00:05:30.148 --> 00:05:32.595
 Next, we'll look at your open orders.
 

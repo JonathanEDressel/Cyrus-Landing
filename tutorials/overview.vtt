@@ -1,278 +1,278 @@
 WEBVTT
 
 1
-00:00:00.358 --> 00:00:01.757
+00:00:00.356 --> 00:00:01.755
 Welcome to Cyrus.
 
 2
-00:00:01.757 --> 00:00:06.252
+00:00:01.755 --> 00:00:06.250
 This is the Overview, the page you land on every time you open the app.
 
 3
-00:00:06.252 --> 00:00:09.447
+00:00:06.250 --> 00:00:09.445
 It pulls together every exchange you've connected, so
 
 4
-00:00:09.447 --> 00:00:12.582
+00:00:09.445 --> 00:00:12.580
 you can see your whole crypto picture in one place.
 
 5
-00:00:13.269 --> 00:00:18.711
+00:00:13.250 --> 00:00:18.692
 Everything you're seeing here is demo data, but it behaves exactly like a real account.
 
 6
-00:00:18.711 --> 00:00:25.067
+00:00:18.692 --> 00:00:25.048
 In this one, four exchanges are connected: Kraken, Coinbase, Binance and Robinhood.
 
 7
-00:00:25.741 --> 00:00:27.406
+00:00:25.716 --> 00:00:27.381
 Let's start at the very top.
 
 8
-00:00:27.406 --> 00:00:29.893
+00:00:27.381 --> 00:00:29.868
 The search box takes you to any page.
 
 9
-00:00:29.893 --> 00:00:35.066
+00:00:29.868 --> 00:00:35.041
 Press the slash key, type a few letters, like 'tax', and press Enter.
 
 10
-00:00:35.747 --> 00:00:38.117
+00:00:35.742 --> 00:00:38.112
 Next to it is the exchange selector.
 
 11
-00:00:38.117 --> 00:00:43.144
+00:00:38.112 --> 00:00:43.139
 On All Exchanges, every number in the app is combined across your accounts.
 
 12
-00:00:43.144 --> 00:00:47.319
+00:00:43.139 --> 00:00:47.314
 Pick a single account, and every page narrows to just that one.
 
 13
-00:00:47.985 --> 00:00:51.100
+00:00:47.996 --> 00:00:51.111
 Now we're only looking at the Kraken account called Main.
 
 14
-00:00:51.100 --> 00:00:55.994
+00:00:51.111 --> 00:00:56.005
 The portfolio, the orders and the caps have all been recalculated for it.
 
 15
-00:00:55.994 --> 00:00:57.762
+00:00:56.005 --> 00:00:57.773
 Let's switch back to everything.
 
 16
-00:00:58.448 --> 00:01:01.862
+00:00:58.450 --> 00:01:01.864
 The worker pill shows that the automation engine is running,
 
 17
-00:01:01.862 --> 00:01:04.422
+00:01:01.864 --> 00:01:04.424
 and how recently it last checked your rules.
 
 18
-00:01:04.422 --> 00:01:08.212
+00:01:04.424 --> 00:01:08.214
 It runs quietly in the background, about once a minute.
 
 19
-00:01:08.906 --> 00:01:13.407
+00:01:08.892 --> 00:01:13.393
 Underneath, a ticker scrolls through your portfolio total and live prices
 
 20
-00:01:13.407 --> 00:01:17.353
+00:01:13.393 --> 00:01:17.339
 for the coins you hold, with the day's change next to each one.
 
 21
-00:01:18.040 --> 00:01:25.921
+00:01:18.015 --> 00:01:25.896
 Back on the page, the headline numbers give you the essentials at a glance: what everything's worth, how much it moved in the last
 
 22
-00:01:25.921 --> 00:01:33.681
+00:01:25.896 --> 00:01:33.656
 twenty-four hours, how many orders are working, how many automations you have, and whether any coin is over its allocation cap.
 
 23
-00:01:34.359 --> 00:01:36.277
+00:01:34.327 --> 00:01:36.245
 Each tile is also a shortcut.
 
 24
-00:01:36.277 --> 00:01:39.881
+00:01:36.245 --> 00:01:39.849
 Clicking one takes you straight to the page with the full detail.
 
 25
-00:01:40.560 --> 00:01:43.648
+00:01:40.525 --> 00:01:43.613
 The portfolio ring shows how your money is split.
 
 26
-00:01:43.648 --> 00:01:47.046
+00:01:43.613 --> 00:01:47.011
 Each slice is a coin, sized by its dollar value, and
 
 27
-00:01:47.046 --> 00:01:50.510
+00:01:47.011 --> 00:01:50.475
 the smaller positions are grouped together as Other.
 
 28
-00:01:50.510 --> 00:01:52.186
+00:01:50.475 --> 00:01:52.151
 The total sits in the middle.
 
 29
-00:01:52.851 --> 00:01:54.902
+00:01:52.828 --> 00:01:54.879
 Beside it is a live price chart.
 
 30
-00:01:54.902 --> 00:02:00.447
+00:01:54.879 --> 00:02:00.424
 Choose a pair from the list, and pick a time range, from the last hour up to the last year.
 
 31
-00:02:01.115 --> 00:02:04.279
+00:02:01.086 --> 00:02:04.250
 Add Crypto puts another coin on your watch list, so you
 
 32
-00:02:04.279 --> 00:02:07.155
+00:02:04.250 --> 00:02:07.126
 can follow a price even if you don't hold it yet.
 
 33
-00:02:07.813 --> 00:02:12.804
+00:02:07.781 --> 00:02:12.772
 Scrolling down, Biggest Holdings lists your largest positions with a small price
 
 34
-00:02:12.804 --> 00:02:17.484
+00:02:12.772 --> 00:02:17.452
 trend, the current price, the day's move, and what each position is worth.
 
 35
-00:02:18.162 --> 00:02:25.251
+00:02:18.128 --> 00:02:25.217
 Resting Limit Orders splits your orders into buys and sells, with the total value on each side, then
 
 36
-00:02:25.251 --> 00:02:32.128
+00:02:25.217 --> 00:02:32.094
 lists the most recent ones: the pair, the account, the price, the amount and when it was placed.
 
 37
-00:02:32.782 --> 00:02:37.705
+00:02:32.758 --> 00:02:37.681
 Allocation Caps shows each coin against the share of your account you've allowed it.
 
 38
-00:02:37.705 --> 00:02:39.620
+00:02:37.681 --> 00:02:39.596
 The bar fills toward the cap.
 
 39
-00:02:39.620 --> 00:02:43.277
+00:02:39.596 --> 00:02:43.253
 When a coin goes over, the bar turns amber, and Cyrus tells
 
 40
-00:02:43.277 --> 00:02:46.562
+00:02:43.253 --> 00:02:46.538
 you how much it would trim to bring it back in line.
 
 41
-00:02:47.244 --> 00:02:50.878
+00:02:47.231 --> 00:02:50.865
 Recent Activity is the automation log in miniature.
 
 42
-00:02:50.878 --> 00:02:56.133
+00:02:50.865 --> 00:02:56.120
 Every run is recorded, including the ones that didn't trade, with a plain-English
 
 43
-00:02:56.133 --> 00:03:01.064
+00:02:56.120 --> 00:03:01.051
 reason, like a coin being under its cap or a rule waiting out its cooldown.
 
 44
-00:03:01.741 --> 00:03:05.813
+00:03:01.733 --> 00:03:05.805
 At the bottom, the Flow chart draws your automations as a map.
 
 45
-00:03:05.813 --> 00:03:11.731
+00:03:05.805 --> 00:03:11.723
 Each circle is a coin, and each line is a rule that converts one coin into another.
 
 46
-00:03:11.731 --> 00:03:14.178
+00:03:11.723 --> 00:03:14.170
 Dashed outlines are rules that are paused.
 
 47
-00:03:14.855 --> 00:03:17.977
+00:03:14.846 --> 00:03:17.968
 Switch to Open Orders, and the same chart shows where your
 
 48
-00:03:17.977 --> 00:03:20.829
+00:03:17.968 --> 00:03:20.820
 resting orders would take your money if they filled.
 
 49
-00:03:21.512 --> 00:03:23.749
+00:03:21.496 --> 00:03:23.733
 Every widget can be rearranged.
 
 50
-00:03:23.749 --> 00:03:26.289
+00:03:23.733 --> 00:03:26.273
 Scroll back up and click Customize.
 
 51
-00:03:26.969 --> 00:03:29.060
+00:03:26.948 --> 00:03:29.039
 Each widget now has a toolbar.
 
 52
-00:03:29.060 --> 00:03:32.624
+00:03:29.039 --> 00:03:32.603
 Drag the grip to move a widget, or use the arrows.
 
 53
-00:03:32.624 --> 00:03:36.081
+00:03:32.603 --> 00:03:36.060
 The minus and plus buttons make it narrower or wider.
 
 54
-00:03:36.081 --> 00:03:41.520
+00:03:36.060 --> 00:03:41.499
 The page is a twelve-column grid, and the counter shows how many columns a widget is using.
 
 55
-00:03:42.198 --> 00:03:45.339
+00:03:42.171 --> 00:03:45.312
 Dragging the bottom-right corner resizes a widget.
 
 56
-00:03:45.339 --> 00:03:50.526
+00:03:45.312 --> 00:03:50.499
 Its height can follow its content, or stay fixed with the content scrolling inside.
 
 57
-00:03:50.526 --> 00:03:56.350
+00:03:50.499 --> 00:03:56.323
 Double-click the corner, or use the up-and-down arrow button, to make it fit its content again.
 
 58
-00:03:57.025 --> 00:03:59.382
+00:03:56.983 --> 00:03:59.340
 Add Widget opens the full list.
 
 59
-00:03:59.382 --> 00:04:04.487
+00:03:59.340 --> 00:04:04.445
 Besides the ones you've seen, there's Top Movers, an Accounts summary, Recent
 
 60
-00:04:04.487 --> 00:04:08.863
+00:04:04.445 --> 00:04:08.821
 Transfers, Quick Actions, and a Notes pad for your own reminders.
 
 61
-00:04:09.529 --> 00:04:11.022
+00:04:09.494 --> 00:04:10.987
 Let's add Top Movers.
 
 62
-00:04:11.022 --> 00:04:15.210
+00:04:10.987 --> 00:04:15.175
 It lists the holdings that rose or fell the most over the last day.
 
 63
-00:04:15.986 --> 00:04:18.542
+00:04:15.927 --> 00:04:18.483
 Your layout saves to your account as you go.
 
 64
-00:04:18.542 --> 00:04:22.053
+00:04:18.483 --> 00:04:21.994
 If you ever want the original back, Reset restores it.
 
 65
-00:04:22.053 --> 00:04:23.981
+00:04:21.994 --> 00:04:23.922
 When you're finished, click Done.
 
 66
-00:04:24.665 --> 00:04:28.775
+00:04:24.612 --> 00:04:28.722
 The refresh button reloads everything from your exchanges straight
 
 67
-00:04:28.775 --> 00:04:32.075
+00:04:28.722 --> 00:04:32.022
 away, though the Overview also refreshes on its own.
 
 68
-00:04:32.075 --> 00:04:33.365
+00:04:32.022 --> 00:04:33.312
 That's the Overview.
 
 69
-00:04:33.365 --> 00:04:37.088
+00:04:33.312 --> 00:04:37.035
 In the next videos, we'll go through each page in detail.
 

@@ -1,354 +1,354 @@
 WEBVTT
 
 1
-00:00:00.355 --> 00:00:02.114
+00:00:00.353 --> 00:00:02.112
 This is the Taxes page.
 
 2
-00:00:02.114 --> 00:00:05.193
+00:00:02.112 --> 00:00:05.191
 It works out your realized gains and cost basis from
 
 3
-00:00:05.193 --> 00:00:08.390
+00:00:05.191 --> 00:00:08.388
 the trades and transfers on your connected exchanges.
 
 4
-00:00:09.054 --> 00:00:12.860
+00:00:09.041 --> 00:00:12.847
 Cost basis is what you paid for a coin, including fees.
 
 5
-00:00:12.860 --> 00:00:16.215
+00:00:12.847 --> 00:00:16.202
 When you sell, the difference between what you received
 
 6
-00:00:16.215 --> 00:00:19.203
+00:00:16.202 --> 00:00:19.190
 and what you paid is your realized gain or loss.
 
 7
-00:00:19.203 --> 00:00:23.871
+00:00:19.190 --> 00:00:23.858
 Cyrus replays your whole history to work that out, sale by sale.
 
 8
-00:00:24.543 --> 00:00:29.624
+00:00:24.531 --> 00:00:29.612
 At the top is your trade history, one card for each exchange account, showing
 
 9
-00:00:29.624 --> 00:00:34.573
+00:00:29.612 --> 00:00:34.561
 how many trades Cyrus has stored, when it last synced, and a status badge.
 
 10
-00:00:35.242 --> 00:00:38.091
+00:00:35.216 --> 00:00:38.065
 Up to date means the full history is in.
 
 11
-00:00:38.091 --> 00:00:44.181
+00:00:38.065 --> 00:00:44.155
 Partly synced means Cyrus is still working back through it, so the figures may be incomplete.
 
 12
-00:00:44.181 --> 00:00:50.471
+00:00:44.155 --> 00:00:50.445
 Needs permission means the API key can't read trade history, and the card says what to change.
 
 13
-00:00:51.129 --> 00:00:52.941
+00:00:51.113 --> 00:00:52.925
 Some exchanges have limits.
 
 14
-00:00:52.941 --> 00:00:57.489
+00:00:52.925 --> 00:00:57.473
 Binance and Gemini only report trades one market at a time, so Cyrus
 
 15
-00:00:57.489 --> 00:01:01.970
+00:00:57.473 --> 00:01:01.954
 checks the markets for coins you hold, have moved, or have traded.
 
 16
-00:01:01.970 --> 00:01:08.100
+00:01:01.954 --> 00:01:08.084
 Robinhood has no record of individual fills, so each filled order counts as one trade.
 
 17
-00:01:08.787 --> 00:01:12.221
+00:01:08.762 --> 00:01:12.196
 Your first visit syncs anything Cyrus hasn't seen.
 
 18
-00:01:12.221 --> 00:01:17.897
+00:01:12.196 --> 00:01:17.872
 After that, Sync history fetches new trades from every exchange, then your deposits and
 
 19
-00:01:17.897 --> 00:01:23.311
+00:01:17.872 --> 00:01:23.286
 withdrawals, because a move between your own exchanges carries cost basis with it.
 
 20
-00:01:24.004 --> 00:01:26.560
+00:01:23.955 --> 00:01:26.511
 Realized gains covers one tax year.
 
 21
-00:01:26.560 --> 00:01:30.217
+00:01:26.511 --> 00:01:30.168
 First, choose how Cyrus decides which coins you sold.
 
 22
-00:01:30.217 --> 00:01:35.949
+00:01:30.168 --> 00:01:35.900
 FIFO, first in, first out, treats your oldest coins as sold first.
 
 23
-00:01:36.645 --> 00:01:40.741
+00:01:36.578 --> 00:01:40.674
 HIFO, highest in, first out, treats your most expensive
 
 24
-00:01:40.741 --> 00:01:44.986
+00:01:40.674 --> 00:01:44.919
 coins as sold first, which usually means a smaller gain.
 
 25
-00:01:44.986 --> 00:01:46.675
+00:01:44.919 --> 00:01:46.608
 Watch the figures change.
 
 26
-00:01:47.371 --> 00:01:50.193
+00:01:47.283 --> 00:01:50.105
 Cyrus remembers your choice for next time.
 
 27
-00:01:50.193 --> 00:01:51.922
+00:01:50.105 --> 00:01:51.834
 Let's switch back to FIFO.
 
 28
-00:01:52.597 --> 00:01:57.627
+00:01:52.492 --> 00:01:57.522
 The year menu lists every year you've sold something in, plus the current one.
 
 29
-00:01:57.627 --> 00:01:59.981
+00:01:57.522 --> 00:01:59.876
 Here's last year, and back to this one.
 
 30
-00:01:59.981 --> 00:02:03.544
+00:01:59.876 --> 00:02:03.439
 Dates are in universal time, matching the export.
 
 31
-00:02:04.221 --> 00:02:05.740
+00:02:04.121 --> 00:02:05.640
 The tiles add up the year.
 
 32
-00:02:05.740 --> 00:02:10.525
+00:02:05.640 --> 00:02:10.425
 Net gain or loss is the total, split into short term, for coins held
 
 33
-00:02:10.525 --> 00:02:15.168
+00:02:10.425 --> 00:02:15.068
 one year or less, and long term, for coins held more than a year.
 
 34
-00:02:15.168 --> 00:02:17.402
+00:02:15.068 --> 00:02:17.302
 The two are often taxed differently.
 
 35
-00:02:18.095 --> 00:02:22.207
+00:02:17.971 --> 00:02:22.083
 Proceeds is what your sales brought in, valued in US dollars at
 
 36
-00:02:22.207 --> 00:02:26.449
+00:02:22.083 --> 00:02:26.325
 the time of each trade, and cost basis is what those coins cost.
 
 37
-00:02:26.449 --> 00:02:32.221
+00:02:26.325 --> 00:02:32.097
 Dollars and dollar stablecoins count as cash, so they never make a gain or a loss.
 
 38
-00:02:32.882 --> 00:02:39.374
+00:02:32.771 --> 00:02:39.263
 The table lists every sale: the coin and amount, when it was bought and sold, the proceeds,
 
 39
-00:02:39.374 --> 00:02:45.438
+00:02:39.263 --> 00:02:45.327
 cost, and gain or loss, whether it was short or long term, and the exchange account.
 
 40
-00:02:46.119 --> 00:02:50.365
+00:02:45.996 --> 00:02:50.242
 One sale can span several rows when it used coins bought at different
 
 41
-00:02:50.365 --> 00:02:53.689
+00:02:50.242 --> 00:02:53.566
 times, since each purchase has its own cost and date.
 
 42
-00:02:53.689 --> 00:02:57.359
+00:02:53.566 --> 00:02:57.236
 Swapping one coin for another counts as selling the first.
 
 43
-00:02:57.359 --> 00:03:03.556
+00:02:57.236 --> 00:03:03.433
 And a fee paid in a third coin, like BNB on Binance, counts as a small sale of that coin.
 
 44
-00:03:04.228 --> 00:03:08.455
+00:03:04.112 --> 00:03:08.339
 Cyrus tracks your coins separately for each exchange account, because a
 
 45
-00:03:08.455 --> 00:03:12.742
+00:03:08.339 --> 00:03:12.626
 coin bought on Kraken can't be sold on Binance until you move it there.
 
 46
-00:03:12.742 --> 00:03:16.532
+00:03:12.626 --> 00:03:16.416
 Sending coins out of an exchange isn't counted as a sale.
 
 47
-00:03:17.216 --> 00:03:22.801
+00:03:17.096 --> 00:03:22.681
 When you move coins between two of your connected exchanges, and the transfer is matched, they
 
 48
-00:03:22.801 --> 00:03:28.030
+00:03:22.681 --> 00:03:27.910
 keep their original cost and purchase date, and the network fee is added to their cost.
 
 49
-00:03:28.030 --> 00:03:31.581
+00:03:27.910 --> 00:03:31.461
 That's why confirming matches on the Transfers page matters.
 
 50
-00:03:32.245 --> 00:03:34.575
+00:03:32.131 --> 00:03:34.461
 Sometimes Cyrus can't know what you paid.
 
 51
-00:03:34.575 --> 00:03:39.059
+00:03:34.461 --> 00:03:38.945
 If coins arrived from outside your connected exchanges, or you sold more
 
 52
-00:03:39.059 --> 00:03:43.605
+00:03:38.945 --> 00:03:43.491
 than your history covers, the cost is marked missing instead of guessed.
 
 53
-00:03:44.282 --> 00:03:47.661
+00:03:44.169 --> 00:03:47.548
 Those sales still count toward proceeds but are left out of
 
 54
-00:03:47.661 --> 00:03:51.041
+00:03:47.548 --> 00:03:50.928
 the gain, and the net gain tile says how many are missing.
 
 55
-00:03:51.041 --> 00:03:54.533
+00:03:50.928 --> 00:03:54.420
 Check before filing lists what needs attention, like
 
 56
-00:03:54.533 --> 00:03:57.689
+00:03:54.420 --> 00:03:57.576
 these two thousand ADA deposited from outside.
 
 57
-00:03:58.364 --> 00:04:03.859
+00:03:58.234 --> 00:04:03.729
 Needs info narrows the table to just the sales missing a cost or a dollar price.
 
 58
-00:04:03.859 --> 00:04:08.793
+00:04:03.729 --> 00:04:08.663
 The totals still cover the whole year, so you can watch them change as you fill things in.
 
 59
-00:04:09.477 --> 00:04:11.595
+00:04:09.331 --> 00:04:11.449
 To fill a gap, click Fix.
 
 60
-00:04:11.595 --> 00:04:15.334
+00:04:11.449 --> 00:04:15.188
 For coins deposited from outside, enter what you originally
 
 61
-00:04:15.334 --> 00:04:19.201
+00:04:15.188 --> 00:04:19.055
 paid in total, including fees, and the date you bought them.
 
 62
-00:04:19.882 --> 00:04:23.124
+00:04:19.733 --> 00:04:22.975
 The purchase date decides short or long term, so use
 
 63
-00:04:23.124 --> 00:04:26.242
+00:04:22.975 --> 00:04:26.093
 when you bought the coins, not when they arrived.
 
 64
-00:04:26.242 --> 00:04:32.345
+00:04:26.093 --> 00:04:32.196
 For several purchases, enter the total cost and the most recent date, the cautious choice.
 
 65
-00:04:32.345 --> 00:04:35.484
+00:04:32.196 --> 00:04:35.335
 As you type, Cyrus shows the cost per coin.
 
 66
-00:04:36.174 --> 00:04:38.278
+00:04:36.014 --> 00:04:38.118
 Other gaps get their own forms.
 
 67
-00:04:38.278 --> 00:04:42.501
+00:04:38.118 --> 00:04:42.341
 A sale with no purchase history asks for the purchase it came from, and
 
 68
-00:04:42.501 --> 00:04:46.842
+00:04:42.341 --> 00:04:46.682
 a trade priced in another coin asks what that coin was worth in dollars.
 
 69
-00:04:46.842 --> 00:04:48.159
+00:04:46.682 --> 00:04:47.999
 We'll cancel this one.
 
 70
-00:04:48.835 --> 00:04:51.830
+00:04:48.661 --> 00:04:51.656
 Entered by hand collects everything you've filled in.
 
 71
-00:04:51.830 --> 00:04:57.164
+00:04:51.656 --> 00:04:56.990
 Each entry feeds every figure above, is marked as entered manually
 
 72
-00:04:57.164 --> 00:05:01.285
+00:04:56.990 --> 00:05:01.111
 in the Form 8949 export, and can be removed later.
 
 73
-00:05:01.968 --> 00:05:05.950
+00:05:01.802 --> 00:05:05.784
 Add a purchase records coins Cyrus never saw, like ones bought
 
 74
-00:05:05.950 --> 00:05:09.804
+00:05:05.784 --> 00:05:09.638
 before an exchange's records begin, or on another platform.
 
 75
-00:05:09.804 --> 00:05:15.375
+00:05:09.638 --> 00:05:15.209
 Pick the exchange account, the coin, the amount, the total cost and the date.
 
 76
-00:05:15.375 --> 00:05:17.596
+00:05:15.209 --> 00:05:17.430
 It counts toward sales on that account.
 
 77
-00:05:18.274 --> 00:05:20.033
+00:05:18.121 --> 00:05:19.880
 When you're ready, export.
 
 78
-00:05:20.033 --> 00:05:26.136
+00:05:19.880 --> 00:05:25.983
 Form 8949 CSV gives one row per sale for the selected year and method, in the
 
 79
-00:05:26.136 --> 00:05:32.240
+00:05:25.983 --> 00:05:32.087
 columns of the IRS form, with a note on anything missing or entered by hand.
 
 80
-00:05:32.916 --> 00:05:37.835
+00:05:32.761 --> 00:05:37.680
 Koinly CSV exports every trade and transfer in your full history,
 
 81
-00:05:37.835 --> 00:05:42.906
+00:05:37.680 --> 00:05:42.751
 in Koinly's universal import format, to import as a single wallet.
 
 82
-00:05:42.906 --> 00:05:49.129
+00:05:42.751 --> 00:05:48.974
 Moves between your own exchanges are left out, since inside one wallet they'd only be noise.
 
 83
-00:05:49.798 --> 00:05:53.338
+00:05:49.651 --> 00:05:53.191
 As the note at the bottom says, this isn't tax advice.
 
 84
-00:05:53.338 --> 00:05:58.338
+00:05:53.191 --> 00:05:58.191
 Cyrus's figures are a starting point, worked out from the history it could fetch.
 
 85
-00:05:58.338 --> 00:06:03.777
+00:05:58.191 --> 00:06:03.630
 Review them, and your export, with your tax software or an accountant before you file.
 
 86
-00:06:04.460 --> 00:06:06.099
+00:06:04.305 --> 00:06:05.944
 That's the Taxes page.
 
 87
-00:06:06.099 --> 00:06:08.925
+00:06:05.944 --> 00:06:08.770
 Keep your history synced, fill in what's missing, and
 
 88
-00:06:08.925 --> 00:06:11.644
+00:06:08.770 --> 00:06:11.489
 your numbers will be ready whenever you need them.
 

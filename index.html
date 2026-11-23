@@ -2037,7 +2037,7 @@
       A desktop automation engine for cryptocurrency trading. Set rules once — Cyrus watches your orders, balances and prices, keeps any one coin from taking over your portfolio, and converts or withdraws automatically across Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io.
     </p>
     <div class="hero-actions">
-      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
+      <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-Setup-1.6.0.exe" class="btn-primary" data-download="hero-windows" data-os-primary="hero" data-ga="download_windows" onclick="gtag('event','click',{event_category:'hero',event_label:this.dataset.ga})">
         <span class="btn-icon">⬇</span>
         <span data-os-label>Download for Windows</span>
       </a>
@@ -2046,8 +2046,8 @@
         View Source
       </a>
     </div>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
-    <p class="hero-version">Latest release: <code>v1.5.0</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-Setup-1.6.0.exe" data-download="hero-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-arm64.dmg" data-download="hero-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-x64.dmg" data-download="hero-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="hero-version">Latest release: <code>v1.6.0</code> · Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · No Python or Node required</p>
   </div>
 </section>
 
@@ -2140,12 +2140,17 @@
     <div class="feature-card">
       <span class="feature-icon">🗄</span>
       <div class="feature-title">Local &amp; Encrypted</div>
-      <p class="feature-desc">All data lives in a database on your own computer, encrypted with AES-256 under a key unique to your install and locked to your Windows or macOS user account. No cloud sync and no account. Your API keys never leave your machine. Only a few things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key; and, if you opt in, an anonymous usage count (a random install ID, the app version, OS and country, nothing about you or your money). The assistant and the usage count are both off by default.</p>
+      <p class="feature-desc">All data lives in a database on your own computer, encrypted with AES-256 under a key unique to your install and locked to your Windows or macOS user account. No cloud sync and no account. Your API keys never leave your machine. Only a few things go out at all: coin fundamentals from a public market-data API, which sends nothing but a ticker; and, if you switch the AI assistant on, your portfolio summary to Anthropic under your own key; and, if you add an Alpaca key to chart stocks, the tickers you chart to Alpaca; and, if you opt in, an anonymous usage count (a random install ID, the app version, OS and country, nothing about you or your money). The assistant and the usage count are both off by default.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📈</span>
       <div class="feature-title">Live Market Charts</div>
       <p class="feature-desc">Chart any Kraken pair, priced in its own currency: BTC/USD, ETH/EUR, XRP/CAD, SOL/BTC. Under each chart sit the range's high and low, 24-hour volume and market cap, and a ticker along the top scrolls through every coin you hold.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📉</span>
+      <div class="feature-title">Charts for Crypto and Stocks</div>
+      <p class="feature-desc">A full charting page: candles from Coinbase, Kraken or KuCoin that scroll back through years of history, and US stocks and ETFs with your own free Alpaca market-data key. Draw trend lines and Fibonacci levels, add indicators or write your own in Pine Script, stack symbols to compare them, set price alerts straight from a line, and save your charts.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⏱</span>
@@ -2362,6 +2367,23 @@
         <div class="gallery-eyebrow">Taxes</div>
         <h3 class="gallery-title">Gains worked out from what actually happened.</h3>
         <p class="gallery-desc">Sync your trade history and Cyrus matches every sale to the purchases behind it, by FIFO or HIFO, with short- and long-term gain for the year. Nothing is guessed: a coin that arrived from somewhere Cyrus can&rsquo;t see is flagged, and the Fix button lets you enter what you paid. Export a Form 8949 CSV, or your full history in Koinly&rsquo;s import format.</p>
+      </div>
+    </div>
+
+    <div class="gallery-row gallery-row--reverse reveal">
+      <div class="gallery-shot app-frame">
+        <div class="app-frame-bar">
+          <span class="app-frame-dot app-frame-dot--r"></span>
+          <span class="app-frame-dot app-frame-dot--y"></span>
+          <span class="app-frame-dot app-frame-dot--g"></span>
+          <span class="app-frame-label">Cyrus &mdash; Charts</span>
+        </div>
+        <img src="shot-charts.png" alt="Cyrus charts page: BTC/USD and ETH/USD in stacked panes on the 4-hour timeframe, with Fibonacci levels, an EMA, buy and sell markers, open order lines labelled by account, and an RSI pane underneath" loading="lazy">
+      </div>
+      <div class="gallery-copy">
+        <div class="gallery-eyebrow">Charts</div>
+        <h3 class="gallery-title">Chart crypto and stocks, with your trades on top.</h3>
+        <p class="gallery-desc">Pull candles from Coinbase, Kraken or KuCoin, or add a free Alpaca key to chart US stocks and ETFs. Draw trend lines, channels and Fibonacci levels, add indicators or write your own in Pine Script, and stack up to four symbols to compare them. On crypto charts, your open orders, past fills and average cost sit right on the price. Set an alert from any line and Cyrus watches it every minute, with a desktop notification or an email when it&rsquo;s hit.</p>
       </div>
     </div>
   </div>
@@ -2612,7 +2634,7 @@
       <span class="step-num">01</span>
       <div>
         <div class="step-title">Download the installer</div>
-        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.5.0.exe</code> for Windows, <code class="ref">Cyrus-1.5.0-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.5.0-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
+        <p class="step-desc">Grab the file for your computer from the latest release: <code class="ref">Cyrus-Setup-1.6.0.exe</code> for Windows, <code class="ref">Cyrus-1.6.0-arm64.dmg</code> for a Mac with Apple Silicon (M1 and later), or <code class="ref">Cyrus-1.6.0-x64.dmg</code> for an Intel Mac. Each is fully self-contained — Python, Flask, Electron, and SQLite are all bundled inside.</p>
       </div>
     </div>
     <div class="step-item">
@@ -2986,11 +3008,11 @@
     <img src="cyrus-logo.svg" alt="Cyrus" style="width:72px;height:72px;object-fit:contain;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;" onerror="this.style.display='none'">
     <h2 class="cta-title">Start automating<br><span>your trades today.</span></h2>
     <p class="cta-desc">Free for personal use, source-available, and fully local. No subscriptions. No cloud accounts. Just your rules running on your machine.</p>
-    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
+    <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-Setup-1.6.0.exe" class="btn-primary" style="font-size:16px; padding:16px 40px;" data-download="cta-windows" data-os-primary="cta" data-os-versioned data-ga="download_windows" onclick="gtag('event','click',{event_category:'cta',event_label:this.dataset.ga})">
       <span class="btn-icon">⬇</span>
-      <span data-os-label>Download Cyrus v1.5.0 for Windows</span>
+      <span data-os-label>Download Cyrus v1.6.0 for Windows</span>
     </a>
-    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
+    <p class="download-alts">All downloads: <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-Setup-1.6.0.exe" data-download="cta-win" data-os="windows">Windows</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-arm64.dmg" data-download="cta-mac-arm64" data-os="mac-arm64">Mac (Apple Silicon)</a> · <a href="https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-x64.dmg" data-download="cta-mac-x64" data-os="mac-x64">Mac (Intel)</a></p>
     <p class="cta-note">Windows x64 · macOS 13+ (Apple Silicon &amp; Intel) · Free forever · <a href="https://github.com/JonathanEDressel/Cyrus/blob/main/LICENSE" target="_blank">PolyForm Noncommercial License</a> · <a href="https://github.com/JonathanEDressel/Cyrus/issues" target="_blank">Report an issue</a></p>
   </div>
 </section>
@@ -3170,8 +3192,8 @@
     {
       "id": "getting-started",
       "title": "Getting Started",
-      "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini, Robinhood, OKX, KuCoin, Crypto.com and Gate.io with the right API permissions, and every setting on the Profile page.",
-      "seconds": 331,
+      "summary": "A tour of the layout, connecting Kraken, Coinbase, Binance, Gemini and Robinhood with the right API permissions, and every setting on the Profile page.",
+      "seconds": 343,
       "chapters": [
         {
           "title": "Introduction",
@@ -3179,31 +3201,35 @@
         },
         {
           "title": "Exchange connections",
-          "t": 39
+          "t": 38.9
         },
         {
           "title": "Adding a connection",
-          "t": 79.2
+          "t": 79.1
         },
         {
           "title": "Which permissions to grant",
-          "t": 108.1
+          "t": 108
+        },
+        {
+          "title": "Stock charts",
+          "t": 213.9
         },
         {
           "title": "The assistant key",
-          "t": 214.1
+          "t": 226.3
         },
         {
           "title": "Notifications and email",
-          "t": 235.3
+          "t": 247.6
         },
         {
           "title": "Account settings",
-          "t": 299.4
+          "t": 311.6
         },
         {
           "title": "Wrapping up",
-          "t": 318.2
+          "t": 330.5
         }
       ]
     },
@@ -3231,7 +3257,7 @@
         },
         {
           "title": "Holdings, orders, caps and activity",
-          "t": 127.8
+          "t": 127.7
         },
         {
           "title": "The flow chart",
@@ -3239,7 +3265,7 @@
         },
         {
           "title": "Customising the layout",
-          "t": 201.5
+          "t": 201.4
         },
         {
           "title": "Wrapping up",
@@ -3251,7 +3277,7 @@
       "id": "holdings",
       "title": "Holdings",
       "summary": "The summary cards, every column in the assets table, sorting, and the full breakdown behind each coin.",
-      "seconds": 335,
+      "seconds": 334,
       "chapters": [
         {
           "title": "Introduction",
@@ -3267,23 +3293,23 @@
         },
         {
           "title": "The assets table",
-          "t": 88.5
+          "t": 88.4
         },
         {
           "title": "Sorting",
-          "t": 145.3
+          "t": 145.2
         },
         {
           "title": "The full breakdown",
-          "t": 179.9
+          "t": 179.8
         },
         {
           "title": "Where the numbers come from",
-          "t": 293.7
+          "t": 293.6
         },
         {
           "title": "Wrapping up",
-          "t": 323.4
+          "t": 323.2
         }
       ]
     },
@@ -3291,7 +3317,7 @@
       "id": "openorders",
       "title": "Open Orders",
       "summary": "How orders are fetched and refreshed, reading the order flow chart, narrowing to one account, and every column in the orders table.",
-      "seconds": 206,
+      "seconds": 217,
       "chapters": [
         {
           "title": "Introduction",
@@ -3299,23 +3325,23 @@
         },
         {
           "title": "The flow chart",
-          "t": 33.4
+          "t": 33.3
         },
         {
           "title": "One account at a time",
-          "t": 96
+          "t": 107.2
         },
         {
           "title": "The table",
-          "t": 122.2
+          "t": 133.4
         },
         {
           "title": "Acting on your orders",
-          "t": 171.9
+          "t": 183.2
         },
         {
           "title": "Wrapping up",
-          "t": 194.2
+          "t": 205.4
         }
       ]
     },
@@ -3335,11 +3361,11 @@
         },
         {
           "title": "Details and cancelling",
-          "t": 64
+          "t": 63.9
         },
         {
           "title": "Setting up a ladder",
-          "t": 89
+          "t": 88.9
         },
         {
           "title": "Price and size",
@@ -3347,11 +3373,11 @@
         },
         {
           "title": "Reviewing the ladder",
-          "t": 218.1
+          "t": 217.9
         },
         {
           "title": "Placing in the background",
-          "t": 299.1
+          "t": 299.2
         },
         {
           "title": "Seeing your orders",
@@ -3359,7 +3385,7 @@
         },
         {
           "title": "Bulk cancel and export",
-          "t": 383
+          "t": 383.1
         }
       ]
     },
@@ -3367,7 +3393,7 @@
       "id": "transfers",
       "title": "Transfers",
       "summary": "Transfer history from every exchange, the roadmap, how Cyrus pairs moves between your own exchanges, reviewing suggested matches, and labelling your wallets.",
-      "seconds": 349,
+      "seconds": 350,
       "chapters": [
         {
           "title": "Introduction",
@@ -3379,27 +3405,27 @@
         },
         {
           "title": "Matching your own transfers",
-          "t": 62.6
+          "t": 62.5
         },
         {
           "title": "Reviewing suggested matches",
-          "t": 122.1
+          "t": 122
         },
         {
           "title": "Wallets and unknown ends",
-          "t": 167.5
+          "t": 167.3
         },
         {
           "title": "Tracked wallets",
-          "t": 209.5
+          "t": 209.4
         },
         {
           "title": "The table and filters",
-          "t": 284.1
+          "t": 283.9
         },
         {
           "title": "Wrapping up",
-          "t": 335
+          "t": 335.3
         }
       ]
     },
@@ -3419,27 +3445,27 @@
         },
         {
           "title": "Realized gains",
-          "t": 84
+          "t": 83.9
         },
         {
           "title": "Each sale and its cost basis",
-          "t": 152.8
+          "t": 152.7
         },
         {
           "title": "Missing cost basis",
-          "t": 212.2
+          "t": 212.1
         },
         {
           "title": "Entering costs by hand",
-          "t": 249.4
+          "t": 249.3
         },
         {
           "title": "Exporting",
-          "t": 318.2
+          "t": 318.1
         },
         {
           "title": "Wrapping up",
-          "t": 349.7
+          "t": 349.6
         }
       ]
     },
@@ -3447,7 +3473,7 @@
       "id": "automations",
       "title": "Automations",
       "summary": "Triggers and actions, cooldowns and execution limits, the rule builder, the execution log, the engine status and email alerts.",
-      "seconds": 426,
+      "seconds": 430,
       "chapters": [
         {
           "title": "Introduction",
@@ -3463,27 +3489,27 @@
         },
         {
           "title": "Building a rule",
-          "t": 131.7
+          "t": 135.7
         },
         {
           "title": "Withdraw and convert actions",
-          "t": 265.2
+          "t": 269.2
         },
         {
           "title": "Editing a rule",
-          "t": 312.9
+          "t": 316.9
         },
         {
           "title": "The execution log",
-          "t": 334
+          "t": 338
         },
         {
           "title": "Email alerts",
-          "t": 395.3
+          "t": 399.3
         },
         {
           "title": "Wrapping up",
-          "t": 414.6
+          "t": 418.6
         }
       ]
     },
@@ -3503,7 +3529,7 @@
         },
         {
           "title": "Reading the chart",
-          "t": 44.2
+          "t": 44.1
         },
         {
           "title": "How a trim works",
@@ -3511,23 +3537,23 @@
         },
         {
           "title": "Setting caps",
-          "t": 122
+          "t": 121.9
         },
         {
           "title": "Safety settings",
-          "t": 195.2
+          "t": 195.1
         },
         {
           "title": "Saving",
-          "t": 236.9
+          "t": 236.8
         },
         {
           "title": "Where trims show up",
-          "t": 269.4
+          "t": 269.2
         },
         {
           "title": "Wrapping up",
-          "t": 288.4
+          "t": 288.2
         }
       ]
     },
@@ -3547,23 +3573,75 @@
         },
         {
           "title": "Opening the assistant",
-          "t": 63.7
+          "t": 63.6
         },
         {
           "title": "Asking questions",
-          "t": 84.6
+          "t": 84.5
         },
         {
           "title": "Asking it to act",
-          "t": 135.3
+          "t": 135.2
         },
         {
           "title": "History",
-          "t": 215.4
+          "t": 215.2
         },
         {
           "title": "Wrapping up",
-          "t": 237.6
+          "t": 237.4
+        }
+      ]
+    },
+    {
+      "id": "charts",
+      "title": "Charts",
+      "summary": "Symbols and timeframes for crypto and stocks, chart types, drawing tools, price alerts from a line, indicators, Compare, the Pine Editor, saving charts, and your own trades on the chart.",
+      "seconds": 335,
+      "chapters": [
+        {
+          "title": "Introduction",
+          "t": 0.3
+        },
+        {
+          "title": "Symbols and timeframes",
+          "t": 23.6
+        },
+        {
+          "title": "Chart types",
+          "t": 77
+        },
+        {
+          "title": "Drawing tools",
+          "t": 84.4
+        },
+        {
+          "title": "Price alerts",
+          "t": 133.4
+        },
+        {
+          "title": "Indicators",
+          "t": 174.2
+        },
+        {
+          "title": "Comparing symbols",
+          "t": 196.2
+        },
+        {
+          "title": "Pine Editor",
+          "t": 228.7
+        },
+        {
+          "title": "Saving charts",
+          "t": 263.8
+        },
+        {
+          "title": "My trades",
+          "t": 296
+        },
+        {
+          "title": "Wrapping up",
+          "t": 319.2
         }
       ]
     }
@@ -3884,9 +3962,9 @@
    Apple Silicon — the Intel link sits right underneath either way). */
 (function () {
   var LINKS = {
-    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-Setup-1.5.0.exe', label: 'Download for Windows', ga: 'download_windows' },
-    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
-    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.5.0/Cyrus-1.5.0-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
+    'windows':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-Setup-1.6.0.exe', label: 'Download for Windows', ga: 'download_windows' },
+    'mac-arm64': { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-arm64.dmg', label: 'Download for Mac', ga: 'download_mac_arm64' },
+    'mac-x64':   { href: 'https://github.com/JonathanEDressel/Cyrus/releases/download/v1.6.0/Cyrus-1.6.0-x64.dmg', label: 'Download for Mac (Intel)', ga: 'download_mac_x64' }
   };
   function apply(key) {
     var target = LINKS[key];
@@ -3896,7 +3974,7 @@
       a.setAttribute('data-download', a.getAttribute('data-os-primary') + '-' + key);
       var label = a.querySelector('[data-os-label]');
       if (label) label.textContent = a.hasAttribute('data-os-versioned')
-        ? target.label.replace('Download', 'Download Cyrus v1.5.0') : target.label;
+        ? target.label.replace('Download', 'Download Cyrus v1.6.0') : target.label;
     });
   }
   var uad = navigator.userAgentData;

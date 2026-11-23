@@ -1,346 +1,346 @@
 WEBVTT
 
 1
-00:00:00.359 --> 00:00:02.317
+00:00:00.351 --> 00:00:02.309
 This is the Transfers page.
 
 2
-00:00:02.317 --> 00:00:06.410
+00:00:02.309 --> 00:00:06.402
 It brings together every deposit and withdrawal across your connected
 
 3
-00:00:06.410 --> 00:00:09.790
+00:00:06.402 --> 00:00:09.782
 exchanges, and works out where your money actually went.
 
 4
-00:00:10.468 --> 00:00:14.053
+00:00:10.459 --> 00:00:14.044
 Cyrus fetches this history from each exchange and keeps
 
 5
-00:00:14.053 --> 00:00:17.572
+00:00:14.044 --> 00:00:17.563
 a copy on your computer, so the page opens instantly.
 
 6
-00:00:17.572 --> 00:00:20.737
+00:00:17.563 --> 00:00:20.728
 Your first visit pulls everything automatically.
 
 7
-00:00:20.737 --> 00:00:24.487
+00:00:20.728 --> 00:00:24.478
 After that, the refresh button fetches anything new.
 
 8
-00:00:25.185 --> 00:00:28.885
+00:00:25.151 --> 00:00:28.851
 If an exchange can't provide this history, Cyrus says so.
 
 9
-00:00:28.885 --> 00:00:33.207
+00:00:28.851 --> 00:00:33.173
 Robinhood doesn't offer it, so nothing from Robinhood appears here.
 
 10
-00:00:33.207 --> 00:00:37.608
+00:00:33.173 --> 00:00:37.574
 A key that's missing the permission to read funding history gets a notice too.
 
 11
-00:00:38.273 --> 00:00:40.204
+00:00:38.232 --> 00:00:40.163
 The page opens on the Roadmap.
 
 12
-00:00:40.204 --> 00:00:44.633
+00:00:40.163 --> 00:00:44.592
 It shows each movement once, newest first and grouped by day, with where
 
 13
-00:00:44.633 --> 00:00:48.569
+00:00:44.592 --> 00:00:48.528
 the money came from on the left and where it went on the right.
 
 14
-00:00:49.242 --> 00:00:54.751
+00:00:49.224 --> 00:00:54.733
 A red edge means money left one of your exchanges, and green means money arrived.
 
 15
-00:00:54.751 --> 00:00:58.304
+00:00:54.733 --> 00:00:58.286
 The summary line counts what's been paired, what's waiting
 
 16
-00:00:58.304 --> 00:01:01.918
+00:00:58.286 --> 00:01:01.900
 for your review, and what has an end Cyrus can't identify.
 
 17
-00:01:02.609 --> 00:01:06.834
+00:01:02.579 --> 00:01:06.804
 When you move coins between exchanges, one reports a withdrawal
 
 18
-00:01:06.834 --> 00:01:10.724
+00:01:06.804 --> 00:01:10.694
 and the other reports a deposit, as two unrelated events.
 
 19
-00:01:10.724 --> 00:01:14.628
+00:01:10.694 --> 00:01:14.598
 Cyrus joins them back together, so this move from Binance
 
 20
-00:01:14.628 --> 00:01:17.985
+00:01:14.598 --> 00:01:17.955
 to Kraken shows as one hop with both ends named.
 
 21
-00:01:18.648 --> 00:01:22.026
+00:01:18.613 --> 00:01:21.991
 Same transaction means both exchanges reported the
 
 22
-00:01:22.026 --> 00:01:25.539
+00:01:21.991 --> 00:01:25.504
 same on-chain transaction, so the match is certain.
 
 23
-00:01:25.539 --> 00:01:28.975
+00:01:25.504 --> 00:01:28.940
 The small amount lost on the way is shown as the network
 
 24
-00:01:28.975 --> 00:01:31.736
+00:01:28.940 --> 00:01:31.701
 fee, with how long the coins took to arrive.
 
 25
-00:01:32.441 --> 00:01:37.059
+00:01:32.381 --> 00:01:36.999
 Without a shared transaction, Cyrus compares the amount and the timing.
 
 26
-00:01:37.059 --> 00:01:41.948
+00:01:36.999 --> 00:01:41.888
 It looks for the same coin on two different exchanges, with the deposit landing
 
 27
-00:01:41.948 --> 00:01:46.713
+00:01:41.888 --> 00:01:46.653
 within three days and no more than a few percent smaller, to allow for fees.
 
 28
-00:01:46.713 --> 00:01:48.854
+00:01:46.653 --> 00:01:48.794
 The result is shown as a score.
 
 29
-00:01:49.550 --> 00:01:54.128
+00:01:49.470 --> 00:01:54.048
 Cyrus only pairs these by itself when it's at least ninety-five percent
 
 30
-00:01:54.128 --> 00:01:57.997
+00:01:54.048 --> 00:01:57.917
 sure, and no other transfer could plausibly be the partner.
 
 31
-00:01:57.997 --> 00:02:01.428
+00:01:57.917 --> 00:02:01.348
 When candidates compete, it leaves the decision to you.
 
 32
-00:02:02.121 --> 00:02:05.010
+00:02:02.046 --> 00:02:04.935
 Anything less certain becomes a question for you.
 
 33
-00:02:05.010 --> 00:02:09.791
+00:02:04.935 --> 00:02:09.716
 This Tether withdrawal from Kraken looks like the same movement as a slightly
 
 34
-00:02:09.791 --> 00:02:14.199
+00:02:09.716 --> 00:02:14.124
 smaller deposit on Binance, and Cyrus is ninety-one percent confident.
 
 35
-00:02:14.882 --> 00:02:16.574
+00:02:14.794 --> 00:02:16.486
 If it's right, click Same.
 
 36
-00:02:16.574 --> 00:02:21.800
+00:02:16.486 --> 00:02:21.712
 The pair is confirmed, and locked so that later syncs never undo your decision.
 
 37
-00:02:22.471 --> 00:02:24.628
+00:02:22.387 --> 00:02:24.544
 If it's wrong, click Not the same.
 
 38
-00:02:24.628 --> 00:02:28.520
+00:02:24.544 --> 00:02:28.436
 Cyrus remembers that answer, so it won't suggest the pair again,
 
 39
-00:02:28.520 --> 00:02:31.743
+00:02:28.436 --> 00:02:31.659
 and both transfers are free to match something else.
 
 40
-00:02:32.431 --> 00:02:34.269
+00:02:32.340 --> 00:02:34.178
 This matters for your taxes.
 
 41
-00:02:34.269 --> 00:02:40.440
+00:02:34.178 --> 00:02:40.349
 A confirmed pair carries the coins' original cost and purchase date over to the new exchange.
 
 42
-00:02:40.440 --> 00:02:43.921
+00:02:40.349 --> 00:02:43.830
 Leave it unconfirmed, and the deposit on Binance looks
 
 43
-00:02:43.921 --> 00:02:46.822
+00:02:43.830 --> 00:02:46.731
 like coins from outside, with no known cost.
 
 44
-00:02:47.504 --> 00:02:53.598
+00:02:47.400 --> 00:02:53.494
 Some transfers have only one side in your exchange data, because the other end is a wallet.
 
 45
-00:02:53.598 --> 00:02:56.543
+00:02:53.494 --> 00:02:56.439
 When you've labelled that wallet, the hop names it,
 
 46
-00:02:56.543 --> 00:02:59.489
+00:02:56.439 --> 00:02:59.385
 like this Bitcoin sent from Coinbase to My Ledger.
 
 47
-00:03:00.156 --> 00:03:02.686
+00:03:00.052 --> 00:03:02.582
 A labelled wallet doesn't have to be yours.
 
 48
-00:03:02.686 --> 00:03:08.563
+00:03:02.582 --> 00:03:08.459
 This rent payment goes to someone else's address, shown with a person icon instead of a wallet.
 
 49
-00:03:09.249 --> 00:03:12.244
+00:03:09.143 --> 00:03:12.138
 And when Cyrus doesn't know, it says so.
 
 50
-00:03:12.244 --> 00:03:17.311
+00:03:12.138 --> 00:03:17.205
 This deposit came with no address, so it reads Unknown source rather than guessing.
 
 51
-00:03:17.311 --> 00:03:21.234
+00:03:17.205 --> 00:03:21.128
 For a genuine payment from outside, there's nothing to fix.
 
 52
-00:03:21.901 --> 00:03:26.785
+00:03:21.798 --> 00:03:26.682
 When the exchange did report an address, the unknown end becomes a button.
 
 53
-00:03:26.785 --> 00:03:28.899
+00:03:26.682 --> 00:03:28.796
 Click name it to label that address.
 
 54
-00:03:29.584 --> 00:03:33.949
+00:03:29.466 --> 00:03:33.831
 That opens Tracked wallets, with the address already filled in.
 
 55
-00:03:33.949 --> 00:03:40.718
+00:03:33.831 --> 00:03:40.600
 Label an address once, and every transfer to or from it is attributed, past and future.
 
 56
-00:03:41.406 --> 00:03:43.311
+00:03:41.293 --> 00:03:43.198
 Give it a name you'll recognise.
 
 57
-00:03:43.311 --> 00:03:50.239
+00:03:43.198 --> 00:03:50.126
 The chain, a memo or tag for coins like Stellar and XRP, the asset, and notes are all optional.
 
 58
-00:03:50.922 --> 00:03:54.037
+00:03:50.803 --> 00:03:53.918
 Leave This wallet is mine ticked for your own wallets.
 
 59
-00:03:54.037 --> 00:03:58.199
+00:03:53.918 --> 00:03:58.080
 Only those turn a transfer into a move between your own accounts.
 
 60
-00:03:58.199 --> 00:04:02.095
+00:03:58.080 --> 00:04:01.976
 Untick it for someone else's address that you just want to recognise.
 
 61
-00:04:02.095 --> 00:04:03.545
+00:04:01.976 --> 00:04:03.426
 Then click Add wallet.
 
 62
-00:04:04.231 --> 00:04:09.367
+00:04:04.109 --> 00:04:09.245
 Seen in your transfers lists addresses already in your history that aren't labelled yet.
 
 63
-00:04:09.367 --> 00:04:11.960
+00:04:09.245 --> 00:04:11.838
 Click one and it fills in the form for you.
 
 64
-00:04:11.960 --> 00:04:13.862
+00:04:11.838 --> 00:04:13.740
 It's the quickest way to get started.
 
 65
-00:04:14.552 --> 00:04:18.066
+00:04:14.419 --> 00:04:17.933
 With more than a few wallets, use Add several at once.
 
 66
-00:04:18.066 --> 00:04:22.587
+00:04:17.933 --> 00:04:22.454
 Download the template, fill in one row per wallet, and import it back.
 
 67
-00:04:22.587 --> 00:04:26.962
+00:04:22.454 --> 00:04:26.829
 Cyrus previews what will be added or skipped before anything is saved.
 
 68
-00:04:26.962 --> 00:04:30.805
+00:04:26.829 --> 00:04:30.672
 Export saved gives you your current list in the same format.
 
 69
-00:04:31.483 --> 00:04:37.284
+00:04:31.345 --> 00:04:37.146
 Saved wallets lists everything you've labelled, and how many transfers each one explains.
 
 70
-00:04:37.284 --> 00:04:39.372
+00:04:37.146 --> 00:04:39.234
 You can edit or remove them here.
 
 71
-00:04:39.372 --> 00:04:43.454
+00:04:39.234 --> 00:04:43.316
 Removing one returns its transfers to an unknown address.
 
 72
-00:04:44.150 --> 00:04:46.693
+00:04:43.994 --> 00:04:46.537
 For the raw records, switch to Table.
 
 73
-00:04:46.693 --> 00:04:51.905
+00:04:46.537 --> 00:04:51.749
 Each deposit and withdrawal is a row, with the exchange, the type, the
 
 74
-00:04:51.905 --> 00:04:57.265
+00:04:51.749 --> 00:04:57.109
 coin, the amount and fee, the status, the time, and the transaction ID.
 
 75
-00:04:57.939 --> 00:05:02.211
+00:04:57.792 --> 00:05:02.064
 Status shows whether a transfer is complete, pending, or failed.
 
 76
-00:05:02.211 --> 00:05:05.827
+00:05:02.064 --> 00:05:05.680
 Failed and canceled transfers never moved any money, so
 
 77
-00:05:05.827 --> 00:05:09.312
+00:05:05.680 --> 00:05:09.165
 they're never matched or counted in your cost basis.
 
 78
-00:05:09.312 --> 00:05:13.647
+00:05:09.165 --> 00:05:13.500
 Internal marks a move between your own accounts on the same exchange.
 
 79
-00:05:14.317 --> 00:05:18.419
+00:05:14.224 --> 00:05:18.326
 The filters narrow the table to one exchange account, or to just
 
 80
-00:05:18.419 --> 00:05:22.073
+00:05:18.326 --> 00:05:21.980
 deposits or withdrawals, and the count updates to match.
 
 81
-00:05:22.073 --> 00:05:25.131
+00:05:21.980 --> 00:05:25.038
 Long histories are split into pages of a hundred.
 
 82
-00:05:25.811 --> 00:05:28.607
+00:05:26.234 --> 00:05:29.030
 The asset filter works in both views.
 
 83
-00:05:28.607 --> 00:05:34.272
+00:05:29.030 --> 00:05:34.695
 Back on the Roadmap, choose Bitcoin, and you can trace exactly where your Bitcoin has been.
 
 84
-00:05:35.008 --> 00:05:36.248
+00:05:35.375 --> 00:05:36.615
 That's Transfers.
 
 85
-00:05:36.248 --> 00:05:42.112
+00:05:36.615 --> 00:05:42.479
 Keep your history synced, answer the matches Cyrus suggests, and label the wallets you own.
 
 86
-00:05:42.112 --> 00:05:47.631
+00:05:42.479 --> 00:05:47.998
 Every movement you settle here makes the cost basis on the Taxes page more complete.
 
